@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Car Showroom</string>
+    <string name="cars_in_stock_ru">Автомобили в наличии</string>
+    <string name="nissan_skyline_r34">Nissan Skyline GT-R (R34)</string>
+    <string name="show_info_ru">Показать информацию</string>
+    <string name="_2002">2002</string>
+    <string name="gray_ru">Серый</string>
+    <string name="_122_111">122111 $</string>
+    <string name="book_auto_ru">Забронировать авто</string>
+    <string name="redemption_price_ru">Цена выкупа:</string>
+    <string name="your_bid_ru">Ваша ставка:</string>
+    <string name="dollar_sign">$</string>
+    <string name="audi_rs6_c8">Audi RS6 (C8)</string>
+    <string name="_2021">2021</string>
+    <string name="blue_ru">Синий</string>
+    <string name="_250000">250000 $</string>
+    <string name="bet_ru">ставка</string>
+</resources>
