@@ -3,11 +3,13 @@ package com.example.carshowroom;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,6 +36,11 @@ public class MainActivity extends AppCompatActivity {
         if (v.getId() == R.id.skyline_bet_button) {
             Intent intent = new Intent(this, SkylineActivity.class);
             intent.putExtra("skylinebet_key", skyline_bet_et.getText().toString());
+            Context context = getApplicationContext();
+            int duration = Toast.LENGTH_SHORT;
+            CharSequence text = "Ставка принята";
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
         }
     }
 
@@ -49,6 +56,11 @@ public class MainActivity extends AppCompatActivity {
         if (v.getId() == R.id.rs6_bet_button) {
             Intent intent = new Intent(this, RS6Activity.class);
             intent.putExtra("rs6bet_key", rs6_bet_et.getText().toString());
+            Context context = getApplicationContext();
+            int duration = Toast.LENGTH_SHORT;
+            CharSequence text = "Ставка принята";
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
         }
     }
 }
