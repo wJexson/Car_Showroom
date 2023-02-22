@@ -74,12 +74,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/your_bet_ru"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="13sp"
         android:layout_marginStart="180dp"
         android:layout_marginTop="148dp"
-        android:text="@string/your_bid_ru"
+        android:text="@string/your_bet_ru"
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
@@ -208,7 +209,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="180dp"
         android:layout_marginTop="359dp"
-        android:text="@string/your_bid_ru"
+        android:text="@string/your_bet_ru"
         android:textColor="@color/black"
         android:textSize="13sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -284,7 +285,7 @@
         android:layout_width="175dp"
         android:layout_height="200dp"
         android:layout_marginTop="210dp"
-        android:contentDescription="@string/nissan_skyline_r34"
+        android:contentDescription="@string/audi_rs6_c8"
         android:src="@drawable/rs6blue"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

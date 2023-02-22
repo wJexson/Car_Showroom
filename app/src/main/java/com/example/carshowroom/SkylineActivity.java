@@ -13,16 +13,8 @@ public class SkylineActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_skyline);
-        TextView textView = new TextView(this);
-        textView.setTextSize(26);
-        textView.setPadding(16, 16, 16, 16);
-
-        Bundle arguments = getIntent().getExtras();
-
-        if(arguments!=null){
-            int bet = arguments.getInt("skyline_bet");
-            textView.setText("Bet: " + bet);
-        }
-        setContentView(textView);
+        TextView your_bet = (TextView) findViewById(R.id.your_bet_ru);
+        String skyline_bet = getIntent().getStringExtra("skylinebet_key");
+        your_bet.setText(your_bet.getText().toString() + " " + skyline_bet);
     }
 }
