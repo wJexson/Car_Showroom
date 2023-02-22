@@ -34,8 +34,6 @@ public class MainActivity extends AppCompatActivity {
         if (v.getId() == R.id.skyline_bet_button) {
             Intent intent = new Intent(this, SkylineActivity.class);
             intent.putExtra("skylinebet_key", skyline_bet_et.getText().toString());
-            startActivity(intent);
-            Log.i(TAG, "Переход к SkylineActivity");
         }
     }
 
@@ -51,8 +49,6 @@ public class MainActivity extends AppCompatActivity {
         if (v.getId() == R.id.rs6_bet_button) {
             Intent intent = new Intent(this, RS6Activity.class);
             intent.putExtra("rs6bet_key", rs6_bet_et.getText().toString());
-            startActivity(intent);
-            Log.i(TAG, "Переход к RS6Activity");
         }
     }
 }

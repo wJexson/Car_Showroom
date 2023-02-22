@@ -16,4 +16,18 @@
     <string name="_250000">250000 $</string>
     <string name="bet_ru">ставка</string>
     <string name="make_bet_ru">Сделать ставку</string>
+    <string name="Year_of_issue_ru">Год выпуска</string>
+    <string name="mileage_ru">Пробег</string>
+    <string name="engine_ru">Двигатель</string>
+    <string name="body_ru">Кузов</string>
+    <string name="color_ru">Цвет</string>
+    <string name="drive_unit_ru">Привод</string>
+    <string name="transmission_ru">КПП</string>
+    <string name="steering_wheel_ru">Руль</string>
+    <string name="_42000km">42000 км</string>
+    <string name="_2_5_280">2.5 л / 280 л.с. / Бензин</string>
+    <string name="coupe_ru">Купе</string>
+    <string name="awd_ru">Полный</string>
+    <string name="automatic_ru">Автоматическая</string>
+    <string name="right_ru">Правый</string>
 </resources>
