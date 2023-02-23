@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,9 +10,9 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
         android:text="@string/cars_in_stock_ru"
         android:textColor="@color/black"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -21,69 +20,69 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="15sp"
-        android:text="@string/nissan_skyline_r34"
-        android:textColor="@color/black"
         android:layout_marginStart="180dp"
         android:layout_marginTop="33dp"
+        android:text="@string/nissan_skyline_r34"
+        android:textColor="@color/black"
+        android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="13sp"
         android:layout_marginStart="180dp"
         android:layout_marginTop="63dp"
         android:text="@string/_2002"
         android:textColor="@color/black"
+        android:textSize="13sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="13sp"
         android:layout_marginStart="180dp"
         android:layout_marginTop="93dp"
         android:text="@string/gray_ru"
         android:textColor="@color/black"
+        android:textSize="13sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="13sp"
         android:layout_marginStart="180dp"
         android:layout_marginTop="123dp"
         android:text="@string/redemption_price_ru"
         android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:textSize="13sp"
-        android:layout_marginStart="265dp"
-        android:layout_marginTop="123dp"
-        android:text="@string/_122_111"
-        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/your_bet_ru"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="265dp"
+        android:layout_marginTop="123dp"
+        android:text="@string/_122_111"
+        android:textColor="@color/black"
         android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/your_bet_skyline_ru"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="180dp"
         android:layout_marginTop="148dp"
         android:text="@string/your_bet_ru"
         android:textColor="@color/black"
+        android:textSize="13sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <TextView
@@ -103,12 +102,12 @@
         android:layout_height="35dp"
         android:layout_marginStart="180dp"
         android:layout_marginTop="170dp"
+        android:hint="@string/bet_ru"
         android:inputType="number"
+        android:maxLength="6"
+        android:maxLines="1"
         android:textColor="@color/black"
         android:textSize="13sp"
-        android:maxLines="1"
-        android:maxLength="6"
-        android:hint="@string/bet_ru"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
@@ -131,9 +130,9 @@
         android:layout_marginStart="260dp"
         android:layout_marginTop="170dp"
         android:backgroundTint="@color/green"
+        android:onClick="make_bet_skyline"
         android:text="@string/make_bet_ru"
         android:textSize="8sp"
-        android:onClick="make_bet_skyline"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="TouchTargetSizeCheck" />
@@ -205,6 +204,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/your_bet_rs6_ru"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="180dp"
@@ -214,7 +214,6 @@
         android:textSize="13sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
 
     <TextView
@@ -245,12 +244,12 @@
         android:layout_height="35dp"
         android:layout_marginStart="180dp"
         android:layout_marginTop="381dp"
+        android:hint="@string/bet_ru"
         android:inputType="number"
+        android:maxLength="6"
+        android:maxLines="1"
         android:textColor="@color/black"
         android:textSize="13sp"
-        android:maxLines="1"
-        android:maxLength="6"
-        android:hint="@string/bet_ru"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
@@ -273,9 +272,9 @@
         android:layout_marginStart="260dp"
         android:layout_marginTop="381dp"
         android:backgroundTint="@color/green"
+        android:onClick="make_bet_rs6"
         android:text="@string/make_bet_ru"
         android:textSize="8sp"
-        android:onClick="make_bet_rs6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="TouchTargetSizeCheck" />

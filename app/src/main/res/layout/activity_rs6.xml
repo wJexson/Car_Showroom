@@ -2,10 +2,20 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/lightgray"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/lightgray"
     tools:context=".RS6Activity">
+
+    <Button
+        android:id="@+id/back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/blue"
+        android:onClick="onBackClick"
+        android:text="@string/back_ru"
+        app:layout_constraintBottom_toTopOf="@id/rs6_image"
+        app:layout_constraintStart_toStartOf="@id/rs6_image" />
 
     <TextView
         android:id="@+id/rs6_title"
@@ -16,24 +26,24 @@
         android:text="@string/audi_rs6_c8"
         android:textColor="@android:color/black"
         android:textSize="25sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@id/rs6_image"
+        app:layout_constraintEnd_toEndOf="@id/rs6_image" />
 
     <ImageView
         android:id="@+id/rs6_image"
         android:layout_width="wrap_content"
         android:layout_height="339dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="50dp"
         android:contentDescription="@string/audi_rs6_c8"
         android:src="@drawable/rs6blue"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="370dp"
+        android:layout_marginTop="390dp"
         android:text="@string/redemption_price_ru"
         android:textColor="@color/black"
         android:textSize="18sp"
@@ -43,23 +53,23 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
         android:layout_marginStart="130dp"
-        android:layout_marginTop="370dp"
+        android:layout_marginTop="390dp"
         android:text="@string/_250000"
         android:textColor="@color/black"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/your_bet_ru"
-        android:textSize="18sp"
-        android:layout_marginStart="210dp"
-        android:layout_marginTop="370dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="210dp"
+        android:layout_marginTop="390dp"
         android:text="@string/your_bet_ru"
         android:textColor="@color/black"
+        android:textSize="18sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -67,7 +77,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="394dp"
-        android:layout_marginTop="370dp"
+        android:layout_marginTop="390dp"
         android:text="@string/dollar_sign"
         android:textColor="@color/black"
         android:textSize="18sp"
@@ -103,8 +113,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="450dp"
-        android:textColor="@android:color/black"
         android:text="@string/mileage_ru"
+        android:textColor="@android:color/black"
         android:textSize="18sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
