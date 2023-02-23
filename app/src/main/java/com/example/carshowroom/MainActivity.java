@@ -13,6 +13,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,14 +30,42 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         rs6_bet_et = (EditText) findViewById(R.id.rs6_bet_edittext);
         skyline_bet_et = (EditText) findViewById(R.id.skyline_bet_edittext);
+        Button skyline_button = (Button) findViewById(R.id.skyline_button);
+        Button rs6_button = (Button) findViewById(R.id.rs6_button);
+        Intent intent_skyline = new Intent(this, SkylineActivity.class);
+        Intent intent_rs6 = new Intent(this, RS6Activity.class);
+        skyline_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent_skyline.putExtra("skylinebet_key", skyline_bet_et.getText().toString());
+                startActivity(intent_skyline);
+                Log.i(TAG, "Переход к SkylineActivity");
+            }
+        });
+
+        rs6_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent_rs6.putExtra("rs6bet_key", rs6_bet_et.getText().toString());
+                startActivity(intent_rs6);
+                Log.i(TAG, "Переход к RS6Activity");
+            }
+        });
     }
 
-    public void show_skyline(View view) {
-        Intent intent = new Intent(this, SkylineActivity.class);
-        intent.putExtra("skylinebet_key", skyline_bet_et.getText().toString());
-        startActivity(intent);
-        Log.i(TAG, "Переход к SkylineActivity");
-    }
+//    public void show_skyline(View view) {
+//        Intent intent = new Intent(this, SkylineActivity.class);
+//        intent.putExtra("skylinebet_key", skyline_bet_et.getText().toString());
+//        startActivity(intent);
+//        Log.i(TAG, "Переход к SkylineActivity");
+//    }
+
+//    public void show_rs6(View view) {
+//        Intent intent = new Intent(this, RS6Activity.class);
+//        intent.putExtra("rs6bet_key", rs6_bet_et.getText().toString());
+//        startActivity(intent);
+//        Log.i(TAG, "Переход к RS6Activity");
+//    }
 
     public void make_bet_skyline(View v) {
         if (v.getId() == R.id.skyline_bet_button) {
@@ -50,13 +79,6 @@ public class MainActivity extends AppCompatActivity {
             mStartForResultSkyline.launch(intent);
             Log.i(TAG, "Переход к SkylineActivity");
         }
-    }
-
-    public void show_rs6(View view) {
-        Intent intent = new Intent(this, RS6Activity.class);
-        intent.putExtra("rs6bet_key", rs6_bet_et.getText().toString());
-        startActivity(intent);
-        Log.i(TAG, "Переход к RS6Activity");
     }
 
     public void make_bet_rs6(View v) {
