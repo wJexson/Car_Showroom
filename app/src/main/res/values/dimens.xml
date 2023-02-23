@@ -1,0 +1,5 @@
+<resources>
+    <dimen name="in_pixels">1px</dimen>
+    <dimen name="in_dp">20dp</dimen>
+    <dimen name="in_sp">15sp</dimen>
+</resources>

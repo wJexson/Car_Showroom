@@ -8,23 +8,23 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/cars_in_stock"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/cars_in_stock_ru"
         android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textSize="@dimen/in_dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@id/skyline_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="180dp"
         android:layout_marginTop="33dp"
-        android:text="@string/nissan_skyline_r34"
         android:textColor="@color/black"
-        android:textSize="15sp"
+        android:textSize="@dimen/in_sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -159,13 +159,13 @@
         tools:ignore="TouchTargetSizeCheck" />
 
     <TextView
+        android:id="@id/rs6_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="180dp"
         android:layout_marginTop="244dp"
-        android:text="@string/audi_rs6_c8"
         android:textColor="@color/black"
-        android:textSize="15sp"
+        android:textSize="@dimen/in_sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
