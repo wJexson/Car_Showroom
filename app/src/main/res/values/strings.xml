@@ -36,4 +36,7 @@
     <string name="back_ru">Назад</string>
     <string name="about_ru">О приложении</string>
     <string name="send_review">Оставить отзыв</string>
+    <string name="send_review_ru">Оставить отзыв</string>
+    <string name="send_ru">Отправить</string>
+    <string name="review_ru">Отзыв</string>
 </resources>

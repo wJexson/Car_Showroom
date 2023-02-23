@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/lightgray"
     android:orientation="vertical">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/lightgray"
@@ -16,9 +17,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Оставить отзыв"
+            android:text="@string/send_review_ru"
             android:textColor="@color/black"
-            android:textSize="@dimen/in_dp" />
+            android:textSize="@dimen/in_dp"
+            tools:ignore="SpUsage" />
     </LinearLayout>
 
     <ImageView
@@ -26,9 +28,10 @@
         android:layout_width="175dp"
         android:layout_height="200dp"
         android:layout_gravity="center"
-        android:src="@drawable/logo" />
+        android:src="@drawable/logo"
+        tools:ignore="ContentDescription" />
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/lightgray"
@@ -39,21 +42,24 @@
             android:layout_height="200dp"
             android:layout_weight="1"
             android:gravity="top"
-            android:hint="Отзыв"
-            android:maxLength="320"/>
+            android:hint="@string/review_ru"
+            android:maxLength="320"
+            tools:ignore="Autofill,InefficientWeight,TextFields" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="75dp"
             android:backgroundTint="@color/green"
-            android:text="Отправить"
-            android:onClick="sendReview"/>
+            android:onClick="sendReview"
+            android:text="@string/send_ru"
+            tools:ignore="UsingOnClickInXml" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="75dp"
+            android:onClick="backToMain"
             android:text="@string/back_ru"
-            android:onClick="backToMain"/>
+            tools:ignore="UsingOnClickInXml" />
 
     </LinearLayout>
 

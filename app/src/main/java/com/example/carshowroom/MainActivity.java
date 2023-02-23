@@ -30,18 +30,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TextView cars_in_stock = (TextView) findViewById(R.id.cars_in_stock);
+        TextView cars_in_stock = findViewById(R.id.cars_in_stock);
         cars_in_stock.setText("Автомобили в наличии");
-        TextView skyline_title = (TextView) findViewById(R.id.skyline_title);
+        TextView skyline_title = findViewById(R.id.skyline_title);
         skyline_title.setText("Nissan Skyline GT-R (R34)");
-        TextView rs6_title = (TextView) findViewById(R.id.rs6_title);
+        TextView rs6_title = findViewById(R.id.rs6_title);
         rs6_title.setText("Audi RS6 (C8)");
 
 
-        rs6_bet_et = (EditText) findViewById(R.id.rs6_bet_edittext);
-        skyline_bet_et = (EditText) findViewById(R.id.skyline_bet_edittext);
-        Button skyline_button = (Button) findViewById(R.id.skyline_button);
-        Button rs6_button = (Button) findViewById(R.id.rs6_button);
+        rs6_bet_et = findViewById(R.id.rs6_bet_edittext);
+        skyline_bet_et = findViewById(R.id.skyline_bet_edittext);
+        Button skyline_button = findViewById(R.id.skyline_button);
+        Button rs6_button = findViewById(R.id.rs6_button);
         Intent intent_skyline = new Intent(this, SkylineActivity.class);
         Intent intent_rs6 = new Intent(this, RS6Activity.class);
 
