@@ -5,10 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
 public class RS6Activity extends AppCompatActivity {
+
+    private static final String TAG = "MyCarShowroom";
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -30,5 +33,6 @@ public class RS6Activity extends AppCompatActivity {
         data.putExtra(MainActivity.ACCESS_BET, message);
         setResult(RESULT_OK, data);
         finish();
+        Log.i(TAG, "Переход к MainActivity");
     }
 }

@@ -4,10 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
 public class ReviewActivity extends AppCompatActivity {
+
+    private static final String TAG = "MyCarShowroom";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +21,7 @@ public class ReviewActivity extends AppCompatActivity {
 
     public void backToMain(View view) {
         finish();
+        Log.i(TAG, "Переход к MainActivity");
     }
 
     public void sendReview(View view) {
