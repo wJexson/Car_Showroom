@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lightgray"
+    android:orientation="vertical">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/lightgray"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/cars_in_stock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Оставить отзыв"
+            android:textColor="@color/black"
+            android:textSize="@dimen/in_dp" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/skyline_image"
+        android:layout_width="175dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:src="@drawable/logo" />
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/lightgray"
+        android:orientation="vertical">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_weight="1"
+            android:gravity="top"
+            android:hint="Отзыв"
+            android:maxLength="320"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:backgroundTint="@color/green"
+            android:text="Отправить"
+            android:onClick="sendReview"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:text="@string/back_ru"
+            android:onClick="backToMain"/>
+
+    </LinearLayout>
+
+</LinearLayout>
+
+

@@ -30,13 +30,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TextView cars_in_stock=(TextView) findViewById(R.id.cars_in_stock);
+        TextView cars_in_stock = (TextView) findViewById(R.id.cars_in_stock);
         cars_in_stock.setText("Автомобили в наличии");
-        TextView skyline_title=(TextView) findViewById(R.id.skyline_title);
+        TextView skyline_title = (TextView) findViewById(R.id.skyline_title);
         skyline_title.setText("Nissan Skyline GT-R (R34)");
-        TextView rs6_title=(TextView) findViewById(R.id.rs6_title);
+        TextView rs6_title = (TextView) findViewById(R.id.rs6_title);
         rs6_title.setText("Audi RS6 (C8)");
-
 
 
         rs6_bet_et = (EditText) findViewById(R.id.rs6_bet_edittext);
@@ -130,4 +129,10 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     });
+
+    public void makeReview(View view) {
+        Intent intent = new Intent(this, ReviewActivity.class);
+        startActivity(intent);
+        Log.i(TAG, "Переход к ReviewActivity");
+    }
 }
