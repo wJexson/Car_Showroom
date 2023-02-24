@@ -6,11 +6,10 @@
     android:background="@color/lightgray">
 
     <TextView
-        android:id="@+id/cars_in_stock"
+        android:id="@+id/make_review"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:text="@string/send_review_ru"
         android:textColor="@color/black"
         android:textSize="@dimen/in_dp"
         tools:ignore="SpUsage" />
@@ -19,9 +18,8 @@
         android:id="@+id/logo_image"
         android:layout_width="175dp"
         android:layout_height="200dp"
-        android:layout_below="@id/cars_in_stock"
+        android:layout_below="@id/make_review"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/logo"
         tools:ignore="ContentDescription" />
 
     <EditText

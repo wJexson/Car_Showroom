@@ -6,6 +6,8 @@ import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class ReviewActivity extends AppCompatActivity {
@@ -17,6 +19,11 @@ public class ReviewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_review_linear);
         setContentView(R.layout.activity_review_relative);
+
+        TextView make_review = findViewById(R.id.make_review);
+        make_review.setText(R.string.send_review_ru);
+        ImageView car_logo = findViewById(R.id.logo_image);
+        car_logo.setImageResource(R.drawable.logo);
     }
 
     public void backToMain(View view) {
@@ -32,3 +39,17 @@ public class ReviewActivity extends AppCompatActivity {
         toast.show();
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
