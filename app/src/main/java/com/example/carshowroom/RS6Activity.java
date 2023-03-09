@@ -36,19 +36,3 @@ public class RS6Activity extends AppCompatActivity {
         Log.i(TAG, "Переход к MainActivity");
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
