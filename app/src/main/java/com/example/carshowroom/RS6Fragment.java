@@ -1,9 +1,17 @@
 package com.example.carshowroom;
 
+import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
 import androidx.fragment.app.Fragment;
 
 public class RS6Fragment extends Fragment {
-    public RS6Fragment() {
-        super(R.layout.fragment_rs6);
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_rs6, container, false);
+        return view;
     }
 }
