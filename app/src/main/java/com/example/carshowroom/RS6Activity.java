@@ -18,21 +18,18 @@ public class RS6Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rs6);
-        TextView your_bet = findViewById(R.id.your_bet_ru);
-        String rs6_bet = getIntent().getStringExtra("rs6bet_key");
-        your_bet.setText(your_bet.getText().toString() + "  " + rs6_bet);
     }
 
-    public void onBackClick(View v) {
-        String rs6_bet = getIntent().getStringExtra("rs6bet_key");
-        sendBet(rs6_bet);
-    }
-
-    private void sendBet(String message) {
-        Intent data = new Intent();
-        data.putExtra(MainActivity.ACCESS_BET, message);
-        setResult(RESULT_OK, data);
-        finish();
-        Log.i(TAG, "Переход к MainActivity");
-    }
+//    public void onBackClick(View v) {
+//        String rs6_bet = getIntent().getStringExtra("rs6bet_key");
+//        sendBet(rs6_bet);
+//    }
+//
+//    private void sendBet(String message) {
+//        Intent data = new Intent();
+//        data.putExtra(MainActivity.ACCESS_BET, message);
+//        setResult(RESULT_OK, data);
+//        finish();
+//        Log.i(TAG, "Переход к MainActivity");
+//    }
 }
