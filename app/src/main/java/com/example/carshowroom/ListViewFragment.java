@@ -11,20 +11,22 @@ import android.widget.ListView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import java.util.ArrayList;
+
 public class ListViewFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_listview, container, false);
         Button back_button = view.findViewById(R.id.back_button);
 
-        // получаем элемент ListView
+        ArrayList<Brand> brands = new ArrayList<Brand>();
+        String[] all_brands = getResources().getStringArray(R.array.Auto_brands);
+        for (String brand: all_brands){
+            brands.add(new Brand(brand, R.drawable.logo));
+        }
         ListView brandsList = view.findViewById(R.id.brandsList);
-        // получаем ресурс
-        String[] brands = getResources().getStringArray(R.array.Auto_brands);
-        // создаем адаптер
-        ArrayAdapter<String> adapter = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_1, brands);
-        // устанавливаем для списка адаптер
-        brandsList.setAdapter(adapter);
+        BrandAdapter brandAdapter = new BrandAdapter(getContext(), R.layout.list_item, brands);
+        brandsList.setAdapter(brandAdapter);
 
         back_button.setOnClickListener(new View.OnClickListener() {
             @Override
