@@ -5,23 +5,22 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class ListViewFragment extends Fragment {
+public class RecycleViewFragment extends Fragment {
 
-    private static final String TAG = "ListView";
+    private static final String TAG = "RecycleView";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_listview, container, false);
+        View view = inflater.inflate(R.layout.fragment_recycleview, container, false);
         Button back_button = view.findViewById(R.id.back_button);
 
         // начальная инициализация списка
@@ -31,22 +30,20 @@ public class ListViewFragment extends Fragment {
             brands.add(new Brand(brand, R.drawable.logo));
         }
         // получаем элемент ListView
-        ListView brandsList = view.findViewById(R.id.brandsList);
-        // создаем адаптер
-        BrandAdapter brandAdapter = new BrandAdapter(getContext(), R.layout.list_item, brands);
-        // устанавливаем адаптер
-        brandsList.setAdapter(brandAdapter);
-
-        // слушатель выбора в списке
-        brandsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        RecyclerView brandsList = view.findViewById(R.id.brandsList);
+        // определяем слушателя нажатия элемента в списке
+        RVBrandAdapter.OnBrandClickListener brandClickListener = new RVBrandAdapter.OnBrandClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // по позиции получаем выбранный элемент
+            public void onBrandClick(Brand brand, int position) {
                 String selectedItem = all_brands[position];
                 Log.i(TAG, "You clicked on " + selectedItem);
                 Toast.makeText(getActivity(), selectedItem, Toast.LENGTH_SHORT).show();
             }
-        });
+        };
+        // создаем адаптер
+        RVBrandAdapter brandAdapter = new RVBrandAdapter(getContext(), brands, brandClickListener);
+        // устанавливаем адаптер
+        brandsList.setAdapter(brandAdapter);
 
         back_button.setOnClickListener(new View.OnClickListener() {
             @Override

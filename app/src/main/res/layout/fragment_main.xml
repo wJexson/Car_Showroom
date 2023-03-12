@@ -262,22 +262,22 @@
         android:layout_height="40dp"
         android:layout_marginTop="439dp"
         android:backgroundTint="@color/blue"
-        android:text="ListView"
+        android:text="@string/listview"
         android:textSize="11sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="TouchTargetSizeCheck,UsingOnClickInXml"/>
+        tools:ignore="TouchTargetSizeCheck,UsingOnClickInXml" />
 
     <Button
-        android:id="@+id/recycleview_list"
+        android:id="@+id/recycleview_button"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginTop="469dp"
         android:backgroundTint="@color/blue"
-        android:text="RecycleView"
+        android:text="@string/recycleview"
         android:textSize="11sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="TouchTargetSizeCheck,UsingOnClickInXml"/>
+        tools:ignore="TouchTargetSizeCheck,UsingOnClickInXml" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

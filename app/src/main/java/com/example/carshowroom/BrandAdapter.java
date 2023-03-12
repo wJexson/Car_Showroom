@@ -26,7 +26,7 @@ public class BrandAdapter extends ArrayAdapter<Brand> {
 
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        @SuppressLint("ViewHolder") View view=inflater.inflate(this.layout, parent, false);
+        @SuppressLint("ViewHolder") View view = inflater.inflate(this.layout, parent, false);
 
         ImageView flagView = view.findViewById(R.id.logo);
         TextView nameView = view.findViewById(R.id.name);
