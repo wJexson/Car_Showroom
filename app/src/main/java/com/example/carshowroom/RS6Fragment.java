@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentResultListener;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.Navigation;
 
 public class RS6Fragment extends Fragment {
     @Override
@@ -32,9 +33,7 @@ public class RS6Fragment extends Fragment {
         back_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentTransaction fr = getFragmentManager().beginTransaction();
-                fr.replace(R.id.fragment_container_view, new MainFragment());
-                fr.commit();
+                Navigation.findNavController(view).navigate(R.id.action_rs6Fragment_to_mainFragment);
             }
         });
         return view;

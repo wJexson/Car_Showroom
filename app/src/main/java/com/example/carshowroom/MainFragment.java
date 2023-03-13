@@ -43,34 +43,6 @@ public class MainFragment extends Fragment {
             }
         });
 
-//        skyline_button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                FragmentTransaction fr = getFragmentManager().beginTransaction();
-//                fr.replace(R.id.fragment_container_view, new SkylineFragment());
-//                fr.commit();
-//            }
-//        });
-//
-//        rs6_button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                FragmentTransaction fr = getFragmentManager().beginTransaction();
-//                fr.replace(R.id.fragment_container_view, new RS6Fragment());
-//                fr.commit();
-//            }
-//        });
-//
-//
-//        recyclerview_button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                FragmentTransaction fr = getFragmentManager().beginTransaction();
-//                fr.replace(R.id.fragment_container_view, new RecyclerViewFragment());
-//                fr.commit();
-//            }
-//        });
-
         skyline_bet_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

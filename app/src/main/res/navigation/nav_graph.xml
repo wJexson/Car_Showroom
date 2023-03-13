@@ -25,18 +25,31 @@
         android:id="@+id/skylineFragment"
         android:name="com.example.carshowroom.SkylineFragment"
         android:label="Skyline"
-        tools:layout="@layout/fragment_skyline" />
+        tools:layout="@layout/fragment_skyline">
+        <action
+            android:id="@+id/action_skylineFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/rs6Fragment"
         android:name="com.example.carshowroom.RS6Fragment"
         android:label="RS6"
-        tools:layout="@layout/fragment_rs6" />
+        tools:layout="@layout/fragment_rs6">
+        <action
+            android:id="@+id/action_rs6Fragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/brandslistFragment"
         android:name="com.example.carshowroom.RecyclerViewFragment"
         android:label="BrandList"
-        tools:layout="@layout/fragment_recyclerview" />
+        tools:layout="@layout/fragment_recyclerview">
+        <action
+            android:id="@+id/action_brandslistFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+
 
 </navigation>
