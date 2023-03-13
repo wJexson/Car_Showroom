@@ -44,4 +44,5 @@
     <string name="car_brand_logo">Car brand logo</string>
     <string name="listview">ListView</string>
     <string name="recycleview">RecycleView</string>
+    <string name="recyclerview">RecyclerView</string>
 </resources>

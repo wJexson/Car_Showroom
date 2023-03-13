@@ -19,8 +19,7 @@ public class MainFragment extends Fragment {
         Button rs6_button = view.findViewById(R.id.rs6_button);
         Button skyline_bet_button = view.findViewById(R.id.skyline_bet_button);
         Button rs6_bet_button = view.findViewById(R.id.rs6_bet_button);
-        Button listview_button = view.findViewById(R.id.listview_button);
-        Button recycleview_button = view.findViewById(R.id.recycleview_button);
+
 
         skyline_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,6 +39,9 @@ public class MainFragment extends Fragment {
             }
         });
 
+        Button listview_button = view.findViewById(R.id.listview_button);
+        Button recycleview_button = view.findViewById(R.id.recycleview_button);
+
         listview_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -53,7 +55,7 @@ public class MainFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 FragmentTransaction fr = getFragmentManager().beginTransaction();
-                fr.replace(R.id.fragment_container_view, new RecycleViewFragment());
+                fr.replace(R.id.fragment_container_view, new RecyclerViewFragment());
                 fr.commit();
             }
         });

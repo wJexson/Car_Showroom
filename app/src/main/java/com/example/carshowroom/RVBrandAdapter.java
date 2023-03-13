@@ -19,10 +19,10 @@ public class RVBrandAdapter extends RecyclerView.Adapter<RVBrandAdapter.ViewHold
         void onBrandClick(Brand brand, int position);
     }
 
-    private final OnBrandClickListener onClickListener;
-
     private final LayoutInflater inflater;
     private final List<Brand> brands;
+
+    private final OnBrandClickListener onClickListener;
 
     RVBrandAdapter(Context context, List<Brand> brands, OnBrandClickListener onClickListener) {
         this.brands = brands;
@@ -43,9 +43,11 @@ public class RVBrandAdapter extends RecyclerView.Adapter<RVBrandAdapter.ViewHold
         holder.flagView.setImageResource(brand.getFlagResource());
         holder.nameView.setText(brand.getName());
 
+        // обработка нажатия
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // вызываем метод слушателя, передавая ему данные
                 onClickListener.onBrandClick(brand, position);
             }
         });

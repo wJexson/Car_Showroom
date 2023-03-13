@@ -14,13 +14,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class RecycleViewFragment extends Fragment {
+public class RecyclerViewFragment extends Fragment {
 
     private static final String TAG = "RecycleView";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_recycleview, container, false);
+        View view = inflater.inflate(R.layout.fragment_recyclerview, container, false);
         Button back_button = view.findViewById(R.id.back_button);
 
         // начальная инициализация списка
