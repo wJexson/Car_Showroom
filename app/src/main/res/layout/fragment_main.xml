@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/lightgray"
-    tools:context=".MainActivity">
+    tools:context=".MainFragment">
 
     <TextView
         android:id="@+id/cars_in_stock"
@@ -257,25 +257,13 @@
         tools:ignore="TouchTargetSizeCheck,UsingOnClickInXml" />
 
     <Button
-        android:id="@+id/listview_button"
+        android:id="@+id/recyclerview_button"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginTop="439dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="449dp"
         android:backgroundTint="@color/blue"
-        android:text="@string/listview"
-        android:textSize="11sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="TouchTargetSizeCheck,UsingOnClickInXml" />
-
-    <Button
-        android:id="@+id/recycleview_button"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginTop="469dp"
-        android:backgroundTint="@color/blue"
-        android:text="@string/recyclerview"
-        android:textSize="11sp"
+        android:text="@string/all_brands_list_ru"
+        android:textSize="13sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="TouchTargetSizeCheck,UsingOnClickInXml" />

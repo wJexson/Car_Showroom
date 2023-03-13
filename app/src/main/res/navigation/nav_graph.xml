@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.carshowroom.MainFragment"
+        android:label="Main"
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_mainFragment_to_skylineFragment"
+            app:destination="@id/skylineFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_rs6Fragment"
+            app:destination="@id/rs6Fragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_brandslistFragment"
+            app:destination="@id/brandslistFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/skylineFragment"
+        android:name="com.example.carshowroom.SkylineFragment"
+        android:label="Skyline"
+        tools:layout="@layout/fragment_skyline" />
+
+    <fragment
+        android:id="@+id/rs6Fragment"
+        android:name="com.example.carshowroom.RS6Fragment"
+        android:label="RS6"
+        tools:layout="@layout/fragment_rs6" />
+
+    <fragment
+        android:id="@+id/brandslistFragment"
+        android:name="com.example.carshowroom.RecyclerViewFragment"
+        android:label="BrandList"
+        tools:layout="@layout/fragment_recyclerview" />
+
+</navigation>
