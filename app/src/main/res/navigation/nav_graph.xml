@@ -29,6 +29,10 @@
         <action
             android:id="@+id/action_skylineFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
+        <argument
+            android:name="skyline_bet"
+            android:defaultValue="0"
+            app:argType="string" />
     </fragment>
 
     <fragment
@@ -39,6 +43,10 @@
         <action
             android:id="@+id/action_rs6Fragment_to_mainFragment"
             app:destination="@id/mainFragment" />
+        <argument
+            android:name="rs6_bet"
+            android:defaultValue="0"
+            app:argType="string" />
     </fragment>
 
     <fragment

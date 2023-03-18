@@ -47,9 +47,13 @@ public class MainFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 EditText skyline_et = view.findViewById(R.id.skyline_bet_edittext);
+                String bet_data = skyline_et.getText().toString();
+                if (bet_data.equals("")) {
+                    bet_data = "0";
+                }
                 Bundle bet = new Bundle();
-                bet.putString("skyline_bet_bundleKey", skyline_et.getText().toString());
-                getParentFragmentManager().setFragmentResult("skyline_bet_requestKey", bet);
+                bet.putString("skyline_bet_Key", bet_data);
+                Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_skylineFragment, bet);
             }
         });
 
@@ -57,9 +61,13 @@ public class MainFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 EditText rs6_et = view.findViewById(R.id.rs6_bet_edtttext);
+                String bet_data = rs6_et.getText().toString();
+                if (bet_data.equals("")) {
+                    bet_data = "0";
+                }
                 Bundle bet = new Bundle();
-                bet.putString("rs6_bet_bundleKey", rs6_et.getText().toString());
-                getParentFragmentManager().setFragmentResult("rs6_bet_requestKey", bet);
+                bet.putString("rs6_bet_Key", bet_data);
+                Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_rs6Fragment, bet);
             }
         });
 
