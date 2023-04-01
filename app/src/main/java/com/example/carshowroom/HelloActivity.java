@@ -1,17 +1,15 @@
 package com.example.carshowroom;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-
 import android.content.Intent;
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class HelloActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.black));
         setContentView(R.layout.activity_hello);
         Thread thread = new Thread() {
             @Override
