@@ -15,11 +15,11 @@ public class HelloActivity extends AppCompatActivity {
             @Override
             public void run() {
                 try {
-                    sleep(2000);
+                    sleep(1000);
                 } catch (Exception e) {
                     e.printStackTrace();
                 } finally {
-                    startActivity(new Intent(HelloActivity.this, MainActivity.class));
+                    startActivity(new Intent(HelloActivity.this, HomeActivity.class));
                     finish();
                 }
             }

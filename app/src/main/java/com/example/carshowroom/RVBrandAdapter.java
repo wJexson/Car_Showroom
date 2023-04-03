@@ -15,7 +15,7 @@ import java.util.List;
 
 public class RVBrandAdapter extends RecyclerView.Adapter<RVBrandAdapter.ViewHolder> {
 
-    interface OnBrandClickListener {
+    public interface OnBrandClickListener {
         void onBrandClick(Brand brand, int position);
     }
 
@@ -24,7 +24,7 @@ public class RVBrandAdapter extends RecyclerView.Adapter<RVBrandAdapter.ViewHold
 
     private final OnBrandClickListener onClickListener;
 
-    RVBrandAdapter(Context context, List<Brand> brands, OnBrandClickListener onClickListener) {
+    public RVBrandAdapter(Context context, List<Brand> brands, OnBrandClickListener onClickListener) {
         this.brands = brands;
         this.inflater = LayoutInflater.from(context);
         this.onClickListener = onClickListener;

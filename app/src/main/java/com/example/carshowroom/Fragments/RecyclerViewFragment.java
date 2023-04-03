@@ -1,4 +1,4 @@
-package com.example.carshowroom;
+package com.example.carshowroom.Fragments;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -9,9 +9,12 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.carshowroom.Brand;
+import com.example.carshowroom.R;
+import com.example.carshowroom.RVBrandAdapter;
 
 import java.util.ArrayList;
 
@@ -52,6 +55,7 @@ public class RecyclerViewFragment extends Fragment {
                 Navigation.findNavController(view).navigate(R.id.action_brandslistFragment_to_mainFragment);
             }
         });
+
         return view;
     }
 }

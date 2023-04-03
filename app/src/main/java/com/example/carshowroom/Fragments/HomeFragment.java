@@ -1,4 +1,4 @@
-package com.example.carshowroom;
+package com.example.carshowroom.Fragments;
 
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -18,13 +18,15 @@ import androidx.core.app.NotificationCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
-public class MainFragment extends Fragment {
+import com.example.carshowroom.R;
+
+public class HomeFragment extends Fragment {
 
     private final String CHANNEL_ID = "notification";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_main, container, false);
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
         Button skyline_button = view.findViewById(R.id.skyline_button);
         Button rs6_button = view.findViewById(R.id.rs6_button);
         Button recyclerview_button = view.findViewById(R.id.recyclerview_button);
