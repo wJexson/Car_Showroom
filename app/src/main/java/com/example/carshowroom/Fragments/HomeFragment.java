@@ -98,8 +98,8 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 showNotification();
-                Intent intent = new Intent(requireContext(), CarService.class);
-                requireActivity().startService(intent);
+//                Intent intent = new Intent(requireContext(), CarService.class);
+//                requireActivity().startService(intent);
             }
         });
     }
