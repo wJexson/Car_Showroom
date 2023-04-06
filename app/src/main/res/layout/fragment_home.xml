@@ -27,7 +27,7 @@
         android:layout_marginTop="33dp"
         android:text="@string/nissan_skyline_r34"
         android:textColor="@color/black"
-        android:textSize="@dimen/in_sp"
+        android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -38,7 +38,7 @@
         android:layout_marginTop="63dp"
         android:text="@string/_2002"
         android:textColor="@color/black"
-        android:textSize="13sp"
+        android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -49,7 +49,7 @@
         android:layout_marginTop="93dp"
         android:text="@string/gray_ru"
         android:textColor="@color/black"
-        android:textSize="13sp"
+        android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -145,7 +145,7 @@
         android:layout_marginTop="244dp"
         android:text="@string/audi_rs6_c8"
         android:textColor="@color/black"
-        android:textSize="@dimen/in_sp"
+        android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -156,7 +156,7 @@
         android:layout_marginTop="274dp"
         android:text="@string/_2021"
         android:textColor="@color/black"
-        android:textSize="13sp"
+        android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -179,7 +179,7 @@
         android:layout_marginTop="334dp"
         android:text="@string/redemption_price_ru"
         android:textColor="@color/black"
-        android:textSize="@dimen/in_sp"
+        android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -190,7 +190,7 @@
         android:layout_marginTop="304dp"
         android:text="@string/blue_ru"
         android:textColor="@color/black"
-        android:textSize="13sp"
+        android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -263,7 +263,6 @@
         android:backgroundTint="@color/blue"
         android:text="Получить уведомление"
         android:textSize="13sp"
-        app:layout_constraintBottom_toTopOf="@id/recyclerview_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/rs6_button"
         tools:ignore="HardcodedText" />
@@ -272,12 +271,11 @@
         android:id="@+id/recyclerview_button"
         android:layout_width="match_parent"
         android:layout_height="75dp"
-        android:layout_marginTop="449dp"
         android:backgroundTint="@color/blue"
         android:text="@string/all_brands_list_ru"
         android:textSize="13sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/notification_button"
         tools:ignore="TouchTargetSizeCheck,UsingOnClickInXml" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
