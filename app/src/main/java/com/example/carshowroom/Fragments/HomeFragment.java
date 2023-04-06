@@ -4,6 +4,7 @@ import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Build;
@@ -14,10 +15,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
+import com.example.carshowroom.CarService;
 import com.example.carshowroom.R;
 
 public class HomeFragment extends Fragment {
@@ -26,7 +30,12 @@ public class HomeFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        return inflater.inflate(R.layout.fragment_home, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         Button skyline_button = view.findViewById(R.id.skyline_button);
         Button rs6_button = view.findViewById(R.id.rs6_button);
         Button recyclerview_button = view.findViewById(R.id.recyclerview_button);
@@ -89,10 +98,10 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 showNotification();
+                Intent intent = new Intent(requireContext(), CarService.class);
+                requireActivity().startService(intent);
             }
         });
-
-        return view;
     }
 
     private void showNotification() {
@@ -102,7 +111,7 @@ public class HomeFragment extends Fragment {
                 .setAutoCancel(true)
                 .setSmallIcon(R.drawable.ic_launcher_foreground)
                 .setContentText("Получено новое уведомление")
-                .setContentTitle("Уведомление")
+                .setContentTitle(getString(R.string.app_name))
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                 .setLargeIcon(bitmap)
                 .setWhen(System.currentTimeMillis());
