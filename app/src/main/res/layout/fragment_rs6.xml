@@ -9,203 +9,207 @@
         android:id="@+id/back_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
         android:backgroundTint="@color/blue"
         android:text="@string/back_ru"
-        app:layout_constraintBottom_toTopOf="@id/rs6_image"
-        app:layout_constraintStart_toStartOf="@id/rs6_image" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/rs6_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginEnd="5dp"
         android:text="@string/audi_rs6_c8"
         android:textColor="@android:color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/rs6_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/_250000"
+        android:textColor="@color/black"
         android:textSize="25sp"
-        app:layout_constraintBottom_toTopOf="@id/rs6_image"
-        app:layout_constraintEnd_toEndOf="@id/rs6_image" />
+        app:layout_constraintEnd_toEndOf="@id/rs6_title"
+        app:layout_constraintTop_toBottomOf="@id/rs6_title" />
 
     <ImageView
         android:id="@+id/rs6_image"
-        android:layout_width="wrap_content"
-        android:layout_height="339dp"
-        android:layout_marginTop="50dp"
+        android:layout_width="400dp"
+        android:layout_height="300dp"
         android:contentDescription="@string/audi_rs6_c8"
+        android:scaleType="fitXY"
         android:src="@drawable/rs6blue"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="390dp"
-        android:text="@string/redemption_price_ru"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="130dp"
-        android:layout_marginTop="390dp"
-        android:text="@string/_250000"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/your_bet_ru"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="210dp"
-        android:layout_marginTop="390dp"
-        android:text="@string/your_bet_ru"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/rs6_price" />
 
     <TextView
         android:id="@+id/year_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="420dp"
+        android:layout_marginTop="10dp"
         android:text="@string/Year_of_issue_ru"
         android:textColor="@android:color/black"
         android:textSize="18sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintLeft_toLeftOf="@id/rs6_image"
+        app:layout_constraintTop_toBottomOf="@id/rs6_image" />
 
     <TextView
+        android:id="@+id/year"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="364dp"
-        android:layout_marginTop="420dp"
+        android:layout_marginTop="10dp"
         android:text="@string/_2021"
         android:textColor="@android:color/black"
         android:textSize="18sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="@id/rs6_image"
+        app:layout_constraintTop_toBottomOf="@id/rs6_image" />
 
     <TextView
         android:id="@+id/mileage_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="450dp"
+        android:layout_marginTop="10dp"
         android:text="@string/mileage_ru"
         android:textColor="@android:color/black"
         android:textSize="18sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintLeft_toLeftOf="@id/rs6_image"
+        app:layout_constraintTop_toBottomOf="@id/year_title" />
 
     <TextView
+        android:id="@+id/mileage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="356dp"
-        android:layout_marginTop="450dp"
+        android:layout_marginTop="10dp"
         android:text="@string/_20_km"
         android:textColor="@android:color/black"
         android:textSize="18sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="@id/rs6_image"
+        app:layout_constraintTop_toBottomOf="@id/year" />
 
     <TextView
         android:id="@+id/engine_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="480dp"
+        android:layout_marginTop="10dp"
         android:text="@string/engine_ru"
         android:textColor="@android:color/black"
         android:textSize="18sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintLeft_toLeftOf="@id/rs6_image"
+        app:layout_constraintTop_toBottomOf="@id/mileage_title" />
 
     <TextView
+        android:id="@+id/engine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="208dp"
-        android:layout_marginTop="480dp"
+        android:layout_marginTop="10dp"
         android:text="@string/_4_0_600"
         android:textColor="@android:color/black"
         android:textSize="18sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="@id/rs6_image"
+        app:layout_constraintTop_toBottomOf="@id/mileage" />
 
     <TextView
         android:id="@+id/body_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="510dp"
+        android:layout_marginTop="10dp"
         android:text="@string/body_ru"
         android:textColor="@android:color/black"
         android:textSize="18sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintLeft_toLeftOf="@id/rs6_image"
+        app:layout_constraintTop_toBottomOf="@id/engine_title" />
 
     <TextView
+        android:id="@+id/body"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="315dp"
-        android:layout_marginTop="508dp"
+        android:layout_marginTop="10dp"
         android:text="@string/station_wagon_ru"
         android:textColor="@android:color/black"
         android:textSize="18sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="@id/rs6_image"
+        app:layout_constraintTop_toBottomOf="@id/engine" />
 
     <TextView
         android:id="@+id/color_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="540dp"
-        android:text="@string/body_ru"
+        android:layout_marginTop="10dp"
+        android:text="@string/color_ru"
         android:textColor="@android:color/black"
         android:textSize="18sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintLeft_toLeftOf="@id/rs6_image"
+        app:layout_constraintTop_toBottomOf="@id/body_title" />
 
     <TextView
+        android:id="@+id/color"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="348dp"
-        android:layout_marginTop="540dp"
+        android:layout_marginTop="10dp"
         android:text="@string/blue_ru"
         android:textColor="@android:color/black"
         android:textSize="18sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="@id/rs6_image"
+        app:layout_constraintTop_toBottomOf="@id/body" />
 
     <TextView
         android:id="@+id/drive_unit_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="570dp"
+        android:layout_marginTop="10dp"
         android:text="@string/drive_unit_ru"
         android:textColor="@android:color/black"
         android:textSize="18sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintLeft_toLeftOf="@id/rs6_image"
+        app:layout_constraintTop_toBottomOf="@id/color_title" />
 
     <TextView
+        android:id="@+id/drive_unit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="336dp"
-        android:layout_marginTop="570dp"
+        android:layout_marginTop="10dp"
         android:text="@string/awd_ru"
         android:textColor="@android:color/black"
         android:textSize="18sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="@id/rs6_image"
+        app:layout_constraintTop_toBottomOf="@id/color" />
+
+    <TextView
+        android:id="@+id/transmission_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/transmission_ru"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="@id/rs6_image"
+        app:layout_constraintTop_toBottomOf="@id/drive_unit_title" />
+
+    <TextView
+        android:id="@+id/transmission"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/automatic_ru"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@id/rs6_image"
+        app:layout_constraintTop_toBottomOf="@id/drive_unit" />
+
+    <Button
+        android:id="@+id/book_butoon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:backgroundTint="@color/darkgreen"
+        android:text="@string/book_car_ru"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/rs6_image"
+        app:layout_constraintStart_toStartOf="@id/rs6_image" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

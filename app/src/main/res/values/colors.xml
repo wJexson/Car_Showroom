@@ -13,4 +13,6 @@
     <color name="lime">#00FF00</color>
     <color name="blue">#0000FF</color>
     <color name="royalblue">#4169E1</color>
+    <color name="grey">#808080</color>
+    <color name="darkgreen">#006400</color>
 </resources>

@@ -46,4 +46,5 @@
     <string name="recycleview">RecycleView</string>
     <string name="recyclerview">RecyclerView</string>
     <string name="all_brands_list_ru">Список всех автомобилей</string>
+    <string name="book_car_ru">Забронировать автомобиль</string>
 </resources>
