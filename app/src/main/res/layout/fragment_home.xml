@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:text="@string/cars_in_stock_ru"
         android:textColor="@color/black"
-        android:textSize="@dimen/in_dp"
+        android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -62,7 +62,7 @@
         android:layout_marginTop="10dp"
         android:text="@string/redemption_price_ru"
         android:textColor="@color/black"
-        android:textSize="@dimen/in_sp"
+        android:textSize="15sp"
         app:layout_constraintStart_toEndOf="@id/skyline_image"
         app:layout_constraintTop_toBottomOf="@id/skyline_color" />
 
@@ -74,7 +74,7 @@
         android:layout_marginTop="10dp"
         android:text="@string/_122_111"
         android:textColor="@color/black"
-        android:textSize="@dimen/in_sp"
+        android:textSize="15sp"
         app:layout_constraintStart_toEndOf="@id/skyline_price_title"
         app:layout_constraintTop_toBottomOf="@id/skyline_color" />
 
@@ -155,7 +155,7 @@
         android:layout_marginTop="10dp"
         android:text="@string/_250000"
         android:textColor="@color/black"
-        android:textSize="@dimen/in_sp"
+        android:textSize="15sp"
         app:layout_constraintStart_toEndOf="@id/rs6_price_title"
         app:layout_constraintTop_toBottomOf="@id/rs6_color" />
 
