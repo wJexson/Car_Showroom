@@ -17,6 +17,9 @@
             android:id="@+id/action_mainFragment_to_rs6Fragment"
             app:destination="@id/rs6Fragment" />
         <action
+            android:id="@+id/action_mainFragment_to_rx8Fragment"
+            app:destination="@id/rx8Fragment" />
+        <action
             android:id="@+id/action_mainFragment_to_brandslistFragment"
             app:destination="@id/brandslistFragment" />
     </fragment>
@@ -29,10 +32,6 @@
         <action
             android:id="@+id/action_skylineFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
-        <argument
-            android:name="skyline_bet"
-            android:defaultValue="0"
-            app:argType="string" />
     </fragment>
 
     <fragment
@@ -47,6 +46,16 @@
             android:name="rs6_bet"
             android:defaultValue="0"
             app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/rx8Fragment"
+        android:name="com.example.carshowroom.Fragments.RX8Fragment"
+        android:label="RX8"
+        tools:layout="@layout/fragment_rx8">
+        <action
+            android:id="@+id/action_rx8Fragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
     </fragment>
 
     <fragment

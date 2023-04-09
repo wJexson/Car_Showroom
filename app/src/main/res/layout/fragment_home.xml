@@ -184,6 +184,91 @@
         app:layout_constraintTop_toBottomOf="@id/rs6_price_title"
         tools:ignore="TouchTargetSizeCheck,UsingOnClickInXml" />
 
+    <ImageView
+        android:id="@+id/rx8_image"
+        android:layout_width="175dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="10dp"
+        android:contentDescription="@string/mazda_rx_8"
+        android:scaleType="fitXY"
+        android:src="@drawable/rx8"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rs6_image" />
+
+    <TextView
+        android:id="@id/rx8_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="@string/mazda_rx_8"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@id/rx8_image"
+        app:layout_constraintTop_toTopOf="@id/rx8_image" />
+
+    <TextView
+        android:id="@+id/rx8_year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="2003"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@id/rx8_image"
+        app:layout_constraintTop_toBottomOf="@id/rx8_title"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/rx8_color"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/gray_ru"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@id/rx8_image"
+        app:layout_constraintTop_toBottomOf="@id/rx8_year" />
+
+    <TextView
+        android:id="@+id/rx8_price_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/price_ru"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@id/rx8_image"
+        app:layout_constraintTop_toBottomOf="@id/rx8_color" />
+
+    <TextView
+        android:id="@+id/rx8_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
+        android:text="9 852 $"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@id/rs6_price_title"
+        app:layout_constraintTop_toBottomOf="@id/rx8_color"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/rx8_button"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:backgroundTint="@color/blue"
+        android:text="@string/show_info_ru"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/rx8_image"
+        app:layout_constraintTop_toBottomOf="@id/rx8_price_title"
+        tools:ignore="TouchTargetSizeCheck,UsingOnClickInXml" />
+
+
     <Button
         android:id="@+id/recyclerview_button"
         android:layout_width="match_parent"

@@ -48,4 +48,7 @@
     <string name="all_brands_list_ru">Список всех автомобилей</string>
     <string name="book_car_ru">Забронировать автомобиль</string>
     <string name="price_ru">Цена</string>
+    <string name="mazda_rx_8">Mazda RX-8</string>
+    <string name="rwd_ru">Задний</string>
+    <string name="manual_ru">Механическая</string>
 </resources>

@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lightgray">
+
+    <Button
+        android:id="@+id/back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:backgroundTint="@color/blue"
+        android:text="@string/back_ru"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/rx8_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:text="@string/mazda_rx_8"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/rx8_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="9 852 $"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="@id/rx8_title"
+        app:layout_constraintTop_toBottomOf="@id/rx8_title"
+        tools:ignore="HardcodedText" />
+
+    <ImageView
+        android:id="@+id/rx8_image"
+        android:layout_width="400dp"
+        android:layout_height="300dp"
+        android:contentDescription="@string/nissan_skyline_r34"
+        android:scaleType="fitXY"
+        android:src="@drawable/rx8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rx8_price" />
+
+    <TextView
+        android:id="@+id/year_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/Year_of_issue_ru"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="@id/rx8_image"
+        app:layout_constraintTop_toBottomOf="@id/rx8_image" />
+
+    <TextView
+        android:id="@+id/year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="2003"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@id/rx8_image"
+        app:layout_constraintTop_toBottomOf="@id/rx8_image"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/mileage_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/mileage_ru"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="@id/rx8_image"
+        app:layout_constraintTop_toBottomOf="@id/year_title" />
+
+    <TextView
+        android:id="@+id/mileage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="190125 км"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@id/rx8_image"
+        app:layout_constraintTop_toBottomOf="@id/year"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/engine_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/engine_ru"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="@id/rx8_image"
+        app:layout_constraintTop_toBottomOf="@id/mileage_title" />
+
+    <TextView
+        android:id="@+id/engine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="1.3 / 250 л.c. / Бензин"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@id/rx8_image"
+        app:layout_constraintTop_toBottomOf="@id/mileage"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/body_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/body_ru"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="@id/rx8_image"
+        app:layout_constraintTop_toBottomOf="@id/engine_title" />
+
+    <TextView
+        android:id="@+id/body"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/coupe_ru"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@id/rx8_image"
+        app:layout_constraintTop_toBottomOf="@id/engine" />
+
+    <TextView
+        android:id="@+id/color_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/color_ru"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="@id/rx8_image"
+        app:layout_constraintTop_toBottomOf="@id/body_title" />
+
+    <TextView
+        android:id="@+id/color"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/gray_ru"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@id/rx8_image"
+        app:layout_constraintTop_toBottomOf="@id/body" />
+
+    <TextView
+        android:id="@+id/drive_unit_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/drive_unit_ru"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="@id/rx8_image"
+        app:layout_constraintTop_toBottomOf="@id/color_title" />
+
+    <TextView
+        android:id="@+id/drive_unit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/rwd_ru"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@id/rx8_image"
+        app:layout_constraintTop_toBottomOf="@id/color" />
+
+    <TextView
+        android:id="@+id/transmission_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/transmission_ru"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="@id/rx8_image"
+        app:layout_constraintTop_toBottomOf="@id/drive_unit_title" />
+
+    <TextView
+        android:id="@+id/transmission"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/manual_ru"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@id/rx8_image"
+        app:layout_constraintTop_toBottomOf="@id/drive_unit" />
+
+    <Button
+        android:id="@+id/book_butoon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:backgroundTint="@color/darkgreen"
+        android:text="@string/book_car_ru"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/rx8_image"
+        app:layout_constraintStart_toStartOf="@id/rx8_image" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

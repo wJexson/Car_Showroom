@@ -25,6 +25,7 @@ public class HomeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         Button skyline_button = view.findViewById(R.id.skyline_button);
         Button rs6_button = view.findViewById(R.id.rs6_button);
+        Button rx8_button = view.findViewById(R.id.rx8_button);
         Button recyclerview_button = view.findViewById(R.id.recyclerview_button);
 
         skyline_button.setOnClickListener(new View.OnClickListener() {
@@ -38,6 +39,13 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_rs6Fragment);
+            }
+        });
+
+        rx8_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_rx8Fragment);
             }
         });
 
