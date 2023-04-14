@@ -31,7 +31,7 @@ public class RecyclerViewFragment extends Fragment {
         ArrayList<Brand> brands = new ArrayList<Brand>();
         String[] all_brands = getResources().getStringArray(R.array.Auto_brands);
         for (String brand : all_brands) {
-            brands.add(new Brand(brand, R.drawable.logo));
+            brands.add(new Brand(brand, R.drawable.car_icon));
         }
         // получаем элемент ListView
         RecyclerView brandsList = view.findViewById(R.id.brandsList);

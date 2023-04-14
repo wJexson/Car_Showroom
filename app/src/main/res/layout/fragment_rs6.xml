@@ -3,14 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/lightgray">
+    android:background="@color/ide">
 
     <Button
         android:id="@+id/back_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
-        android:backgroundTint="@color/blue"
+        android:backgroundTint="@color/black"
         android:text="@string/back_ru"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="5dp"
         android:text="@string/audi_rs6_c8"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/white"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -31,15 +31,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/_250000"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="@id/rs6_title"
         app:layout_constraintTop_toBottomOf="@id/rs6_title" />
 
     <ImageView
         android:id="@+id/rs6_image"
-        android:layout_width="400dp"
+        android:layout_width="match_parent"
         android:layout_height="300dp"
+        android:layout_marginHorizontal="5sp"
         android:contentDescription="@string/audi_rs6_c8"
         android:scaleType="fitXY"
         android:src="@drawable/rs6blue"
@@ -53,7 +54,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="@string/Year_of_issue_ru"
-        android:textColor="@android:color/black"
+        android:textColor="@color/white"
         android:textSize="18sp"
         app:layout_constraintLeft_toLeftOf="@id/rs6_image"
         app:layout_constraintTop_toBottomOf="@id/rs6_image" />
@@ -64,7 +65,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="@string/_2021"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/white"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@id/rs6_image"
         app:layout_constraintTop_toBottomOf="@id/rs6_image" />
@@ -75,7 +76,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="@string/mileage_ru"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/white"
         android:textSize="18sp"
         app:layout_constraintLeft_toLeftOf="@id/rs6_image"
         app:layout_constraintTop_toBottomOf="@id/year_title" />
@@ -86,7 +87,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="@string/_20_km"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/white"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@id/rs6_image"
         app:layout_constraintTop_toBottomOf="@id/year" />
@@ -97,7 +98,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="@string/engine_ru"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/white"
         android:textSize="18sp"
         app:layout_constraintLeft_toLeftOf="@id/rs6_image"
         app:layout_constraintTop_toBottomOf="@id/mileage_title" />
@@ -108,7 +109,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="@string/_4_0_600"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/white"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@id/rs6_image"
         app:layout_constraintTop_toBottomOf="@id/mileage" />
@@ -119,7 +120,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="@string/body_ru"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/white"
         android:textSize="18sp"
         app:layout_constraintLeft_toLeftOf="@id/rs6_image"
         app:layout_constraintTop_toBottomOf="@id/engine_title" />
@@ -130,7 +131,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="@string/station_wagon_ru"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/white"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@id/rs6_image"
         app:layout_constraintTop_toBottomOf="@id/engine" />
@@ -141,7 +142,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="@string/color_ru"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/white"
         android:textSize="18sp"
         app:layout_constraintLeft_toLeftOf="@id/rs6_image"
         app:layout_constraintTop_toBottomOf="@id/body_title" />
@@ -152,7 +153,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="@string/blue_ru"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/white"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@id/rs6_image"
         app:layout_constraintTop_toBottomOf="@id/body" />
@@ -163,7 +164,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="@string/drive_unit_ru"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/white"
         android:textSize="18sp"
         app:layout_constraintLeft_toLeftOf="@id/rs6_image"
         app:layout_constraintTop_toBottomOf="@id/color_title" />
@@ -174,7 +175,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="@string/awd_ru"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/white"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@id/rs6_image"
         app:layout_constraintTop_toBottomOf="@id/color" />
@@ -185,7 +186,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="@string/transmission_ru"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/white"
         android:textSize="18sp"
         app:layout_constraintLeft_toLeftOf="@id/rs6_image"
         app:layout_constraintTop_toBottomOf="@id/drive_unit_title" />
@@ -196,7 +197,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="@string/automatic_ru"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/white"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@id/rs6_image"
         app:layout_constraintTop_toBottomOf="@id/drive_unit" />
