@@ -12,9 +12,9 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.carshowroom.Brand;
+import com.example.carshowroom.Entities.BrandListItem;
 import com.example.carshowroom.R;
-import com.example.carshowroom.RVBrandAdapter;
+import com.example.carshowroom.Adapters.BrandListAdapter;
 
 import java.util.ArrayList;
 
@@ -28,24 +28,24 @@ public class RecyclerViewFragment extends Fragment {
         Button back_button = view.findViewById(R.id.back_button);
 
         // начальная инициализация списка
-        ArrayList<Brand> brands = new ArrayList<Brand>();
+        ArrayList<BrandListItem> brandListItems = new ArrayList<BrandListItem>();
         String[] all_brands = getResources().getStringArray(R.array.Auto_brands);
         for (String brand : all_brands) {
-            brands.add(new Brand(brand, R.drawable.car_icon));
+            brandListItems.add(new BrandListItem(brand, R.drawable.car_icon));
         }
         // получаем элемент ListView
         RecyclerView brandsList = view.findViewById(R.id.brandsList);
         // определяем слушателя нажатия элемента в списке
-        RVBrandAdapter.OnBrandClickListener brandClickListener = new RVBrandAdapter.OnBrandClickListener() {
+        BrandListAdapter.OnBrandClickListener brandClickListener = new BrandListAdapter.OnBrandClickListener() {
             @Override
-            public void onBrandClick(Brand brand, int position) {
+            public void onBrandClick(BrandListItem brand, int position) {
                 String selectedItem = all_brands[position];
                 Log.i(TAG, "You clicked on " + selectedItem);
                 Toast.makeText(getActivity(), selectedItem, Toast.LENGTH_SHORT).show();
             }
         };
         // создаем адаптер
-        RVBrandAdapter brandAdapter = new RVBrandAdapter(getContext(), brands, brandClickListener);
+        BrandListAdapter brandAdapter = new BrandListAdapter(getContext(), brandListItems, brandClickListener);
         // устанавливаем адаптер
         brandsList.setAdapter(brandAdapter);
 

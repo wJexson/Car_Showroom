@@ -1,4 +1,4 @@
-package com.example.carshowroom;
+package com.example.carshowroom.Adapters;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -11,51 +11,54 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.carshowroom.R;
+import com.example.carshowroom.Entities.BrandListItem;
+
 import java.util.List;
 
-public class RVBrandAdapter extends RecyclerView.Adapter<RVBrandAdapter.ViewHolder> {
+public class BrandListAdapter extends RecyclerView.Adapter<BrandListAdapter.ViewHolder> {
 
     public interface OnBrandClickListener {
-        void onBrandClick(Brand brand, int position);
+        void onBrandClick(BrandListItem brandListItem, int position);
     }
 
     private final LayoutInflater inflater;
-    private final List<Brand> brands;
+    private final List<BrandListItem> brandListItems;
 
     private final OnBrandClickListener onClickListener;
 
-    public RVBrandAdapter(Context context, List<Brand> brands, OnBrandClickListener onClickListener) {
-        this.brands = brands;
+    public BrandListAdapter(Context context, List<BrandListItem> brandListItems, OnBrandClickListener onClickListener) {
+        this.brandListItems = brandListItems;
         this.inflater = LayoutInflater.from(context);
         this.onClickListener = onClickListener;
     }
 
     @NonNull
     @Override
-    public RVBrandAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = inflater.inflate(R.layout.list_item, parent, false);
+    public BrandListAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = inflater.inflate(R.layout.brand_list_item, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(RVBrandAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
-        Brand brand = brands.get(position);
-        holder.flagView.setImageResource(brand.getFlagResource());
-        holder.nameView.setText(brand.getName());
+    public void onBindViewHolder(BrandListAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
+        BrandListItem brandListItem = brandListItems.get(position);
+        holder.flagView.setImageResource(brandListItem.getFlagResource());
+        holder.nameView.setText(brandListItem.getName());
 
         // обработка нажатия
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // вызываем метод слушателя, передавая ему данные
-                onClickListener.onBrandClick(brand, position);
+                onClickListener.onBrandClick(brandListItem, position);
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        return brands.size();
+        return brandListItems.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

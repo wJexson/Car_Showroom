@@ -41,7 +41,7 @@
     <string name="review_ru">Отзыв</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="car_name_ru">Название</string>
-    <string name="car_brand_logo">Car brand logo</string>
+    <string name="car_brand_logo">Car brandListItem logo</string>
     <string name="listview">ListView</string>
     <string name="recycleview">RecycleView</string>
     <string name="recyclerview">RecyclerView</string>
