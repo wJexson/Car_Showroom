@@ -1,5 +1,6 @@
 package com.example.carshowroom.Adapters;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.carshowroom.Entities.CarAdListItem;
@@ -18,10 +20,10 @@ import java.util.List;
 public class CarAdListAdapter extends RecyclerView.Adapter<CarAdListAdapter.ViewHolder> {
 
     private final LayoutInflater inflater;
-    private final List<CarAdListAdapter> carAdListItems;
+    private final List<CarAdListItem> carAdListItems;
 
-    public CarAdListAdapter(LayoutInflater inflater, List<CarAdListAdapter> carAdListItems) {
-        this.inflater = inflater;
+    public CarAdListAdapter(Context context, List<CarAdListItem> carAdListItems) {
+        this.inflater = LayoutInflater.from(context);
         this.carAdListItems = carAdListItems;
     }
 
@@ -35,15 +37,18 @@ public class CarAdListAdapter extends RecyclerView.Adapter<CarAdListAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull CarAdListAdapter.ViewHolder holder, int position) {
-        CarAdListAdapter carAdListItem = carAdListItems.get(position);
-//        holder.flagView.setImageResource(carAdListItem.getFlagResource());
-//        holder.nameView.setText(carAdListItem.getName());
-//        holder.yearView.setText(carAdListItem.getYear());
-//        holder.pricetitleView.setText(carAdListItem.getPrice_title());
-//        holder.priceView.setText(carAdListItem.getPrice());
-//        holder.colorView.setText(carAdListItem.getColor());
-
-
+        CarAdListItem carAdListItem = carAdListItems.get(position);
+        holder.flagView.setImageResource(carAdListItem.getFlagResource());
+        holder.nameView.setText(carAdListItem.getName());
+        holder.yearView.setText(carAdListItem.getYear());
+        holder.priceView.setText(carAdListItem.getPrice());
+        holder.colorView.setText(carAdListItem.getColor());
+        holder.buttonView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_skylineFragment);
+            }
+        });
     }
 
     @Override
@@ -56,7 +61,6 @@ public class CarAdListAdapter extends RecyclerView.Adapter<CarAdListAdapter.View
         final TextView nameView;
         final TextView yearView;
         final TextView colorView;
-        final TextView pricetitleView;
         final TextView priceView;
         final Button buttonView;
         public ViewHolder(View view) {
@@ -65,7 +69,6 @@ public class CarAdListAdapter extends RecyclerView.Adapter<CarAdListAdapter.View
             this.nameView = view.findViewById(R.id.car_title);
             this.yearView = view.findViewById(R.id.car_year);
             this.colorView = view.findViewById(R.id.car_color);
-            this.pricetitleView = view.findViewById(R.id.car_price_title);
             this.priceView = view.findViewById(R.id.car_price);
             this.buttonView = view.findViewById(R.id.car_button);
         }
