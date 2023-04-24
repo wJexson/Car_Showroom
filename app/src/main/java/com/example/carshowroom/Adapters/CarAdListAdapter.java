@@ -17,7 +17,6 @@ import com.example.carshowroom.Entities.CarAdListItem;
 import com.example.carshowroom.R;
 
 import java.util.List;
-import java.util.Objects;
 
 public class CarAdListAdapter extends RecyclerView.Adapter<CarAdListAdapter.ViewHolder> {
 
@@ -49,7 +48,6 @@ public class CarAdListAdapter extends RecyclerView.Adapter<CarAdListAdapter.View
             @Override
             public void onClick(View view) {
                 String car_name = carAdListItem.getName();
-                System.out.println(car_name);
                 Bundle bundle = new Bundle();
                 bundle.putString("carAd_Key", car_name);
                 Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_carAdFragment, bundle);

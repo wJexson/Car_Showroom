@@ -11,7 +11,7 @@
         android:id="@+id/cars_in_stock"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="3dp"
         android:text="@string/cars_in_stock_ru"
         android:textColor="@color/white"
         android:textSize="20dp"

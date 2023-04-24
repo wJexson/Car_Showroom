@@ -29,9 +29,6 @@ public class HomeFragment extends Fragment {
         carAdListItems.add(new CarAdListItem("Mazda RX-8", "2003", "9 852 $", "Серый", R.drawable.rx8));
         carAdListItems.add(new CarAdListItem("Mazda RX-7", "2002", "31 332 $", "Серый", R.drawable.rx7));
         carAdListItems.add(new CarAdListItem("Honda Civic TYPE R", "2000", "6 738 $", "Черный", R.drawable.civic));
-        for (int i = 0; i < carAdListItems.size(); i++) {
-            System.out.println("НОМЕРРРРРР    " + i);
-        }
         RecyclerView carsList = view.findViewById(R.id.carList);
         CarAdListAdapter carAdapter = new CarAdListAdapter(getContext(), carAdListItems);
         carsList.setAdapter(carAdapter);
