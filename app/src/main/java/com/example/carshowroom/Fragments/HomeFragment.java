@@ -29,6 +29,9 @@ public class HomeFragment extends Fragment {
         carAdListItems.add(new CarAdListItem("Mazda RX-8", "2003", "9 852 $", "Серый", R.drawable.rx8));
         carAdListItems.add(new CarAdListItem("Mazda RX-7", "2002", "31 332 $", "Серый", R.drawable.rx7));
         carAdListItems.add(new CarAdListItem("Honda Civic TYPE R", "2000", "6 738 $", "Черный", R.drawable.civic));
+        for (int i = 0; i < carAdListItems.size(); i++) {
+            System.out.println("НОМЕРРРРРР    " + i);
+        }
         RecyclerView carsList = view.findViewById(R.id.carList);
         CarAdListAdapter carAdapter = new CarAdListAdapter(getContext(), carAdListItems);
         carsList.setAdapter(carAdapter);
@@ -39,31 +42,6 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         Button recyclerview_button = view.findViewById(R.id.recyclerview_button);
-//        Button skyline_button = view.findViewById(R.id.skyline_button);
-//        Button rs6_button = view.findViewById(R.id.rs6_button);
-//        Button rx8_button = view.findViewById(R.id.rx8_button);
-//
-//
-//        skyline_button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_skylineFragment);
-//            }
-//        });
-//
-//        rs6_button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_rs6Fragment);
-//            }
-//        });
-//
-//        rx8_button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_rx8Fragment);
-//            }
-//        });
 
         recyclerview_button.setOnClickListener(new View.OnClickListener() {
             @Override

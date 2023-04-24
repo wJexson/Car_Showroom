@@ -1,6 +1,7 @@
 package com.example.carshowroom.Adapters;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,7 @@ import com.example.carshowroom.Entities.CarAdListItem;
 import com.example.carshowroom.R;
 
 import java.util.List;
+import java.util.Objects;
 
 public class CarAdListAdapter extends RecyclerView.Adapter<CarAdListAdapter.ViewHolder> {
 
@@ -46,7 +48,11 @@ public class CarAdListAdapter extends RecyclerView.Adapter<CarAdListAdapter.View
         holder.buttonView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_skylineFragment);
+                String car_name = carAdListItem.getName();
+                System.out.println(car_name);
+                Bundle bundle = new Bundle();
+                bundle.putString("carAd_Key", car_name);
+                Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_carAdFragment, bundle);
             }
         });
     }
@@ -63,6 +69,7 @@ public class CarAdListAdapter extends RecyclerView.Adapter<CarAdListAdapter.View
         final TextView colorView;
         final TextView priceView;
         final Button buttonView;
+
         public ViewHolder(View view) {
             super(view);
             this.flagView = view.findViewById(R.id.car_image);

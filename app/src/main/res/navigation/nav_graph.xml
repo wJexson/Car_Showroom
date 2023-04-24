@@ -11,52 +11,27 @@
         android:label="Main"
         tools:layout="@layout/fragment_home">
         <action
-            android:id="@+id/action_mainFragment_to_skylineFragment"
-            app:destination="@id/skylineFragment" />
-        <action
-            android:id="@+id/action_mainFragment_to_rs6Fragment"
-            app:destination="@id/rs6Fragment" />
-        <action
-            android:id="@+id/action_mainFragment_to_rx8Fragment"
-            app:destination="@id/rx8Fragment" />
+            android:id="@+id/action_mainFragment_to_carAdFragment"
+            app:destination="@id/carAdFragment" />
         <action
             android:id="@+id/action_mainFragment_to_brandslistFragment"
             app:destination="@id/brandslistFragment" />
     </fragment>
 
     <fragment
-        android:id="@+id/skylineFragment"
-        android:name="com.example.carshowroom.Fragments.SkylineFragment"
-        android:label="Skyline"
-        tools:layout="@layout/fragment_skyline">
+        android:id="@+id/carAdFragment"
+        android:name="com.example.carshowroom.Fragments.CarAdFragment"
+        android:label="CarAd"
+        tools:layout="@layout/fragment_car_ad">
         <action
             android:id="@+id/action_skylineFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/rs6Fragment"
-        android:name="com.example.carshowroom.Fragments.RS6Fragment"
-        android:label="RS6"
-        tools:layout="@layout/fragment_rs6">
-        <action
-            android:id="@+id/action_rs6Fragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
         <argument
-            android:name="rs6_bet"
+            android:name="carAd_Key"
             android:defaultValue="0"
             app:argType="string" />
     </fragment>
 
-    <fragment
-        android:id="@+id/rx8Fragment"
-        android:name="com.example.carshowroom.Fragments.RX8Fragment"
-        android:label="RX8"
-        tools:layout="@layout/fragment_rx8">
-        <action
-            android:id="@+id/action_rx8Fragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
-    </fragment>
 
     <fragment
         android:id="@+id/brandslistFragment"

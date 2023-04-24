@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/ide">
@@ -17,38 +16,34 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/rx8_title"
+        android:id="@+id/car_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="5dp"
-        android:text="@string/mazda_rx_8"
         android:textColor="@android:color/white"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/rx8_price"
+        android:id="@+id/car_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="9 852 $"
         android:textColor="@color/white"
         android:textSize="25sp"
-        app:layout_constraintEnd_toEndOf="@id/rx8_title"
-        app:layout_constraintTop_toBottomOf="@id/rx8_title"
-        tools:ignore="HardcodedText" />
+        app:layout_constraintEnd_toEndOf="@id/car_title"
+        app:layout_constraintTop_toBottomOf="@id/car_title" />
 
     <ImageView
-        android:id="@+id/rx8_image"
+        android:id="@+id/car_image"
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:layout_marginHorizontal="5sp"
-        android:contentDescription="@string/nissan_skyline_r34"
+        android:contentDescription="@string/audi_rs6_c8"
         android:scaleType="fitXY"
-        android:src="@drawable/rx8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/rx8_price" />
+        app:layout_constraintTop_toBottomOf="@id/car_price" />
 
     <TextView
         android:id="@+id/year_title"
@@ -56,22 +51,20 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="@string/Year_of_issue_ru"
-        android:textColor="@android:color/white"
+        android:textColor="@color/white"
         android:textSize="18sp"
-        app:layout_constraintLeft_toLeftOf="@id/rx8_image"
-        app:layout_constraintTop_toBottomOf="@id/rx8_image" />
+        app:layout_constraintLeft_toLeftOf="@id/car_image"
+        app:layout_constraintTop_toBottomOf="@id/car_image" />
 
     <TextView
         android:id="@+id/year"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="2003"
         android:textColor="@android:color/white"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@id/rx8_image"
-        app:layout_constraintTop_toBottomOf="@id/rx8_image"
-        tools:ignore="HardcodedText" />
+        app:layout_constraintEnd_toEndOf="@id/car_image"
+        app:layout_constraintTop_toBottomOf="@id/car_image" />
 
     <TextView
         android:id="@+id/mileage_title"
@@ -81,7 +74,7 @@
         android:text="@string/mileage_ru"
         android:textColor="@android:color/white"
         android:textSize="18sp"
-        app:layout_constraintLeft_toLeftOf="@id/rx8_image"
+        app:layout_constraintLeft_toLeftOf="@id/car_image"
         app:layout_constraintTop_toBottomOf="@id/year_title" />
 
     <TextView
@@ -89,12 +82,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="190125 км"
         android:textColor="@android:color/white"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@id/rx8_image"
-        app:layout_constraintTop_toBottomOf="@id/year"
-        tools:ignore="HardcodedText" />
+        app:layout_constraintEnd_toEndOf="@id/car_image"
+        app:layout_constraintTop_toBottomOf="@id/year" />
 
     <TextView
         android:id="@+id/engine_title"
@@ -104,7 +95,7 @@
         android:text="@string/engine_ru"
         android:textColor="@android:color/white"
         android:textSize="18sp"
-        app:layout_constraintLeft_toLeftOf="@id/rx8_image"
+        app:layout_constraintLeft_toLeftOf="@id/car_image"
         app:layout_constraintTop_toBottomOf="@id/mileage_title" />
 
     <TextView
@@ -112,12 +103,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="1.3 / 250 л.c. / Бензин"
         android:textColor="@android:color/white"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@id/rx8_image"
-        app:layout_constraintTop_toBottomOf="@id/mileage"
-        tools:ignore="HardcodedText" />
+        app:layout_constraintEnd_toEndOf="@id/car_image"
+        app:layout_constraintTop_toBottomOf="@id/mileage" />
 
     <TextView
         android:id="@+id/body_title"
@@ -127,7 +116,7 @@
         android:text="@string/body_ru"
         android:textColor="@android:color/white"
         android:textSize="18sp"
-        app:layout_constraintLeft_toLeftOf="@id/rx8_image"
+        app:layout_constraintLeft_toLeftOf="@id/car_image"
         app:layout_constraintTop_toBottomOf="@id/engine_title" />
 
     <TextView
@@ -135,10 +124,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="@string/coupe_ru"
         android:textColor="@android:color/white"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@id/rx8_image"
+        app:layout_constraintEnd_toEndOf="@id/car_image"
         app:layout_constraintTop_toBottomOf="@id/engine" />
 
     <TextView
@@ -149,7 +137,7 @@
         android:text="@string/color_ru"
         android:textColor="@android:color/white"
         android:textSize="18sp"
-        app:layout_constraintLeft_toLeftOf="@id/rx8_image"
+        app:layout_constraintLeft_toLeftOf="@id/car_image"
         app:layout_constraintTop_toBottomOf="@id/body_title" />
 
     <TextView
@@ -157,10 +145,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="@string/gray_ru"
         android:textColor="@android:color/white"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@id/rx8_image"
+        app:layout_constraintEnd_toEndOf="@id/car_image"
         app:layout_constraintTop_toBottomOf="@id/body" />
 
     <TextView
@@ -171,7 +158,7 @@
         android:text="@string/drive_unit_ru"
         android:textColor="@android:color/white"
         android:textSize="18sp"
-        app:layout_constraintLeft_toLeftOf="@id/rx8_image"
+        app:layout_constraintLeft_toLeftOf="@id/car_image"
         app:layout_constraintTop_toBottomOf="@id/color_title" />
 
     <TextView
@@ -179,10 +166,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="@string/rwd_ru"
         android:textColor="@android:color/white"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@id/rx8_image"
+        app:layout_constraintEnd_toEndOf="@id/car_image"
         app:layout_constraintTop_toBottomOf="@id/color" />
 
     <TextView
@@ -193,7 +179,7 @@
         android:text="@string/transmission_ru"
         android:textColor="@android:color/white"
         android:textSize="18sp"
-        app:layout_constraintLeft_toLeftOf="@id/rx8_image"
+        app:layout_constraintLeft_toLeftOf="@id/car_image"
         app:layout_constraintTop_toBottomOf="@id/drive_unit_title" />
 
     <TextView
@@ -201,10 +187,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="@string/manual_ru"
         android:textColor="@android:color/white"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@id/rx8_image"
+        app:layout_constraintEnd_toEndOf="@id/car_image"
         app:layout_constraintTop_toBottomOf="@id/drive_unit" />
 
     <Button
@@ -215,8 +200,7 @@
         android:backgroundTint="@color/darkgreen"
         android:text="@string/book_car_ru"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/rx8_image"
-        app:layout_constraintStart_toStartOf="@id/rx8_image" />
-
+        app:layout_constraintEnd_toEndOf="@id/car_image"
+        app:layout_constraintStart_toStartOf="@id/car_image" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
