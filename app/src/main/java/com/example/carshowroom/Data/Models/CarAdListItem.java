@@ -1,10 +1,10 @@
-package com.example.carshowroom.Entities;
+package com.example.carshowroom.Data.Models;
 
 public class CarAdListItem {
     private String name; // название
-    private String year;
-    private String price;
-    private String color;
+    private String year; // год
+    private String price; // цена
+    private String color; // цвет
     private int flagResource; // ресурс флага
 
     public CarAdListItem(String name, String year, String price, String color, int flagResource) {

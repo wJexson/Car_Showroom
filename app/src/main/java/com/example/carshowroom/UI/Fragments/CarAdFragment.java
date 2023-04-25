@@ -1,4 +1,4 @@
-package com.example.carshowroom.Fragments;
+package com.example.carshowroom.UI.Fragments;
 
 import android.annotation.SuppressLint;
 import android.app.Notification;

@@ -1,4 +1,4 @@
-package com.example.carshowroom.Entities;
+package com.example.carshowroom.Data.Models;
 
 public class BrandListItem {
 

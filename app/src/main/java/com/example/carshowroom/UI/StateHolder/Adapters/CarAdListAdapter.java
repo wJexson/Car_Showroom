@@ -1,6 +1,5 @@
-package com.example.carshowroom.Adapters;
+package com.example.carshowroom.UI.StateHolder.Adapters;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,21 +9,21 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.LiveData;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.carshowroom.Entities.CarAdListItem;
+import com.example.carshowroom.Data.Models.CarAdListItem;
 import com.example.carshowroom.R;
 
 import java.util.List;
+import java.util.Objects;
 
 public class CarAdListAdapter extends RecyclerView.Adapter<CarAdListAdapter.ViewHolder> {
 
-    private final LayoutInflater inflater;
-    private final List<CarAdListItem> carAdListItems;
+    private final LiveData<List<CarAdListItem>> carAdListItems;
 
-    public CarAdListAdapter(Context context, List<CarAdListItem> carAdListItems) {
-        this.inflater = LayoutInflater.from(context);
+    public CarAdListAdapter(LiveData<List<CarAdListItem>> carAdListItems) {
         this.carAdListItems = carAdListItems;
     }
 
@@ -32,13 +31,13 @@ public class CarAdListAdapter extends RecyclerView.Adapter<CarAdListAdapter.View
     @NonNull
     @Override
     public CarAdListAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = inflater.inflate(R.layout.car_ad_list_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.car_ad_list_item, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull CarAdListAdapter.ViewHolder holder, int position) {
-        CarAdListItem carAdListItem = carAdListItems.get(position);
+        CarAdListItem carAdListItem = Objects.requireNonNull(carAdListItems.getValue()).get(position);
         holder.flagView.setImageResource(carAdListItem.getFlagResource());
         holder.nameView.setText(carAdListItem.getName());
         holder.yearView.setText(carAdListItem.getYear());
@@ -57,7 +56,7 @@ public class CarAdListAdapter extends RecyclerView.Adapter<CarAdListAdapter.View
 
     @Override
     public int getItemCount() {
-        return carAdListItems.size();
+        return Objects.requireNonNull(carAdListItems.getValue()).size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

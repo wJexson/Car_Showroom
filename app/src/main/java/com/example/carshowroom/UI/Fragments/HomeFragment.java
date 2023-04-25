@@ -1,4 +1,4 @@
-package com.example.carshowroom.Fragments;
+package com.example.carshowroom.UI.Fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,29 +9,30 @@ import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.carshowroom.Adapters.CarAdListAdapter;
-import com.example.carshowroom.Entities.CarAdListItem;
 import com.example.carshowroom.R;
-
-import java.util.ArrayList;
+import com.example.carshowroom.UI.StateHolder.Adapters.CarAdListAdapter;
+import com.example.carshowroom.UI.StateHolder.ViewModel.CarAdViewModel;
 
 public class HomeFragment extends Fragment {
+
+    private CarAdListAdapter carAdListAdapter;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        CarAdViewModel carAdViewModel = new ViewModelProvider(this).get(CarAdViewModel.class);
+        carAdListAdapter = new CarAdListAdapter(carAdViewModel.getCarAdItemLiveData());
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-        ArrayList<CarAdListItem> carAdListItems = new ArrayList<CarAdListItem>();
-        carAdListItems.add(new CarAdListItem("Nissan Skyline GT-R R34", "2002", "120 000 $", "Серый", R.drawable.skyline));
-        carAdListItems.add(new CarAdListItem("Audi RS6 C8", "2021", "200 000 $", "Синий", R.drawable.rs6blue));
-        carAdListItems.add(new CarAdListItem("Mazda RX-8", "2003", "9 852 $", "Серый", R.drawable.rx8));
-        carAdListItems.add(new CarAdListItem("Mazda RX-7", "2002", "31 332 $", "Серый", R.drawable.rx7));
-        carAdListItems.add(new CarAdListItem("Honda Civic TYPE R", "2000", "6 738 $", "Черный", R.drawable.civic));
-        RecyclerView carsList = view.findViewById(R.id.carList);
-        CarAdListAdapter carAdapter = new CarAdListAdapter(getContext(), carAdListItems);
-        carsList.setAdapter(carAdapter);
+        RecyclerView carList = view.findViewById(R.id.carList);
+        carList.setAdapter(carAdListAdapter);
         return view;
     }
 

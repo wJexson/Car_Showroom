@@ -1,9 +1,11 @@
-package com.example.carshowroom;
+package com.example.carshowroom.UI.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.carshowroom.R;
 
 public class HelloActivity extends AppCompatActivity {
 

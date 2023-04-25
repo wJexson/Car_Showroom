@@ -1,4 +1,4 @@
-package com.example.carshowroom.Adapters;
+package com.example.carshowroom.UI.StateHolder.Adapters;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.carshowroom.R;
-import com.example.carshowroom.Entities.BrandListItem;
+import com.example.carshowroom.Data.Models.BrandListItem;
 
 import java.util.List;
 

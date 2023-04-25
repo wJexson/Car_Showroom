@@ -1,4 +1,4 @@
-package com.example.carshowroom.Fragments;
+package com.example.carshowroom.UI.Fragments;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -12,13 +12,13 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.carshowroom.Entities.BrandListItem;
+import com.example.carshowroom.Data.Models.BrandListItem;
 import com.example.carshowroom.R;
-import com.example.carshowroom.Adapters.BrandListAdapter;
+import com.example.carshowroom.UI.StateHolder.Adapters.BrandListAdapter;
 
 import java.util.ArrayList;
 
-public class RecyclerViewFragment extends Fragment {
+public class BrandListFragment extends Fragment {
 
     private static final String TAG = "RecycleView";
 

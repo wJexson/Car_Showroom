@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.example.carshowroom.Fragments.HomeFragment"
+        android:name="com.example.carshowroom.UI.Fragments.HomeFragment"
         android:label="Main"
         tools:layout="@layout/fragment_home">
         <action
@@ -20,7 +20,7 @@
 
     <fragment
         android:id="@+id/carAdFragment"
-        android:name="com.example.carshowroom.Fragments.CarAdFragment"
+        android:name="com.example.carshowroom.UI.Fragments.CarAdFragment"
         android:label="CarAd"
         tools:layout="@layout/fragment_car_ad">
         <action
@@ -35,7 +35,7 @@
 
     <fragment
         android:id="@+id/brandslistFragment"
-        android:name="com.example.carshowroom.Fragments.RecyclerViewFragment"
+        android:name="com.example.carshowroom.UI.Fragments.BrandListFragment"
         android:label="BrandList"
         tools:layout="@layout/fragment_recyclerview">
         <action

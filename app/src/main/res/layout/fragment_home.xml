@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/ide"
-    tools:context=".Fragments.HomeFragment">
+    tools:context=".UI.Fragments.HomeFragment">
 
     <TextView
         android:id="@+id/cars_in_stock"
