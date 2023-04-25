@@ -56,20 +56,20 @@ public class CarAdFragment extends Fragment {
             car_color.setText("Серый");
             car_drive_unit.setText("Полный");
             car_transmission.setText("Автоматическая");
-        } else if (Objects.equals(car_name, "Audi RS6 C8")) {
-            car_image.setImageResource(R.drawable.rs6blue);
-            car_price.setText("200 000 $");
+        } else if (Objects.equals(car_name, "Audi RS5 F5")) {
+            car_image.setImageResource(R.drawable.rs5);
+            car_price.setText("125 000 $");
             car_year.setText("2021");
             car_mileage.setText("20 км");
-            car_engine.setText("4.0 л / 600 л.с. / Бензин");
-            car_body.setText("Универсал");
-            car_color.setText("Синий");
+            car_engine.setText("2.9 л / 450 л.с. / Бензин");
+            car_body.setText("Купе");
+            car_color.setText("Черный");
             car_drive_unit.setText("Полный");
             car_transmission.setText("Автоматическая");
         } else if (Objects.equals(car_name, "Mazda RX-8")) {
             car_image.setImageResource(R.drawable.rx8);
-            car_price.setText("9852 $");
-            car_year.setText("2003");
+            car_price.setText("19 852 $");
+            car_year.setText("2011");
             car_mileage.setText("190  125 км");
             car_engine.setText("1.3 / 250 л.c. / Бензин");
             car_body.setText("Купе");
@@ -88,7 +88,7 @@ public class CarAdFragment extends Fragment {
             car_transmission.setText("Механическая");
         } else if (Objects.equals(car_name, "Honda Civic TYPE R")) {
             car_image.setImageResource(R.drawable.civic);
-            car_price.setText("6 738 $");
+            car_price.setText("16 738 $");
             car_year.setText("2000");
             car_mileage.setText("168 000 км");
             car_engine.setText("1.6 / 185 л.c. / Бензин");

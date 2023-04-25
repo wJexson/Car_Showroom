@@ -13,11 +13,12 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.carshowroom.Data.Models.CarAdListItem;
 import com.example.carshowroom.R;
 import com.example.carshowroom.UI.StateHolder.Adapters.CarAdListAdapter;
 import com.example.carshowroom.UI.StateHolder.ViewModel.CarAdViewModel;
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements CarAdListAdapter.OnCarAdClickListener{
 
     private CarAdListAdapter carAdListAdapter;
 
@@ -25,7 +26,7 @@ public class HomeFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         CarAdViewModel carAdViewModel = new ViewModelProvider(this).get(CarAdViewModel.class);
-        carAdListAdapter = new CarAdListAdapter(carAdViewModel.getCarAdItemLiveData());
+        carAdListAdapter = new CarAdListAdapter(carAdViewModel.getCarAdItemLiveData(), this);
     }
 
     @Override
@@ -47,5 +48,13 @@ public class HomeFragment extends Fragment {
                 Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_brandslistFragment);
             }
         });
+    }
+
+    @Override
+    public void onCarAdClick(CarAdListItem carAdListItem) {
+        String car_name = carAdListItem.getName();
+        Bundle bundle = new Bundle();
+        bundle.putString("carAd_Key", car_name);
+        Navigation.findNavController(requireView()).navigate(R.id.action_mainFragment_to_carAdFragment, bundle);
     }
 }

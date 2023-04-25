@@ -1,16 +1,13 @@
 package com.example.carshowroom.UI.StateHolder.Adapters;
 
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
-import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.carshowroom.Data.Models.CarAdListItem;
@@ -22,9 +19,16 @@ import java.util.Objects;
 public class CarAdListAdapter extends RecyclerView.Adapter<CarAdListAdapter.ViewHolder> {
 
     private final LiveData<List<CarAdListItem>> carAdListItems;
+    private final CarAdListAdapter.OnCarAdClickListener onClickListener;
 
-    public CarAdListAdapter(LiveData<List<CarAdListItem>> carAdListItems) {
+    public interface OnCarAdClickListener {
+        void onCarAdClick(CarAdListItem carAdListItem);
+    }
+
+
+    public CarAdListAdapter(LiveData<List<CarAdListItem>> carAdListItems, OnCarAdClickListener onClickListener) {
         this.carAdListItems = carAdListItems;
+        this.onClickListener = onClickListener;
     }
 
 
@@ -43,15 +47,10 @@ public class CarAdListAdapter extends RecyclerView.Adapter<CarAdListAdapter.View
         holder.yearView.setText(carAdListItem.getYear());
         holder.priceView.setText(carAdListItem.getPrice());
         holder.colorView.setText(carAdListItem.getColor());
-        holder.buttonView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String car_name = carAdListItem.getName();
-                Bundle bundle = new Bundle();
-                bundle.putString("carAd_Key", car_name);
-                Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_carAdFragment, bundle);
-            }
-        });
+        holder.transmissionView.setText(carAdListItem.getTransmission());
+        holder.drive_unitView.setText(carAdListItem.getDrive_unit());
+        holder.itemView.setOnClickListener(v -> onClickListener.onCarAdClick(carAdListItem));
+
     }
 
     @Override
@@ -65,7 +64,8 @@ public class CarAdListAdapter extends RecyclerView.Adapter<CarAdListAdapter.View
         final TextView yearView;
         final TextView colorView;
         final TextView priceView;
-        final Button buttonView;
+        final TextView transmissionView;
+        final TextView drive_unitView;
 
         public ViewHolder(View view) {
             super(view);
@@ -74,7 +74,8 @@ public class CarAdListAdapter extends RecyclerView.Adapter<CarAdListAdapter.View
             this.yearView = view.findViewById(R.id.car_year);
             this.colorView = view.findViewById(R.id.car_color);
             this.priceView = view.findViewById(R.id.car_price);
-            this.buttonView = view.findViewById(R.id.car_button);
+            this.transmissionView = view.findViewById(R.id.car_transmission);
+            this.drive_unitView = view.findViewById(R.id.car_drive_unit);
         }
     }
 }
