@@ -9,12 +9,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.LiveData;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.carshowroom.R;
 import com.example.carshowroom.Data.Models.BrandListItem;
 
 import java.util.List;
+import java.util.Objects;
 
 public class BrandListAdapter extends RecyclerView.Adapter<BrandListAdapter.ViewHolder> {
 
@@ -22,27 +24,25 @@ public class BrandListAdapter extends RecyclerView.Adapter<BrandListAdapter.View
         void onBrandClick(BrandListItem brandListItem, int position);
     }
 
-    private final LayoutInflater inflater;
-    private final List<BrandListItem> brandListItems;
+    private final LiveData<List<BrandListItem>> brandListItems;
 
     private final OnBrandClickListener onClickListener;
 
-    public BrandListAdapter(Context context, List<BrandListItem> brandListItems, OnBrandClickListener onClickListener) {
+    public BrandListAdapter(LiveData<List<BrandListItem>> brandListItems, OnBrandClickListener onClickListener) {
         this.brandListItems = brandListItems;
-        this.inflater = LayoutInflater.from(context);
         this.onClickListener = onClickListener;
     }
 
     @NonNull
     @Override
     public BrandListAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = inflater.inflate(R.layout.brand_list_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.brand_list_item, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(BrandListAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
-        BrandListItem brandListItem = brandListItems.get(position);
+        BrandListItem brandListItem = Objects.requireNonNull(brandListItems.getValue()).get(position);
         holder.flagView.setImageResource(brandListItem.getFlagResource());
         holder.nameView.setText(brandListItem.getName());
 
@@ -58,7 +58,7 @@ public class BrandListAdapter extends RecyclerView.Adapter<BrandListAdapter.View
 
     @Override
     public int getItemCount() {
-        return brandListItems.size();
+        return Objects.requireNonNull(brandListItems.getValue()).size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

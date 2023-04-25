@@ -15,7 +15,7 @@ public class CarAdViewModel extends ViewModel {
     public CarAdViewModel() {
         carAdItemListLiveData = new MutableLiveData<>();
         CarAdRepository carAdRepository = new CarAdRepository();
-        carAdItemListLiveData.setValue(carAdRepository.getCarAdListItemList());
+        carAdItemListLiveData.setValue(carAdRepository.getCarAdListItems());
     }
 
     public LiveData<List<CarAdListItem>> getCarAdItemLiveData() {
