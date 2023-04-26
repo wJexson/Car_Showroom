@@ -14,6 +14,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.carshowroom.UI.StateHolder.ViewModel.BrandViewModelFactory;
 import com.example.carshowroom.Data.Models.BrandListItem;
 import com.example.carshowroom.R;
 import com.example.carshowroom.UI.StateHolder.Adapters.BrandListAdapter;
@@ -27,7 +28,8 @@ public class BrandListFragment extends Fragment implements BrandListAdapter.OnBr
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        BrandViewModel brandViewModel = new ViewModelProvider(this).get(BrandViewModel.class);
+        BrandViewModelFactory factory = new BrandViewModelFactory(getContext());
+        BrandViewModel brandViewModel = new ViewModelProvider(this, factory).get(BrandViewModel.class);
         brandListAdapter = new BrandListAdapter(brandViewModel.getBrandItemListLiveData(), this);
     }
 
@@ -50,7 +52,7 @@ public class BrandListFragment extends Fragment implements BrandListAdapter.OnBr
 
     @Override
     public void onBrandClick(BrandListItem brandListItem, int position) {
-         String[] all_brands = getResources().getStringArray(R.array.Auto_brands);
+        String[] all_brands = getResources().getStringArray(R.array.Auto_brands);
         String selectedItem = all_brands[position];
         Log.i(TAG, "You clicked on " + selectedItem);
         Toast.makeText(getActivity(), selectedItem, Toast.LENGTH_SHORT).show();

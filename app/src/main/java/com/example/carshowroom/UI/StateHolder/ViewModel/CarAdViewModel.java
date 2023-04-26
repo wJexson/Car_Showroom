@@ -10,15 +10,15 @@ import com.example.carshowroom.Data.Repositories.CarAdRepository;
 import java.util.List;
 
 public class CarAdViewModel extends ViewModel {
-    private final MutableLiveData<List<CarAdListItem>> carAdItemListLiveData;
+    private final MutableLiveData<List<CarAdListItem>> carAdListItemLiveData;
 
     public CarAdViewModel() {
-        carAdItemListLiveData = new MutableLiveData<>();
+        carAdListItemLiveData = new MutableLiveData<>();
         CarAdRepository carAdRepository = new CarAdRepository();
-        carAdItemListLiveData.setValue(carAdRepository.getCarAdListItems());
+        carAdListItemLiveData.setValue(carAdRepository.getCarAdListItems());
     }
 
     public LiveData<List<CarAdListItem>> getCarAdItemLiveData() {
-        return carAdItemListLiveData;
+        return carAdListItemLiveData;
     }
 }
