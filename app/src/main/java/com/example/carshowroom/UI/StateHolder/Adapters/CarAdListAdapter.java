@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.carshowroom.Data.Models.CarAdListItem;
+import com.example.carshowroom.Data.Models.CarAd;
 import com.example.carshowroom.R;
 
 import java.util.List;
@@ -18,16 +18,16 @@ import java.util.Objects;
 
 public class CarAdListAdapter extends RecyclerView.Adapter<CarAdListAdapter.ViewHolder> {
 
-    private final LiveData<List<CarAdListItem>> carAdListItems;
+    private final LiveData<List<CarAd>> carAdList;
     private final CarAdListAdapter.OnCarAdClickListener onClickListener;
 
     public interface OnCarAdClickListener {
-        void onCarAdClick(CarAdListItem carAdListItem);
+        void onCarAdClick(CarAd carAdListItem);
     }
 
 
-    public CarAdListAdapter(LiveData<List<CarAdListItem>> carAdListItems, OnCarAdClickListener onClickListener) {
-        this.carAdListItems = carAdListItems;
+    public CarAdListAdapter(LiveData<List<CarAd>> carAdListItems, OnCarAdClickListener onClickListener) {
+        this.carAdList = carAdListItems;
         this.onClickListener = onClickListener;
     }
 
@@ -41,7 +41,7 @@ public class CarAdListAdapter extends RecyclerView.Adapter<CarAdListAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull CarAdListAdapter.ViewHolder holder, int position) {
-        CarAdListItem carAdListItem = Objects.requireNonNull(carAdListItems.getValue()).get(position);
+        CarAd carAdListItem = Objects.requireNonNull(carAdList.getValue()).get(position);
         holder.flagView.setImageResource(carAdListItem.getFlagResource());
         holder.nameView.setText(carAdListItem.getName());
         holder.yearView.setText(carAdListItem.getYear());
@@ -55,7 +55,7 @@ public class CarAdListAdapter extends RecyclerView.Adapter<CarAdListAdapter.View
 
     @Override
     public int getItemCount() {
-        return Objects.requireNonNull(carAdListItems.getValue()).size();
+        return Objects.requireNonNull(carAdList.getValue()).size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

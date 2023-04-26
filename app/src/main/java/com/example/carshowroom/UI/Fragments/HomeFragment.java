@@ -13,7 +13,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.carshowroom.Data.Models.CarAdListItem;
+import com.example.carshowroom.Data.Models.CarAd;
 import com.example.carshowroom.R;
 import com.example.carshowroom.UI.StateHolder.Adapters.CarAdListAdapter;
 import com.example.carshowroom.UI.StateHolder.ViewModel.CarAdViewModel;
@@ -32,8 +32,8 @@ public class HomeFragment extends Fragment implements CarAdListAdapter.OnCarAdCl
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-        RecyclerView carList = view.findViewById(R.id.carList);
-        carList.setAdapter(carAdListAdapter);
+        RecyclerView carAdList = view.findViewById(R.id.carAdList);
+        carAdList.setAdapter(carAdListAdapter);
         return view;
     }
 
@@ -51,7 +51,7 @@ public class HomeFragment extends Fragment implements CarAdListAdapter.OnCarAdCl
     }
 
     @Override
-    public void onCarAdClick(CarAdListItem carAdListItem) {
+    public void onCarAdClick(CarAd carAdListItem) {
         String car_name = carAdListItem.getName();
         Bundle bundle = new Bundle();
         bundle.putString("carAd_Key", car_name);

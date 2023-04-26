@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.carshowroom.Data.Models.BrandListItem;
+import com.example.carshowroom.Data.Models.Brand;
 import com.example.carshowroom.R;
 
 import java.util.List;
@@ -20,15 +20,15 @@ import java.util.Objects;
 public class BrandListAdapter extends RecyclerView.Adapter<BrandListAdapter.ViewHolder> {
 
     public interface OnBrandClickListener {
-        void onBrandClick(BrandListItem brandListItem, int position);
+        void onBrandClick(Brand brandListItem, int position);
     }
 
-    private final LiveData<List<BrandListItem>> brandListItems;
+    private final LiveData<List<Brand>> brandList;
 
     private final OnBrandClickListener onClickListener;
 
-    public BrandListAdapter(LiveData<List<BrandListItem>> brandListItems, OnBrandClickListener onClickListener) {
-        this.brandListItems = brandListItems;
+    public BrandListAdapter(LiveData<List<Brand>> brandListItems, OnBrandClickListener onClickListener) {
+        this.brandList = brandListItems;
         this.onClickListener = onClickListener;
     }
 
@@ -41,7 +41,7 @@ public class BrandListAdapter extends RecyclerView.Adapter<BrandListAdapter.View
 
     @Override
     public void onBindViewHolder(BrandListAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
-        BrandListItem brandListItem = Objects.requireNonNull(brandListItems.getValue()).get(position);
+        Brand brandListItem = Objects.requireNonNull(brandList.getValue()).get(position);
         holder.flagView.setImageResource(brandListItem.getFlagResource());
         holder.nameView.setText(brandListItem.getName());
 
@@ -57,7 +57,7 @@ public class BrandListAdapter extends RecyclerView.Adapter<BrandListAdapter.View
 
     @Override
     public int getItemCount() {
-        return Objects.requireNonNull(brandListItems.getValue()).size();
+        return Objects.requireNonNull(brandList.getValue()).size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

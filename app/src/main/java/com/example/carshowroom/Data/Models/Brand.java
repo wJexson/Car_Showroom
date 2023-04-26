@@ -1,11 +1,11 @@
 package com.example.carshowroom.Data.Models;
 
-public class BrandListItem {
+public class Brand {
 
     private String name; // название
     private int flagResource; // ресурс флага
 
-    public BrandListItem(String name, int flag) {
+    public Brand(String name, int flag) {
         this.name = name;
         this.flagResource = flag;
     }

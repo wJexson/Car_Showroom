@@ -1,6 +1,6 @@
 package com.example.carshowroom.Data.Models;
 
-public class CarAdListItem {
+public class CarAd {
     private String name; // название
     private String year; // год
     private String price; // цена
@@ -9,7 +9,7 @@ public class CarAdListItem {
     private String drive_unit; // привод
     private int flagResource; // ресурс флага
 
-    public CarAdListItem(String name, String year, String price, String color, String transmission, String drive_unit, int flagResource) {
+    public CarAd(String name, String year, String price, String color, String transmission, String drive_unit, int flagResource) {
         this.name = name;
         this.year = year;
         this.price = price;
