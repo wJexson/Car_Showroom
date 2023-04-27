@@ -40,9 +40,9 @@ public class HomeFragment extends Fragment implements CarAdListAdapter.OnCarAdCl
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        Button recyclerview_button = view.findViewById(R.id.recyclerview_button);
+        Button brandList_button = view.findViewById(R.id.brandList_button);
 
-        recyclerview_button.setOnClickListener(new View.OnClickListener() {
+        brandList_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_brandslistFragment);
