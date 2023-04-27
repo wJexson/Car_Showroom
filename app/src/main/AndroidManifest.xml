@@ -16,9 +16,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CarShowroom"
         tools:targetApi="31">
-        <service
-            android:name=".CarService"
-            android:exported="false" />
 
         <activity
             android:name=".UI.Activities.HelloActivity"

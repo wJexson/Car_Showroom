@@ -7,7 +7,6 @@ import com.example.carshowroom.Data.Models.CarAd;
 import com.example.carshowroom.Data.Protocols.CarAdProtocol;
 
 import java.util.List;
-import java.util.Objects;
 
 public class CarAdRepository implements CarAdProtocol {
     private final CarAdDataSource carAdDataSource = new CarAdDataSource();
