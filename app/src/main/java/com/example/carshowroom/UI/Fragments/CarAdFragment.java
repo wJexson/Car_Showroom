@@ -33,6 +33,41 @@ public class CarAdFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_car_ad, container, false);
 
+        String car_name = parseArgs();
+        setCarData(car_name, view);
+
+        Button back_button = view.findViewById(R.id.back_button);
+        Button book_button = view.findViewById(R.id.book_butoon);
+        createNotificationChannel();
+
+        back_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(view).navigate(R.id.action_skylineFragment_to_mainFragment);
+            }
+        });
+
+        book_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showNotification(car_name);
+            }
+        });
+
+        return view;
+    }
+
+    public String parseArgs() {
+        String car_name = "";
+        Bundle bundle = this.getArguments();
+        if (bundle != null) {
+            car_name = bundle.getString("carAd_Key");
+        }
+        return car_name;
+    }
+
+    @SuppressLint("SetTextI18n")
+    public void setCarData(String car_name, View view) {
         TextView car_title = view.findViewById(R.id.car_title);
         TextView car_price = view.findViewById(R.id.car_price);
         TextView car_year = view.findViewById(R.id.year);
@@ -43,8 +78,6 @@ public class CarAdFragment extends Fragment {
         TextView car_drive_unit = view.findViewById(R.id.drive_unit);
         TextView car_transmission = view.findViewById(R.id.transmission);
         ImageView car_image = view.findViewById(R.id.car_image);
-        assert getArguments() != null;
-        String car_name = getArguments().getString("carAd_Key");
         car_title.setText(car_name);
         if (Objects.equals(car_name, "Nissan Skyline GT-R R34")) {
             car_image.setImageResource(R.drawable.skyline);
@@ -97,28 +130,8 @@ public class CarAdFragment extends Fragment {
             car_drive_unit.setText("Передний");
             car_transmission.setText("Механическая");
         }
-
-
-        Button back_button = view.findViewById(R.id.back_button);
-        Button book_button = view.findViewById(R.id.book_butoon);
-        createNotificationChannel();
-
-        back_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Navigation.findNavController(view).navigate(R.id.action_skylineFragment_to_mainFragment);
-            }
-        });
-
-        book_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showNotification(car_name);
-            }
-        });
-
-        return view;
     }
+
 
     private void showNotification(String car_name) {
         BitmapFactory.Options options = new BitmapFactory.Options();

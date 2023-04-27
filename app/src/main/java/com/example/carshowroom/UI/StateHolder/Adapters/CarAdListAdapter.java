@@ -18,17 +18,16 @@ import java.util.Objects;
 
 public class CarAdListAdapter extends RecyclerView.Adapter<CarAdListAdapter.ViewHolder> {
 
-    private final LiveData<List<CarAd>> carAdList;
-    private final CarAdListAdapter.OnCarAdClickListener onClickListener;
+    private final List<CarAd> carAdList;
+    public CarAdListAdapter.OnCarAdClickListener onClickListener = null;
 
     public interface OnCarAdClickListener {
         void onCarAdClick(CarAd carAdListItem);
     }
 
 
-    public CarAdListAdapter(LiveData<List<CarAd>> carAdListItems, OnCarAdClickListener onClickListener) {
+    public CarAdListAdapter(List<CarAd> carAdListItems) {
         this.carAdList = carAdListItems;
-        this.onClickListener = onClickListener;
     }
 
 
@@ -41,7 +40,7 @@ public class CarAdListAdapter extends RecyclerView.Adapter<CarAdListAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull CarAdListAdapter.ViewHolder holder, int position) {
-        CarAd carAdListItem = Objects.requireNonNull(carAdList.getValue()).get(position);
+        CarAd carAdListItem = Objects.requireNonNull(carAdList).get(position);
         holder.flagView.setImageResource(carAdListItem.getFlagResource());
         holder.nameView.setText(carAdListItem.getName());
         holder.yearView.setText(carAdListItem.getYear());
@@ -55,7 +54,7 @@ public class CarAdListAdapter extends RecyclerView.Adapter<CarAdListAdapter.View
 
     @Override
     public int getItemCount() {
-        return Objects.requireNonNull(carAdList.getValue()).size();
+        return Objects.requireNonNull(carAdList).size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
