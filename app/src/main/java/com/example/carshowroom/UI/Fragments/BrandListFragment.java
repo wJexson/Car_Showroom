@@ -8,37 +8,57 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.carshowroom.UI.StateHolder.ViewModel.BrandViewModelFactory;
 import com.example.carshowroom.Data.Models.Brand;
 import com.example.carshowroom.R;
 import com.example.carshowroom.UI.StateHolder.Adapters.BrandListAdapter;
 import com.example.carshowroom.UI.StateHolder.ViewModel.BrandViewModel;
 
-public class BrandListFragment extends Fragment implements BrandListAdapter.OnBrandClickListener {
+import java.util.List;
+
+public class BrandListFragment extends Fragment {
 
     private static final String TAG = "BrandList";
-    private BrandListAdapter brandListAdapter;
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        BrandViewModelFactory factory = new BrandViewModelFactory(getContext());
-        BrandViewModel brandViewModel = new ViewModelProvider(this, factory).get(BrandViewModel.class);
-        brandListAdapter = new BrandListAdapter(brandViewModel.getBrandItemListLiveData(), this);
-    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_recyclerview, container, false);
-        RecyclerView brandsList = view.findViewById(R.id.brandsList);
-        brandsList.setAdapter(brandListAdapter);
+        return inflater.inflate(R.layout.fragment_recyclerview, container, false);
+    }
+
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         Button back_button = view.findViewById(R.id.back_button);
+
+        BrandViewModel brandViewModel = new ViewModelProvider(this).get(BrandViewModel.class);
+        brandViewModel.brandList.observe(getViewLifecycleOwner(), new Observer<List<Brand>>() {
+            @Override
+            public void onChanged(List<Brand> brands) {
+                BrandListAdapter brandListAdapter = new BrandListAdapter(brands);
+                brandListAdapter.onClickListener = new BrandListAdapter.OnBrandClickListener() {
+                    @Override
+                    public void onBrandClick(Brand brandListItem, int position) {
+                        String[] all_brands = getResources().getStringArray(R.array.Auto_brands);
+                        String selectedItem = all_brands[position];
+                        Log.i(TAG, "You clicked on " + selectedItem);
+                        Toast.makeText(getActivity(), selectedItem, Toast.LENGTH_SHORT).show();
+                    }
+                };
+                RecyclerView brandsList = view.findViewById(R.id.brandsList);
+                brandsList.setAdapter(brandListAdapter);
+            }
+        });
+
 
         back_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,15 +66,5 @@ public class BrandListFragment extends Fragment implements BrandListAdapter.OnBr
                 Navigation.findNavController(view).navigate(R.id.action_brandslistFragment_to_mainFragment);
             }
         });
-
-        return view;
-    }
-
-    @Override
-    public void onBrandClick(Brand brandListItem, int position) {
-        String[] all_brands = getResources().getStringArray(R.array.Auto_brands);
-        String selectedItem = all_brands[position];
-        Log.i(TAG, "You clicked on " + selectedItem);
-        Toast.makeText(getActivity(), selectedItem, Toast.LENGTH_SHORT).show();
     }
 }

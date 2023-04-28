@@ -1,27 +1,19 @@
 package com.example.carshowroom.Data.Repositories;
 
-import android.content.Context;
+import androidx.lifecycle.LiveData;
 
+import com.example.carshowroom.Data.DataSource.BrandDataSource;
 import com.example.carshowroom.Data.Models.Brand;
-import com.example.carshowroom.R;
+import com.example.carshowroom.Data.Protocols.BrandProtocol;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class BrandRepository {
-    private final List<Brand> brandList;
+public class BrandRepository implements BrandProtocol {
 
+    private final BrandDataSource brandDataSource = new BrandDataSource();
 
-    public BrandRepository(Context context) {
-        brandList = new ArrayList<>();
-        String[] all_brands = context.getResources().getStringArray(R.array.Auto_brands);
-        for (String brand : all_brands) {
-            brandList.add(new Brand(brand, R.drawable.car_icon));
-        }
-    }
-
-
-    public List<Brand> getBrandListItems() {
-        return brandList;
+    @Override
+    public LiveData<List<Brand>> getBrandList() {
+        return brandDataSource.getBrandList();
     }
 }

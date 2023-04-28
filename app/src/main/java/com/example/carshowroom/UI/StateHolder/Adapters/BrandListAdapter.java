@@ -8,7 +8,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.lifecycle.LiveData;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.carshowroom.Data.Models.Brand;
@@ -23,13 +22,12 @@ public class BrandListAdapter extends RecyclerView.Adapter<BrandListAdapter.View
         void onBrandClick(Brand brandListItem, int position);
     }
 
-    private final LiveData<List<Brand>> brandList;
+    private final List<Brand> brandList;
 
-    private final OnBrandClickListener onClickListener;
+    public BrandListAdapter.OnBrandClickListener onClickListener = null;
 
-    public BrandListAdapter(LiveData<List<Brand>> brandListItems, OnBrandClickListener onClickListener) {
+    public BrandListAdapter(List<Brand> brandListItems) {
         this.brandList = brandListItems;
-        this.onClickListener = onClickListener;
     }
 
     @NonNull
@@ -41,7 +39,7 @@ public class BrandListAdapter extends RecyclerView.Adapter<BrandListAdapter.View
 
     @Override
     public void onBindViewHolder(BrandListAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
-        Brand brandListItem = Objects.requireNonNull(brandList.getValue()).get(position);
+        Brand brandListItem = Objects.requireNonNull(brandList).get(position);
         holder.flagView.setImageResource(brandListItem.getFlagResource());
         holder.nameView.setText(brandListItem.getName());
 
@@ -57,7 +55,7 @@ public class BrandListAdapter extends RecyclerView.Adapter<BrandListAdapter.View
 
     @Override
     public int getItemCount() {
-        return Objects.requireNonNull(brandList.getValue()).size();
+        return Objects.requireNonNull(brandList).size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
