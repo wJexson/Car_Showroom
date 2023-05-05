@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -40,7 +39,6 @@ public class BrandListAdapter extends RecyclerView.Adapter<BrandListAdapter.View
     @Override
     public void onBindViewHolder(BrandListAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         Brand brandListItem = Objects.requireNonNull(brandList).get(position);
-        holder.flagView.setImageResource(brandListItem.getFlagResource());
         holder.nameView.setText(brandListItem.getName());
 
         // обработка нажатия
@@ -59,12 +57,10 @@ public class BrandListAdapter extends RecyclerView.Adapter<BrandListAdapter.View
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        final ImageView flagView;
         final TextView nameView;
 
         ViewHolder(View view) {
             super(view);
-            flagView = view.findViewById(R.id.logo);
             nameView = view.findViewById(R.id.name);
         }
     }

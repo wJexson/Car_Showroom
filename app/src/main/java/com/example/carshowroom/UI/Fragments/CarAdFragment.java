@@ -1,5 +1,7 @@
 package com.example.carshowroom.UI.Fragments;
 
+import static androidx.core.content.PermissionChecker.checkSelfPermission;
+
 import android.annotation.SuppressLint;
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -16,14 +18,22 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
+import androidx.core.content.PermissionChecker;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
 import com.example.carshowroom.R;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.util.Objects;
 
 public class CarAdFragment extends Fragment {
@@ -40,7 +50,7 @@ public class CarAdFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         String car_name = parseArgs();
-        setCarData(car_name, view);
+        setCarData(car_name, view, allowedPermission());
 
         Button back_button = view.findViewById(R.id.back_button);
         Button book_button = view.findViewById(R.id.book_butoon);
@@ -71,7 +81,7 @@ public class CarAdFragment extends Fragment {
     }
 
     @SuppressLint("SetTextI18n")
-    public void setCarData(String car_name, View view) {
+    public void setCarData(String car_name, View view, boolean allowed) {
         TextView car_title = view.findViewById(R.id.car_title);
         TextView car_price = view.findViewById(R.id.car_price);
         TextView car_year = view.findViewById(R.id.year);
@@ -134,8 +144,38 @@ public class CarAdFragment extends Fragment {
             car_drive_unit.setText("Передний");
             car_transmission.setText("Механическая");
         }
+
+
+        if (allowed) {
+            String fileName = "car_info";
+            String car_info = car_name + "\n" + car_price.getText() + "\n" + car_year.getText() + "\n" + car_mileage.getText()
+                    + "\n" + car_engine.getText() + "\n" + car_body.getText() + "\n" + car_color.getText()
+                    + "\n" + car_drive_unit.getText() + "\n" + car_transmission.getText();
+            System.out.println(car_info);
+            File file_car_info = new File("/storage/emulated/0/Android/data", fileName);
+            try {
+                FileOutputStream fos = new FileOutputStream(file_car_info);
+                BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(fos));
+                writer.write(car_info);
+                writer.close();
+                fos.close();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
     }
 
+
+    private boolean allowedPermission() {
+        if (checkSelfPermission(requireContext(), android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                == PermissionChecker.PERMISSION_GRANTED) {
+            return true;
+        } else {
+            ActivityCompat.requestPermissions(requireActivity(), new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+            return false;
+        }
+    }
 
     private void showNotification(String car_name) {
         BitmapFactory.Options options = new BitmapFactory.Options();

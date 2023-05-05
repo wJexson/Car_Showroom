@@ -37,6 +37,7 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         Button brandList_button = view.findViewById(R.id.brandList_button);
+        Button review_button = view.findViewById(R.id.review_button);
 
         CarAdListViewModel carAdListViewModel = new ViewModelProvider(this).get(CarAdListViewModel.class);
         carAdListViewModel.carAdList.observe(getViewLifecycleOwner(), new Observer<List<CarAd>>() {
@@ -76,6 +77,13 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_brandslistFragment);
+            }
+        });
+
+        review_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_reviewFragment);
             }
         });
     }

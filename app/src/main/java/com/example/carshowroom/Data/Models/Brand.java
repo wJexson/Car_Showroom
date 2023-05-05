@@ -1,29 +1,31 @@
 package com.example.carshowroom.Data.Models;
 
+import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity(tableName = "brand_table")
 public class Brand {
 
-    private String name; // название
-    private int flagResource; // ресурс флага
+    @PrimaryKey
+    @NonNull
+    @ColumnInfo(name = "name")
+    public String name; // название
 
-    public Brand(String name, int flag) {
+
+    public Brand(@NonNull String name) {
         this.name = name;
-        this.flagResource = flag;
     }
 
+    @NonNull
     public String getName() {
         return this.name;
     }
 
-    public void setName(String name) {
+    public void setName(@NonNull String name) {
         this.name = name;
     }
 
-    public int getFlagResource() {
-        return this.flagResource;
-    }
-
-    public void setFlagResource(int flagResource) {
-        this.flagResource = flagResource;
-    }
 
 }

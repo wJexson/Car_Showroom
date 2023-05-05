@@ -1,17 +1,27 @@
 package com.example.carshowroom.Data.DataSource;
 
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
+import android.content.Context;
+import android.util.Log;
 
+import androidx.lifecycle.LiveData;
+
+import com.example.carshowroom.DB.BrandDao;
+import com.example.carshowroom.DB.BrandDataBase;
 import com.example.carshowroom.Data.Models.Brand;
-import com.example.carshowroom.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class BrandDataSource {
+    private final Context context;
+
+    public BrandDataSource(Context context) {
+        this.context = context;
+    }
+
     public LiveData<List<Brand>> getBrandList() {
         List<Brand> brandList = new ArrayList<>();
+
         String[] all_brands = {
                 "Abarth",
                 "Acura",
@@ -214,11 +224,20 @@ public class BrandDataSource {
                 "ZX",
                 "АЗЛК"
         };
+
+
         for (String brand : all_brands) {
-            brandList.add(new Brand(brand, R.drawable.car_icon));
+            brandList.add(new Brand(brand));
         }
-        MutableLiveData<List<Brand>> brandListLD = new MutableLiveData<>();
-        brandListLD.setValue(brandList);
-        return brandListLD;
+
+        BrandDataBase dataBase = BrandDataBase.getDatabase(context);
+        BrandDao brandDao = dataBase.brandDao();
+        dataBase.getQueryExecutor().execute(() -> {
+            for (Brand brand : brandList) {
+                brandDao.insert(brand);
+                Log.d("log", brand.name);
+            }
+        });
+        return brandDao.getBrandList();
     }
 }

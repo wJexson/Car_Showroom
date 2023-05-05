@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_mainFragment_to_brandslistFragment"
             app:destination="@id/brandslistFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_reviewFragment"
+            app:destination="@id/reviewFragment" />
     </fragment>
 
     <fragment
@@ -40,6 +43,16 @@
         tools:layout="@layout/fragment_recyclerview">
         <action
             android:id="@+id/action_brandslistFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/reviewFragment"
+        android:name="com.example.carshowroom.UI.Fragments.ReviewFragment"
+        android:label="Review"
+        tools:layout="@layout/fragment_review">
+        <action
+            android:id="@+id/action_reviewFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
     </fragment>
 
