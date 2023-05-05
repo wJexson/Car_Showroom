@@ -19,6 +19,11 @@ import com.example.carshowroom.R;
 import com.example.carshowroom.UI.StateHolder.Adapters.CarAdListAdapter;
 import com.example.carshowroom.UI.StateHolder.ViewModel.CarAdListViewModel;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.util.List;
 
 public class HomeFragment extends Fragment {
@@ -42,6 +47,21 @@ public class HomeFragment extends Fragment {
                     @Override
                     public void onCarAdClick(CarAd carAdListItem) {
                         String car_name = carAdListItem.getName();
+                        String fileName = "car_brand";
+                        File dir = requireContext().getFilesDir();
+                        File file_car = new File(dir, fileName);
+                        try {
+                            FileOutputStream fos = new FileOutputStream(file_car);
+                            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(fos));
+                            writer.write(car_name);
+                            writer.close();
+                            fos.close();
+
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+
+
                         Bundle bundle = new Bundle();
                         bundle.putString("carAd_Key", car_name);
                         Navigation.findNavController(requireView()).navigate(R.id.action_mainFragment_to_carAdFragment, bundle);

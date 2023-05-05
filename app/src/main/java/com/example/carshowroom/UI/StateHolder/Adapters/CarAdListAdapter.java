@@ -48,7 +48,6 @@ public class CarAdListAdapter extends RecyclerView.Adapter<CarAdListAdapter.View
         holder.transmissionView.setText(carAdListItem.getTransmission());
         holder.drive_unitView.setText(carAdListItem.getDrive_unit());
         holder.itemView.setOnClickListener(v -> onClickListener.onCarAdClick(carAdListItem));
-
     }
 
     @Override
