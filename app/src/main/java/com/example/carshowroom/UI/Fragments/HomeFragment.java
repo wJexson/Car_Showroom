@@ -19,11 +19,6 @@ import com.example.carshowroom.R;
 import com.example.carshowroom.UI.StateHolder.Adapters.CarAdListAdapter;
 import com.example.carshowroom.UI.StateHolder.ViewModel.CarAdListViewModel;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
 import java.util.List;
 
 public class HomeFragment extends Fragment {
@@ -47,33 +42,9 @@ public class HomeFragment extends Fragment {
                 carAdListAdapter.onClickListener = new CarAdListAdapter.OnCarAdClickListener() {
                     @Override
                     public void onCarAdClick(CarAd carAdListItem) {
-                        String car_name = carAdListItem.getName();
-                        String car_year = carAdListItem.getYear();
-                        String car_price = carAdListItem.getPrice();
-                        String car_color =carAdListItem.getColor();
-                        String car_transmission = carAdListItem.getTransmission();
-                        String car_drive_unit = carAdListItem.getDrive_unit();
-                        int car_flag = carAdListItem.getFlagResource();
-
-
-//                        String fileName = "car_brand";
-//                        File dir = requireContext().getFilesDir();
-//                        File file_car = new File(dir, fileName);
-//                        try {
-//                            FileOutputStream fos = new FileOutputStream(file_car);
-//                            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(fos));
-//                            writer.write(car_name);
-//                            writer.close();
-//                            fos.close();
-//
-//                        } catch (IOException e) {
-//                            throw new RuntimeException(e);
-//                        }
-
-
+                        String car_vin = carAdListItem.getVIN();
                         Bundle bundle = new Bundle();
-                        bundle.putString("carAd_Key", car_name);
-                        carAdListViewModel.takeCarTitle(car_name, car_year, car_price, car_color, car_transmission, car_drive_unit, car_flag);
+                        bundle.putString("carAd_Key", car_vin);
                         Navigation.findNavController(requireView()).navigate(R.id.action_mainFragment_to_carAdFragment, bundle);
                     }
                 };
