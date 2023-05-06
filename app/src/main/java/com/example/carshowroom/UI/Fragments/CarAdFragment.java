@@ -50,7 +50,7 @@ public class CarAdFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         String car_name = parseArgs();
-        setCarData(car_name, view, allowedPermission());
+        setCarData(car_name, view);
 
         Button back_button = view.findViewById(R.id.back_button);
         Button book_button = view.findViewById(R.id.book_butoon);
@@ -81,7 +81,7 @@ public class CarAdFragment extends Fragment {
     }
 
     @SuppressLint("SetTextI18n")
-    public void setCarData(String car_name, View view, boolean allowed) {
+    public void setCarData(String car_name, View view) {
         TextView car_title = view.findViewById(R.id.car_title);
         TextView car_price = view.findViewById(R.id.car_price);
         TextView car_year = view.findViewById(R.id.year);
@@ -146,24 +146,23 @@ public class CarAdFragment extends Fragment {
         }
 
 
-        if (allowed) {
-            String fileName = "car_info";
-            String car_info = car_name + "\n" + car_price.getText() + "\n" + car_year.getText() + "\n" + car_mileage.getText()
-                    + "\n" + car_engine.getText() + "\n" + car_body.getText() + "\n" + car_color.getText()
-                    + "\n" + car_drive_unit.getText() + "\n" + car_transmission.getText();
-            System.out.println(car_info);
-            File file_car_info = new File("/storage/emulated/0/Android/data", fileName);
-            try {
-                FileOutputStream fos = new FileOutputStream(file_car_info);
-                BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(fos));
-                writer.write(car_info);
-                writer.close();
-                fos.close();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
-
+//        if (allowed) {
+//            String fileName = "car_info";
+//            String car_info = car_name + "\n" + car_price.getText() + "\n" + car_year.getText() + "\n" + car_mileage.getText()
+//                    + "\n" + car_engine.getText() + "\n" + car_body.getText() + "\n" + car_color.getText()
+//                    + "\n" + car_drive_unit.getText() + "\n" + car_transmission.getText();
+//            System.out.println(car_info);
+//            File file_car_info = new File("/storage/emulated/0/Android/data", fileName);
+//            try {
+//                FileOutputStream fos = new FileOutputStream(file_car_info);
+//                BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(fos));
+//                writer.write(car_info);
+//                writer.close();
+//                fos.close();
+//            } catch (IOException e) {
+//                throw new RuntimeException(e);
+//            }
+//        }
     }
 
 

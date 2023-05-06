@@ -34,8 +34,8 @@ public class ReviewFragment extends Fragment {
 
         SharedPreferences sharedPrefRead =
                 requireActivity().getPreferences(Context.MODE_PRIVATE);
-        String loginSP = sharedPrefRead.getString("REVIEW", "");
-        review_et.setText(loginSP);
+        String reviewSP = sharedPrefRead.getString("REVIEW", "");
+        review_et.setText(reviewSP);
 
         send_review_button.setOnClickListener(new View.OnClickListener() {
             @Override

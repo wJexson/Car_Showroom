@@ -48,23 +48,32 @@ public class HomeFragment extends Fragment {
                     @Override
                     public void onCarAdClick(CarAd carAdListItem) {
                         String car_name = carAdListItem.getName();
-                        String fileName = "car_brand";
-                        File dir = requireContext().getFilesDir();
-                        File file_car = new File(dir, fileName);
-                        try {
-                            FileOutputStream fos = new FileOutputStream(file_car);
-                            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(fos));
-                            writer.write(car_name);
-                            writer.close();
-                            fos.close();
+                        String car_year = carAdListItem.getYear();
+                        String car_price = carAdListItem.getPrice();
+                        String car_color =carAdListItem.getColor();
+                        String car_transmission = carAdListItem.getTransmission();
+                        String car_drive_unit = carAdListItem.getDrive_unit();
+                        int car_flag = carAdListItem.getFlagResource();
 
-                        } catch (IOException e) {
-                            throw new RuntimeException(e);
-                        }
+
+//                        String fileName = "car_brand";
+//                        File dir = requireContext().getFilesDir();
+//                        File file_car = new File(dir, fileName);
+//                        try {
+//                            FileOutputStream fos = new FileOutputStream(file_car);
+//                            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(fos));
+//                            writer.write(car_name);
+//                            writer.close();
+//                            fos.close();
+//
+//                        } catch (IOException e) {
+//                            throw new RuntimeException(e);
+//                        }
 
 
                         Bundle bundle = new Bundle();
                         bundle.putString("carAd_Key", car_name);
+                        carAdListViewModel.takeCarTitle(car_name, car_year, car_price, car_color, car_transmission, car_drive_unit, car_flag);
                         Navigation.findNavController(requireView()).navigate(R.id.action_mainFragment_to_carAdFragment, bundle);
                     }
                 };
