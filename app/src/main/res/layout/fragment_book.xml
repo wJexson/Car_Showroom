@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ide">
+
+    <Button
+        android:id="@+id/back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5sp"
+        android:backgroundTint="@color/black"
+        android:text="@string/back_ru"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/book_car"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10sp"
+        android:text="Бронирование авто"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/back_button"
+        tools:ignore="HardcodedText" />
+
+    <EditText
+        android:id="@+id/name_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="5sp"
+        android:layout_marginTop="10sp"
+        android:autofillHints="name"
+        android:hint="Имя"
+        android:importantForAutofill="yes"
+        android:inputType="textPersonName"
+        android:maxLength="20"
+        android:maxLines="1"
+        android:minHeight="50dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/book_car"
+        tools:ignore="HardcodedText" />
+
+    <EditText
+        android:id="@+id/surname_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="5sp"
+        android:layout_marginTop="10sp"
+        android:autofillHints="surname"
+        android:hint="Фамилия"
+        android:importantForAutofill="yes"
+        android:inputType="textPersonName"
+        android:maxLength="20"
+        android:maxLines="1"
+        android:minHeight="50dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/name_et"
+        tools:ignore="HardcodedText" />
+
+    <EditText
+        android:id="@+id/phone_number_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="5sp"
+        android:layout_marginTop="10sp"
+        android:autofillHints="surname"
+        android:hint="Телефон"
+        android:importantForAutofill="yes"
+        android:inputType="phone"
+        android:maxLength="11"
+        android:maxLines="1"
+        android:minHeight="50dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/surname_et"
+        tools:ignore="HardcodedText" />
+
+    <EditText
+        android:id="@+id/email_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="5sp"
+        android:layout_marginTop="10sp"
+        android:autofillHints="surname"
+        android:hint="E-mail"
+        android:importantForAutofill="yes"
+        android:inputType="textEmailAddress"
+        android:maxLength="30"
+        android:maxLines="1"
+        android:minHeight="50dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/phone_number_et"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/book_butoon"
+        android:layout_width="match_parent"
+        android:layout_height="75sp"
+        android:layout_marginHorizontal="5sp"
+        android:backgroundTint="@color/green"
+        android:text="Забронировать"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:ignore="HardcodedText" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

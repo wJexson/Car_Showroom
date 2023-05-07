@@ -172,7 +172,42 @@ public class CarAd {
                 this.setDrive_unit("Передний");
                 this.setTransmission("Механическая");
                 break;
+            case "WBSBL93435PN63001":
+                this.setName("BMW M3 E46");
+                this.setFlagResource(R.drawable.m3e46);
+                this.setPrice("56 800 $");
+                this.setYear("2005");
+                this.setMileage("32 000 км");
+                this.setEngine("3.2 / 343 л.c. / Бензин");
+                this.setBody("Купе");
+                this.setColor("Серый");
+                this.setDrive_unit("Задний");
+                this.setTransmission("Механическая");
+                break;
+            case "WDDZF8KB7JA421234":
+                this.setName("Mercedes-Benz E63 AMG S");
+                this.setFlagResource(R.drawable.e63s);
+                this.setPrice("112 000 $");
+                this.setYear("2018");
+                this.setMileage("23 000 км");
+                this.setEngine("4.0 л / 612 л.с. / Бензин");
+                this.setBody("Седан");
+                this.setColor("Желтый");
+                this.setDrive_unit("Полный");
+                this.setTransmission("Автоматическая");
+                break;
+            case "JT2DE82A020062413":
+                this.setName("Toyota Supra A80");
+                this.setFlagResource(R.drawable.supra_a80);
+                this.setPrice("82 000 $");
+                this.setYear("2002");
+                this.setMileage("123 000 км");
+                this.setEngine("3.0 л / 280 л.с. / Бензин");
+                this.setBody("Купе");
+                this.setColor("Синий");
+                this.setDrive_unit("Задний");
+                this.setTransmission("Автоматическая");
+                break;
         }
-
     }
 }

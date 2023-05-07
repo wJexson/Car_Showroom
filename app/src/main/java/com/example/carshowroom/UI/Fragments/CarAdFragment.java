@@ -27,7 +27,6 @@ import com.example.carshowroom.R;
 
 public class CarAdFragment extends Fragment {
 
-    private final String CHANNEL_ID = "CarAd";
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -43,20 +42,21 @@ public class CarAdFragment extends Fragment {
 
         Button back_button = view.findViewById(R.id.back_button);
         Button book_button = view.findViewById(R.id.book_butoon);
-        createNotificationChannel();
+
 
         back_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Navigation.findNavController(view).navigate(R.id.action_skylineFragment_to_mainFragment);
+                Navigation.findNavController(view).navigate(R.id.action_carAdFragment_to_mainFragment);
             }
         });
 
         book_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CarAd carAd = new CarAd(car_vin);
-                showNotification(carAd.getName());
+                Bundle bundle = new Bundle();
+                bundle.putString("car_Key", car_vin);
+                Navigation.findNavController(view).navigate(R.id.action_carAdFragment_to_bookFragment, bundle);
             }
         });
     }
@@ -97,28 +97,4 @@ public class CarAdFragment extends Fragment {
     }
 
 
-    private void showNotification(String car_name) {
-        BitmapFactory.Options options = new BitmapFactory.Options();
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.logo, options);
-        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(requireContext(), CHANNEL_ID)
-                .setAutoCancel(true)
-                .setSmallIcon(R.drawable.ic_launcher_foreground)
-                .setContentText("Вы забронировали автомобиль " + car_name)
-                .setContentTitle(getString(R.string.app_name))
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                .setLargeIcon(bitmap)
-                .setWhen(System.currentTimeMillis());
-
-        Notification notification = notificationBuilder.build();
-        NotificationManager notificationManager = (NotificationManager) requireContext().getSystemService(Context.NOTIFICATION_SERVICE);
-        notificationManager.notify(1, notification);
-    }
-
-    private void createNotificationChannel() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, CHANNEL_ID, NotificationManager.IMPORTANCE_DEFAULT);
-            NotificationManager notificationManager = (NotificationManager) requireContext().getSystemService(Context.NOTIFICATION_SERVICE);
-            notificationManager.createNotificationChannel(channel);
-        }
-    }
 }

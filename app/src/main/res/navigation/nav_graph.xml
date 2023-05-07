@@ -27,8 +27,11 @@
         android:label="CarAd"
         tools:layout="@layout/fragment_car_ad">
         <action
-            android:id="@+id/action_skylineFragment_to_mainFragment"
+            android:id="@+id/action_carAdFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_carAdFragment_to_bookFragment"
+            app:destination="@id/bookFragment" />
         <argument
             android:name="carAd_Key"
             android:defaultValue="0"
@@ -54,6 +57,20 @@
         <action
             android:id="@+id/action_reviewFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/bookFragment"
+        android:name="com.example.carshowroom.UI.Fragments.BookFragment"
+        android:label="Book"
+        tools:layout="@layout/fragment_book">
+        <action
+            android:id="@+id/action_bookFragment_to_carAdFragment"
+            app:destination="@id/carAdFragment" />
+        <argument
+            android:name="car_Key"
+            android:defaultValue="0"
+            app:argType="string" />
     </fragment>
 
 
