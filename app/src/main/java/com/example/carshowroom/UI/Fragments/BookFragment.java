@@ -24,7 +24,6 @@ import androidx.navigation.Navigation;
 
 import com.example.carshowroom.Data.Models.CarAd;
 import com.example.carshowroom.R;
-import com.example.carshowroom.UI.Activities.HelloActivity;
 
 public class BookFragment extends Fragment {
 
@@ -48,7 +47,7 @@ public class BookFragment extends Fragment {
         book_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String car_name = carAd.getName();
+                String car_name = carAd.getBrand() + " " + carAd.getModel();
                 Bundle bundle = new Bundle();
                 bundle.putString("carAd_Key", car_vin);
                 showNotification(car_name);

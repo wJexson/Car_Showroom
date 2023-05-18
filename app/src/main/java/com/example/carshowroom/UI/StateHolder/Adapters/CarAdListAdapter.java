@@ -1,5 +1,6 @@
 package com.example.carshowroom.UI.StateHolder.Adapters;
 
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,13 +38,14 @@ public class CarAdListAdapter extends RecyclerView.Adapter<CarAdListAdapter.View
         return new ViewHolder(view);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull CarAdListAdapter.ViewHolder holder, int position) {
         CarAd carAdListItem = Objects.requireNonNull(carAdList).get(position);
         holder.flagView.setImageResource(carAdListItem.getFlagResource());
-        holder.nameView.setText(carAdListItem.getName());
+        holder.nameView.setText(carAdListItem.getBrand() + " " + carAdListItem.getModel());
         holder.yearView.setText(carAdListItem.getYear());
-        holder.priceView.setText(carAdListItem.getPrice());
+        holder.priceView.setText(carAdListItem.getPrice() + " $");
         holder.colorView.setText(carAdListItem.getColor());
         holder.transmissionView.setText(carAdListItem.getTransmission());
         holder.drive_unitView.setText(carAdListItem.getDrive_unit());

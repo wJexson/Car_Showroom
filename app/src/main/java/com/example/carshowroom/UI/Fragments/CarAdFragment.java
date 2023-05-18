@@ -1,13 +1,6 @@
 package com.example.carshowroom.UI.Fragments;
 
 import android.annotation.SuppressLint;
-import android.app.Notification;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,7 +11,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.app.NotificationCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
@@ -84,8 +76,8 @@ public class CarAdFragment extends Fragment {
         ImageView car_image = view.findViewById(R.id.car_image);
 
         CarAd carAd = new CarAd(car_vin);
-        car_title.setText(carAd.getName());
-        car_price.setText(carAd.getPrice());
+        car_title.setText(carAd.getBrand() + " " + carAd.getModel());
+        car_price.setText(carAd.getPrice() + " $");
         car_year.setText(carAd.getYear());
         car_mileage.setText(carAd.getMileage());
         car_engine.setText(carAd.getEngine());

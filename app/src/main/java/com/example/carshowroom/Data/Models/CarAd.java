@@ -3,7 +3,8 @@ package com.example.carshowroom.Data.Models;
 import com.example.carshowroom.R;
 
 public class CarAd {
-    private String name; // название
+    private String brand; // марка
+    private String model; // модель
     private String year; // год
     private String price; // цена
     private String color; // цвет
@@ -21,12 +22,12 @@ public class CarAd {
         this.setDataByVIN();
     }
 
-    public String getName() {
-        return name;
+    public String getBrand() {
+        return brand;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setBrand(String name) {
+        this.brand = name;
     }
 
     public String getYear() {
@@ -113,9 +114,10 @@ public class CarAd {
     public void setDataByVIN() {
         switch (this.VIN) {
             case "JN1AR34D12A000001":
-                this.setName("Nissan Skyline GT-R R34");
+                this.setBrand("Nissan");
+                this.setModel("Skyline GT-R R34");
                 this.setFlagResource(R.drawable.skyline);
-                this.setPrice("120 000 $");
+                this.setPrice("120 000");
                 this.setYear("2002");
                 this.setMileage("42 000 км");
                 this.setEngine("2.5 л / 280 л.с. / Бензин");
@@ -125,9 +127,10 @@ public class CarAd {
                 this.setTransmission("Автоматическая");
                 break;
             case "WAUZZZF57MA900001":
-                this.setName("Audi RS5 F5");
+                this.setBrand("Audi");
+                this.setModel("RS5 F5");
                 this.setFlagResource(R.drawable.rs5);
-                this.setPrice("125 000 $");
+                this.setPrice("125 000");
                 this.setYear("2021");
                 this.setMileage("20 км");
                 this.setEngine("2.9 л / 450 л.с. / Бензин");
@@ -137,9 +140,10 @@ public class CarAd {
                 this.setTransmission("Автоматическая");
                 break;
             case "JM1FE1C43B0400001":
-                this.setName("Mazda RX-8");
+                this.setBrand("Mazda");
+                this.setModel("RX-8");
                 this.setFlagResource(R.drawable.rx8);
-                this.setPrice("19 852 $");
+                this.setPrice("19 852");
                 this.setYear("2011");
                 this.setMileage("190  125 км");
                 this.setEngine("1.3 / 250 л.c. / Бензин");
@@ -149,9 +153,10 @@ public class CarAd {
                 this.setTransmission("Механическая");
                 break;
             case "JM1FD3332P0200001":
-                this.setName("Mazda RX-7");
+                this.setBrand("Mazda");
+                this.setModel("RX-7");
                 this.setFlagResource(R.drawable.rx7);
-                this.setPrice("31 332 $");
+                this.setPrice("31 332");
                 this.setYear("2002");
                 this.setMileage("58 000 км");
                 this.setEngine("1.3 / 280 л.c. / Бензин");
@@ -161,9 +166,10 @@ public class CarAd {
                 this.setTransmission("Механическая");
                 break;
             case "EK9-1000001":
-                this.setName("Honda Civic TYPE R");
+                this.setBrand("Honda");
+                this.setModel("Civic TYPE R");
                 this.setFlagResource(R.drawable.civic);
-                this.setPrice("16 738 $");
+                this.setPrice("16 738");
                 this.setYear("2000");
                 this.setMileage("168 000 км");
                 this.setEngine("1.6 / 185 л.c. / Бензин");
@@ -173,9 +179,10 @@ public class CarAd {
                 this.setTransmission("Механическая");
                 break;
             case "WBSBL93435PN63001":
-                this.setName("BMW M3 E46");
+                this.setBrand("BMW");
+                this.setModel("M3 E46");
                 this.setFlagResource(R.drawable.m3e46);
-                this.setPrice("56 800 $");
+                this.setPrice("56 800");
                 this.setYear("2005");
                 this.setMileage("32 000 км");
                 this.setEngine("3.2 / 343 л.c. / Бензин");
@@ -185,9 +192,10 @@ public class CarAd {
                 this.setTransmission("Механическая");
                 break;
             case "WDDZF8KB7JA421234":
-                this.setName("Mercedes-Benz E63 AMG S");
+                this.setBrand("Mercedes-Benz");
+                this.setModel("E63 AMG S");
                 this.setFlagResource(R.drawable.e63s);
-                this.setPrice("112 000 $");
+                this.setPrice("112 000");
                 this.setYear("2018");
                 this.setMileage("23 000 км");
                 this.setEngine("4.0 л / 612 л.с. / Бензин");
@@ -197,9 +205,10 @@ public class CarAd {
                 this.setTransmission("Автоматическая");
                 break;
             case "JT2DE82A020062413":
-                this.setName("Toyota Supra A80");
+                this.setBrand("Toyota");
+                this.setModel("Supra A80");
                 this.setFlagResource(R.drawable.supra_a80);
-                this.setPrice("82 000 $");
+                this.setPrice("82 000");
                 this.setYear("2002");
                 this.setMileage("123 000 км");
                 this.setEngine("3.0 л / 280 л.с. / Бензин");
@@ -209,5 +218,13 @@ public class CarAd {
                 this.setTransmission("Автоматическая");
                 break;
         }
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
     }
 }
