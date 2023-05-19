@@ -2,15 +2,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/home"
+        android:id="@+id/mainFragment"
         android:icon="@drawable/ic_baseline_home_24"
-        android:title="Поиск" />
+        android:title="@string/home" />
     <item
-        android:id="@+id/profile"
+        android:id="@+id/profileFragment"
         android:icon="@drawable/ic_baseline_person_24"
-        android:title="Профиль" />
+        android:title="@string/profile" />
     <item
-        android:id="@+id/settings"
+        android:id="@+id/settingsFragment"
         android:icon="@drawable/ic_baseline_settings_24"
-        android:title="Настройки" />
+        android:title="@string/settings" />
 </menu>

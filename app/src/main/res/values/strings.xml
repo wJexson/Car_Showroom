@@ -51,4 +51,7 @@
     <string name="mazda_rx_8">Mazda RX-8</string>
     <string name="rwd_ru">Задний</string>
     <string name="manual_ru">Механическая</string>
+    <string name="home">Home</string>
+    <string name="profile">Profile</string>
+    <string name="settings">Settings</string>
 </resources>
