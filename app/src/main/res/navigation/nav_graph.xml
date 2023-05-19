@@ -22,6 +22,18 @@
     </fragment>
 
     <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.example.carshowroom.UI.Fragments.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/navigation_settings"
+        android:name="com.example.carshowroom.UI.Fragments.SettingsFragment"
+        android:label="Setting"
+        tools:layout="@layout/fragment_settings" />
+
+    <fragment
         android:id="@+id/carAdFragment"
         android:name="com.example.carshowroom.UI.Fragments.CarAdFragment"
         android:label="CarAd"
