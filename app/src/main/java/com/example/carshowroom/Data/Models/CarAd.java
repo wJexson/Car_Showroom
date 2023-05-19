@@ -14,6 +14,8 @@ public class CarAd {
     private String mileage; // пробег
     private String engine; // двигатель
     private String body; // кузов
+    public String condition; // состояние
+    public String steering_wheel; // руль
     private String VIN; // VIN
 
 
@@ -103,6 +105,22 @@ public class CarAd {
         this.body = body;
     }
 
+    public void setCondition(String condition) {
+        this.condition = condition;
+    }
+
+    public String getCondition() {
+        return condition;
+    }
+
+    public void setSteering_wheel(String steering_wheel) {
+        this.steering_wheel = steering_wheel;
+    }
+
+    public String getSteering_wheel() {
+        return steering_wheel;
+    }
+
     public String getVIN() {
         return VIN;
     }
@@ -125,6 +143,8 @@ public class CarAd {
                 this.setColor("Серый");
                 this.setDrive_unit("Полный");
                 this.setTransmission("Автоматическая");
+                this.setCondition("Не битый");
+                this.setSteering_wheel("Правый");
                 break;
             case "WAUZZZF57MA900001":
                 this.setBrand("Audi");
@@ -138,6 +158,8 @@ public class CarAd {
                 this.setColor("Черный");
                 this.setDrive_unit("Полный");
                 this.setTransmission("Автоматическая");
+                this.setCondition("Не битый");
+                this.setSteering_wheel("Левый");
                 break;
             case "JM1FE1C43B0400001":
                 this.setBrand("Mazda");
@@ -151,6 +173,8 @@ public class CarAd {
                 this.setColor("Серый");
                 this.setDrive_unit("Задний");
                 this.setTransmission("Механическая");
+                this.setCondition("Не битый");
+                this.setSteering_wheel("Правый");
                 break;
             case "JM1FD3332P0200001":
                 this.setBrand("Mazda");
@@ -164,6 +188,8 @@ public class CarAd {
                 this.setColor("Серый");
                 this.setDrive_unit("Задний");
                 this.setTransmission("Механическая");
+                this.setCondition("Не битый");
+                this.setSteering_wheel("Правый");
                 break;
             case "EK9-1000001":
                 this.setBrand("Honda");
@@ -177,6 +203,8 @@ public class CarAd {
                 this.setColor("Черный");
                 this.setDrive_unit("Передний");
                 this.setTransmission("Механическая");
+                this.setCondition("Не битый");
+                this.setSteering_wheel("Правый");
                 break;
             case "WBSBL93435PN63001":
                 this.setBrand("BMW");
@@ -190,6 +218,8 @@ public class CarAd {
                 this.setColor("Серый");
                 this.setDrive_unit("Задний");
                 this.setTransmission("Механическая");
+                this.setCondition("Не битый");
+                this.setSteering_wheel("Левый");
                 break;
             case "WDDZF8KB7JA421234":
                 this.setBrand("Mercedes-Benz");
@@ -203,6 +233,8 @@ public class CarAd {
                 this.setColor("Желтый");
                 this.setDrive_unit("Полный");
                 this.setTransmission("Автоматическая");
+                this.setCondition("Не битый");
+                this.setSteering_wheel("Левый");
                 break;
             case "JT2DE82A020062413":
                 this.setBrand("Toyota");
@@ -216,6 +248,8 @@ public class CarAd {
                 this.setColor("Синий");
                 this.setDrive_unit("Задний");
                 this.setTransmission("Автоматическая");
+                this.setCondition("Не битый");
+                this.setSteering_wheel("Правый");
                 break;
         }
     }

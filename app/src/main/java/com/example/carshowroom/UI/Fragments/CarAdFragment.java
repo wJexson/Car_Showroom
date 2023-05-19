@@ -73,6 +73,8 @@ public class CarAdFragment extends Fragment {
         TextView car_color = view.findViewById(R.id.color);
         TextView car_drive_unit = view.findViewById(R.id.drive_unit);
         TextView car_transmission = view.findViewById(R.id.transmission);
+        TextView car_condition = view.findViewById(R.id.condition);
+        TextView car_steering_wheel = view.findViewById(R.id.steering_wheel);
         ImageView car_image = view.findViewById(R.id.car_image);
 
         CarAd carAd = new CarAd(car_vin);
@@ -85,6 +87,8 @@ public class CarAdFragment extends Fragment {
         car_color.setText(carAd.getColor());
         car_drive_unit.setText(carAd.getDrive_unit());
         car_transmission.setText(carAd.getTransmission());
+        car_condition.setText(carAd.getCondition());
+        car_steering_wheel.setText(carAd.getSteering_wheel());
         car_image.setImageResource(carAd.getFlagResource());
     }
 

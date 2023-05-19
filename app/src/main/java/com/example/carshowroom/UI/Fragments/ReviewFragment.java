@@ -56,7 +56,7 @@ public class ReviewFragment extends Fragment {
         back_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Navigation.findNavController(view).navigate(R.id.action_reviewFragment_to_mainFragment);
+                Navigation.findNavController(view).navigate(R.id.action_reviewFragment_to_settingsFragment);
             }
         });
     }
