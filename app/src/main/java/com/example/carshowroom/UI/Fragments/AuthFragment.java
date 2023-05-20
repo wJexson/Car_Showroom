@@ -35,14 +35,14 @@ public class AuthFragment extends Fragment {
         sign_in_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Navigation.findNavController(view).navigate(R.id.action_authFragment_to_mainFragment);
+                Navigation.findNavController(view).navigate(R.id.action_authFragment_to_signInFragment);
             }
         });
 
         sign_up_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Navigation.findNavController(view).navigate(R.id.action_authFragment_to_mainFragment);
+                Navigation.findNavController(view).navigate(R.id.action_authFragment_to_signUpFragment);
             }
         });
     }
