@@ -6,7 +6,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/ide">
+        android:background="@color/ide"
+        android:padding="10dp">
 
         <Button
             android:id="@+id/back_button"
@@ -41,7 +42,6 @@
             android:id="@+id/car_image"
             android:layout_width="match_parent"
             android:layout_height="300dp"
-            android:layout_marginHorizontal="5sp"
             android:layout_marginTop="5dp"
             android:contentDescription="@string/audi_rs6_c8"
             android:scaleType="fitXY"
@@ -242,7 +242,6 @@
             android:id="@+id/book_butoon"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="5dp"
             android:layout_marginTop="10dp"
             android:backgroundTint="@color/darkgreen"
             android:text="@string/book_car_ru"
