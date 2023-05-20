@@ -21,7 +21,7 @@ public class HelloActivity extends AppCompatActivity {
                 } catch (Exception e) {
                     e.printStackTrace();
                 } finally {
-                    startActivity(new Intent(HelloActivity.this, HomeActivity.class));
+                    startActivity(new Intent(HelloActivity.this, AuthActivity.class));
                     finish();
                 }
             }

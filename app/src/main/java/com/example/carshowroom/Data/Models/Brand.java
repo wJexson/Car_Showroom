@@ -26,6 +26,4 @@ public class Brand {
     public void setName(@NonNull String name) {
         this.name = name;
     }
-
-
 }
