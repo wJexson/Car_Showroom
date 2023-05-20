@@ -17,4 +17,5 @@
     <color name="darkgreen">#006400</color>
     <color name="ide">#333</color>
     <color name="cyan">#00FFFF</color>
+    <color name="red">#FF0000</color>
 </resources>

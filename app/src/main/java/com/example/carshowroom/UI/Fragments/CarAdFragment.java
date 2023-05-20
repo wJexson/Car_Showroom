@@ -16,6 +16,9 @@ import androidx.navigation.Navigation;
 
 import com.example.carshowroom.Data.Models.CarAd;
 import com.example.carshowroom.R;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import java.util.Objects;
 
 public class CarAdFragment extends Fragment {
 
@@ -51,6 +54,14 @@ public class CarAdFragment extends Fragment {
                 Navigation.findNavController(view).navigate(R.id.action_carAdFragment_to_bookFragment, bundle);
             }
         });
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        // Скрытие нижней навигации
+        BottomNavigationView bottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setVisibility(View.GONE);
     }
 
     public String parseArgs() {

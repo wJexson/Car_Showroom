@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -18,6 +17,7 @@ import com.example.carshowroom.Data.Models.CarAd;
 import com.example.carshowroom.R;
 import com.example.carshowroom.UI.StateHolder.Adapters.CarAdListAdapter;
 import com.example.carshowroom.UI.StateHolder.ViewModel.CarAdListViewModel;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.List;
 
@@ -50,5 +50,13 @@ public class HomeFragment extends Fragment {
                 carAdList.setAdapter(carAdListAdapter);
             }
         });
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        // Показ нижней навигации
+        BottomNavigationView bottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setVisibility(View.VISIBLE);
     }
 }

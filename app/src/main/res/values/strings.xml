@@ -62,4 +62,5 @@
 </string>
     <string name="sign_in_ru">Войти</string>
     <string name="sign_up_ru">Зарегистрироваться</string>
+    <string name="exit">Выйти</string>
 </resources>
