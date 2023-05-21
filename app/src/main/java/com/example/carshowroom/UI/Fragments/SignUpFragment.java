@@ -14,7 +14,10 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
 import com.example.carshowroom.DB.DataBaseHelper;
+import com.example.carshowroom.Data.Models.User;
 import com.example.carshowroom.R;
+
+import java.util.regex.Pattern;
 
 public class SignUpFragment extends Fragment {
 
@@ -35,7 +38,7 @@ public class SignUpFragment extends Fragment {
         EditText email = view.findViewById(R.id.editTextEmail);
         EditText phone_number = view.findViewById(R.id.editTextPhone);
         EditText password = view.findViewById(R.id.editTextPassword);
-        DataBaseHelper dataBaseHelper = new DataBaseHelper(getContext());
+        DataBaseHelper dataBaseHelper = new DataBaseHelper(getActivity());
 
 
         buttonRegister.setOnClickListener(new View.OnClickListener() {
@@ -46,20 +49,26 @@ public class SignUpFragment extends Fragment {
                 String phone = phone_number.getText().toString();
                 String mail = email.getText().toString();
 
-                if (user.equals("") || mail.equals("") || phone.equals("") || pass.equals(""))
-                    Toast.makeText(getActivity(), "Please enter all the fields", Toast.LENGTH_SHORT).show();
-                else {
-                    Boolean checkuser = dataBaseHelper.checkusername(user);
-                    if (!checkuser) {
-                        Boolean insert = dataBaseHelper.insertData(user, mail, phone, pass);
+                if (user.equals("") || mail.equals("") || phone.equals("") || pass.equals("")) {
+                    Toast.makeText(getActivity(), "Пожалуйста, заполните все поля", Toast.LENGTH_SHORT).show();
+                } else if (Pattern.matches(User.EMAIL_PATTERN, email.getText().toString())) {
+                    Toast.makeText(getActivity(), "Некорректные данные почты", Toast.LENGTH_SHORT).show();
+                } else if (Pattern.matches(User.PHONE_PATTERN, phone_number.getText().toString())) {
+                    Toast.makeText(getActivity(), "Некорректные данные номера телефона", Toast.LENGTH_SHORT).show();
+                } else {
+                    boolean checkUser = dataBaseHelper.checkUserName(user);
+                    boolean checkEmail = dataBaseHelper.checkEmail(mail);
+                    boolean checkPhone = dataBaseHelper.checkPhone(phone);
+                    if (!checkUser & !checkEmail & !checkPhone) {
+                        boolean insert = dataBaseHelper.insertData(user, mail, phone, pass);
                         if (insert) {
-                            Toast.makeText(getActivity(), "Registered successfully", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), "Регистрация прошла успешно", Toast.LENGTH_SHORT).show();
                             Navigation.findNavController(view).navigate(R.id.action_signUpFragment_to_mainFragment);
                         } else {
-                            Toast.makeText(getActivity(), "Registration failed", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), "Регистрация не удалась", Toast.LENGTH_SHORT).show();
                         }
                     } else {
-                        Toast.makeText(getActivity(), "User already exists! please sign in", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "Пользователь c такими данными уже существует. Пожалуйста войдите", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
