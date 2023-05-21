@@ -15,10 +15,14 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.carshowroom.DB.DataBaseHelper;
+import com.example.carshowroom.Data.Models.User;
 import com.example.carshowroom.R;
 
 
 public class SignInFragment extends Fragment {
+
+    public static final String USER_NAME = "NAME";
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -31,21 +35,21 @@ public class SignInFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         Button buttonLogIn = view.findViewById(R.id.buttonLogIn);
         Button buttonRegister = view.findViewById(R.id.buttonRegister);
-        EditText username = view.findViewById(R.id.editTextName);
-        EditText password = view.findViewById(R.id.editTextPassword);
+        EditText username_et = view.findViewById(R.id.editTextName);
+        EditText password_et = view.findViewById(R.id.editTextPassword);
         DataBaseHelper dataBaseHelper = new DataBaseHelper(getActivity());
 
         buttonLogIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                String user = username.getText().toString();
-                String pass = password.getText().toString();
+                String userName = username_et.getText().toString();
+                String pass = password_et.getText().toString();
 
-                if (user.equals("") || pass.equals(""))
+                if (userName.equals("") || pass.equals(""))
                     Toast.makeText(getActivity(), "Пожалуйста, заполните все поля", Toast.LENGTH_SHORT).show();
                 else {
-                    Boolean checkuserpass = dataBaseHelper.checkUserNamePassword(user, pass);
+                    Boolean checkuserpass = dataBaseHelper.checkUserNamePassword(userName, pass);
                     if (checkuserpass) {
                         Toast.makeText(getActivity(), "Вход успешен", Toast.LENGTH_SHORT).show();
                         Navigation.findNavController(view).navigate(R.id.action_signInFragment_to_mainFragment);

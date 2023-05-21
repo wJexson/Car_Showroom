@@ -60,7 +60,7 @@
             android:textColor="@color/white"
             android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/userName" />
+            app:layout_constraintTop_toTopOf="@id/emailTitle" />
 
         <TextView
             android:id="@+id/phoneTitle"
@@ -80,7 +80,7 @@
             android:textColor="@color/white"
             android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/email" />
+            app:layout_constraintTop_toTopOf="@id/phoneTitle" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

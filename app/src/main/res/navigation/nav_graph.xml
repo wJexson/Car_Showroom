@@ -32,13 +32,10 @@
         <action
             android:id="@+id/action_profileFragment_to_aboutFragment"
             app:destination="@id/aboutFragment" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/settingsFragment"
-        android:name="com.example.carshowroom.UI.Fragments.SettingsFragment"
-        android:label="Settings"
-        tools:layout="@layout/fragment_settings">
+        <argument
+            android:name="NAME"
+            android:defaultValue="0"
+            app:argType="string" />
     </fragment>
 
     <fragment
@@ -115,6 +112,7 @@
             android:id="@+id/action_authFragment_to_signInFragment"
             app:destination="@id/signInFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/signInFragment"
         android:name="com.example.carshowroom.UI.Fragments.SignInFragment"
@@ -127,6 +125,7 @@
             android:id="@+id/action_signInFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/signUpFragment"
         android:name="com.example.carshowroom.UI.Fragments.SignUpFragment"

@@ -21,6 +21,7 @@ import java.util.regex.Pattern;
 
 public class SignUpFragment extends Fragment {
 
+    public static final String USER_NAME = "NAME";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -34,36 +35,38 @@ public class SignUpFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         Button buttonLogIn = view.findViewById(R.id.buttonLogIn);
         Button buttonRegister = view.findViewById(R.id.buttonRegister);
-        EditText username = view.findViewById(R.id.editTextName);
-        EditText email = view.findViewById(R.id.editTextEmail);
-        EditText phone_number = view.findViewById(R.id.editTextPhone);
-        EditText password = view.findViewById(R.id.editTextPassword);
+        EditText username_et = view.findViewById(R.id.editTextName);
+        EditText email_et = view.findViewById(R.id.editTextEmail);
+        EditText phone_et = view.findViewById(R.id.editTextPhone);
+        EditText password_et = view.findViewById(R.id.editTextPassword);
         DataBaseHelper dataBaseHelper = new DataBaseHelper(getActivity());
 
 
         buttonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String user = username.getText().toString();
-                String pass = password.getText().toString();
-                String phone = phone_number.getText().toString();
-                String mail = email.getText().toString();
+                String userName = username_et.getText().toString();
+                String pass = password_et.getText().toString();
+                String phone = phone_et.getText().toString();
+                String mail = email_et.getText().toString();
 
-                if (user.equals("") || mail.equals("") || phone.equals("") || pass.equals("")) {
+                if (userName.equals("") || mail.equals("") || phone.equals("") || pass.equals("")) {
                     Toast.makeText(getActivity(), "Пожалуйста, заполните все поля", Toast.LENGTH_SHORT).show();
-                } else if (Pattern.matches(User.EMAIL_PATTERN, email.getText().toString())) {
+                } else if (Pattern.matches(User.EMAIL_PATTERN, email_et.getText().toString())) {
                     Toast.makeText(getActivity(), "Некорректные данные почты", Toast.LENGTH_SHORT).show();
-                } else if (Pattern.matches(User.PHONE_PATTERN, phone_number.getText().toString())) {
+                } else if (Pattern.matches(User.PHONE_PATTERN, phone_et.getText().toString())) {
                     Toast.makeText(getActivity(), "Некорректные данные номера телефона", Toast.LENGTH_SHORT).show();
                 } else {
-                    boolean checkUser = dataBaseHelper.checkUserName(user);
+                    boolean checkUser = dataBaseHelper.checkUserName(userName);
                     boolean checkEmail = dataBaseHelper.checkEmail(mail);
                     boolean checkPhone = dataBaseHelper.checkPhone(phone);
                     if (!checkUser & !checkEmail & !checkPhone) {
-                        boolean insert = dataBaseHelper.insertData(user, mail, phone, pass);
-                        if (insert) {
+                        User user = dataBaseHelper.insertData(userName, mail, phone, pass);
+                        if (user != null) {
+                            Bundle bundle = new Bundle();
+                            bundle.putString(USER_NAME, username_et.getText().toString());
                             Toast.makeText(getActivity(), "Регистрация прошла успешно", Toast.LENGTH_SHORT).show();
-                            Navigation.findNavController(view).navigate(R.id.action_signUpFragment_to_mainFragment);
+                            Navigation.findNavController(view).navigate(R.id.action_signUpFragment_to_mainFragment, bundle);
                         } else {
                             Toast.makeText(getActivity(), "Регистрация не удалась", Toast.LENGTH_SHORT).show();
                         }
