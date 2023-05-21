@@ -21,7 +21,6 @@ import java.util.regex.Pattern;
 
 public class SignUpFragment extends Fragment {
 
-    public static final String USER_NAME = "NAME";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -46,9 +45,9 @@ public class SignUpFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 String userName = username_et.getText().toString();
-                String pass = password_et.getText().toString();
-                String phone = phone_et.getText().toString();
                 String mail = email_et.getText().toString();
+                String phone = phone_et.getText().toString();
+                String pass = password_et.getText().toString();
 
                 if (userName.equals("") || mail.equals("") || phone.equals("") || pass.equals("")) {
                     Toast.makeText(getActivity(), "Пожалуйста, заполните все поля", Toast.LENGTH_SHORT).show();
@@ -64,7 +63,9 @@ public class SignUpFragment extends Fragment {
                         User user = dataBaseHelper.insertData(userName, mail, phone, pass);
                         if (user != null) {
                             Bundle bundle = new Bundle();
-                            bundle.putString(USER_NAME, username_et.getText().toString());
+                            bundle.putInt("userId", user.getID());
+                            ProfileFragment profileFragment = new ProfileFragment();
+                            profileFragment.setArguments(bundle);
                             Toast.makeText(getActivity(), "Регистрация прошла успешно", Toast.LENGTH_SHORT).show();
                             Navigation.findNavController(view).navigate(R.id.action_signUpFragment_to_mainFragment, bundle);
                         } else {

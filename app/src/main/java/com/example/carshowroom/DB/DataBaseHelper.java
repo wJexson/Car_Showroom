@@ -25,7 +25,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase MyDB) {
-        MyDB.execSQL("create Table users(username TEXT primary key, email TEXT, phone TEXT, password TEXT)");
+        MyDB.execSQL("create Table users(_id INTEGER primary key, username TEXT, email TEXT, phone TEXT, password TEXT)");
     }
 
     @Override
@@ -75,18 +75,37 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery("SELECT * FROM users WHERE _id = ?", new String[]{String.valueOf(userId)});
 
         User user = null;
-        if (cursor.moveToFirst()) {
+        if (cursor.moveToNext()) {
             int id = cursor.getInt(cursor.getColumnIndex("_id"));
             String fullName = cursor.getString(cursor.getColumnIndex("username"));
             String email = cursor.getString(cursor.getColumnIndex("email"));
             String phone = cursor.getString(cursor.getColumnIndex("phone"));
-
+            String password = cursor.getString(cursor.getColumnIndex("password"));
             // Создайте объект пользователя с полученными данными
-            user = new User(id, fullName, email, phone);
+            user = new User(id, fullName, email, phone, password);
         }
 
         cursor.close();
         return user;
     }
 
+    @SuppressLint("Range")
+    public User getUserByName(String username) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM users WHERE username = ?", new String[]{String.valueOf(username)});
+
+        User user = null;
+        if (cursor.moveToNext()) {
+            int id = cursor.getInt(cursor.getColumnIndex("_id"));
+            String fullName = cursor.getString(cursor.getColumnIndex("username"));
+            String email = cursor.getString(cursor.getColumnIndex("email"));
+            String phone = cursor.getString(cursor.getColumnIndex("phone"));
+            String password = cursor.getString(cursor.getColumnIndex("password"));
+            // Создайте объект пользователя с полученными данными
+            user = new User(id, fullName, email, phone, password);
+        }
+
+        cursor.close();
+        return user;
+    }
 }

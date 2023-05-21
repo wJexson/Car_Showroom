@@ -20,6 +20,7 @@ import com.example.carshowroom.UI.StateHolder.ViewModel.CarAdListViewModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.List;
+import java.util.Objects;
 
 public class HomeFragment extends Fragment {
 
@@ -31,6 +32,19 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        BottomNavigationView bottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation);
+
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            if (item.getItemId() == R.id.profileFragment) {
+                Bundle bundle = new Bundle();
+                bundle.putInt("userId", parseArgs());
+                Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_profileFragment, bundle);
+                return true;
+            }
+            return false;
+        });
+
 
         CarAdListViewModel carAdListViewModel = new ViewModelProvider(this).get(CarAdListViewModel.class);
         carAdListViewModel.carAdList.observe(getViewLifecycleOwner(), new Observer<List<CarAd>>() {
@@ -58,5 +72,14 @@ public class HomeFragment extends Fragment {
         // Показ нижней навигации
         BottomNavigationView bottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation);
         bottomNavigationView.setVisibility(View.VISIBLE);
+    }
+
+    public int parseArgs() {
+        int user_id = -1;
+        Bundle bundle = this.getArguments();
+        if (bundle != null) {
+            user_id = bundle.getInt("userId");
+        }
+        return user_id;
     }
 }

@@ -21,8 +21,6 @@ import com.example.carshowroom.R;
 
 public class SignInFragment extends Fragment {
 
-    public static final String USER_NAME = "NAME";
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -51,8 +49,13 @@ public class SignInFragment extends Fragment {
                 else {
                     Boolean checkuserpass = dataBaseHelper.checkUserNamePassword(userName, pass);
                     if (checkuserpass) {
+                        User user = dataBaseHelper.getUserByName(userName);
+                        Bundle bundle = new Bundle();
+                        bundle.putInt("userId", user.getID());
+                        ProfileFragment profileFragment = new ProfileFragment();
+                        profileFragment.setArguments(bundle);
                         Toast.makeText(getActivity(), "Вход успешен", Toast.LENGTH_SHORT).show();
-                        Navigation.findNavController(view).navigate(R.id.action_signInFragment_to_mainFragment);
+                        Navigation.findNavController(view).navigate(R.id.action_signInFragment_to_mainFragment, bundle);
                     } else {
                         Toast.makeText(getActivity(), "Недействительные учетные данные", Toast.LENGTH_SHORT).show();
                     }
