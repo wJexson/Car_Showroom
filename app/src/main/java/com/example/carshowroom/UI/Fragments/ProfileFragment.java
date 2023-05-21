@@ -28,6 +28,23 @@ public class ProfileFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         Button exit_button = view.findViewById(R.id.exit_button);
+        Button review_button = view.findViewById(R.id.review_button);
+        Button about_button = view.findViewById(R.id.about_button);
+
+        review_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(view).navigate(R.id.action_profileFragment_to_reviewFragment);
+            }
+        });
+
+        about_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(view).navigate(R.id.action_profileFragment_to_aboutFragment);
+            }
+        });
+
         exit_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

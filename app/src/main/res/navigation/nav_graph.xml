@@ -26,6 +26,12 @@
         <action
             android:id="@+id/action_profileFragment_to_authFragment"
             app:destination="@id/authFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_reviewFragment"
+            app:destination="@id/reviewFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_aboutFragment"
+            app:destination="@id/aboutFragment" />
     </fragment>
 
     <fragment
@@ -33,12 +39,6 @@
         android:name="com.example.carshowroom.UI.Fragments.SettingsFragment"
         android:label="Settings"
         tools:layout="@layout/fragment_settings">
-        <action
-            android:id="@+id/action_settingsFragment_to_reviewFragment"
-            app:destination="@id/reviewFragment" />
-        <action
-            android:id="@+id/action_settingsFragment_to_aboutFragment"
-            app:destination="@id/aboutFragment" />
     </fragment>
 
     <fragment
@@ -75,8 +75,8 @@
         android:label="Review"
         tools:layout="@layout/fragment_review">
         <action
-            android:id="@+id/action_reviewFragment_to_settingsFragment"
-            app:destination="@id/settingsFragment" />
+            android:id="@+id/action_reviewFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
 
     <fragment
@@ -99,8 +99,8 @@
         android:label="fragment_about"
         tools:layout="@layout/fragment_about">
         <action
-            android:id="@+id/action_aboutFragment_to_settingsFragment"
-            app:destination="@id/settingsFragment" />
+            android:id="@+id/action_aboutFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
 
     <fragment

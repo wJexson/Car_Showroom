@@ -31,18 +31,6 @@ public class SettingsFragment extends Fragment {
         Button review_button = view.findViewById(R.id.review_button);
         Button about_button = view.findViewById(R.id.about_button);
 
-        review_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Navigation.findNavController(view).navigate(R.id.action_settingsFragment_to_reviewFragment);
-            }
-        });
 
-        about_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Navigation.findNavController(view).navigate(R.id.action_settingsFragment_to_aboutFragment);
-            }
-        });
     }
 }

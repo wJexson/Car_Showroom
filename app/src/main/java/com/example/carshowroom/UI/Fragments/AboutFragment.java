@@ -32,7 +32,7 @@ public class AboutFragment extends Fragment {
         back_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Navigation.findNavController(view).navigate(R.id.action_aboutFragment_to_settingsFragment);
+                Navigation.findNavController(view).navigate(R.id.action_aboutFragment_to_profileFragment);
             }
         });
     }

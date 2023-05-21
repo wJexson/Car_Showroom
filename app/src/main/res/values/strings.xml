@@ -63,4 +63,7 @@
     <string name="exit">Выйти</string>
     <string name="registration_ru">Регистрация</string>
     <string name="login_ru">Вход в аккаунт</string>
+    <string name="user_name_ru">Имя пользователя</string>
+    <string name="email">Email</string>
+    <string name="phone_number_ru">Номер телефона</string>
 </resources>
