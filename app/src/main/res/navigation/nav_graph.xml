@@ -20,9 +20,9 @@
             android:id="@+id/action_mainFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
         <argument
-            android:name="userId"
-            android:defaultValue="-1"
-            app:argType="integer" />
+            android:name="user"
+            app:argType="com.example.carshowroom.Data.Models.User"
+            app:nullable="true" />
     </fragment>
 
     <fragment
@@ -42,9 +42,6 @@
         <action
             android:id="@+id/action_profileFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
-        <argument
-            android:name="userId"
-            app:argType="integer" />
     </fragment>
 
     <fragment

@@ -1,5 +1,6 @@
 package com.example.carshowroom.UI.Fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +21,20 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class ProfileFragment extends Fragment {
 
+    public interface UserProtocol {
+        User getUser();
+    }
+
+    UserProtocol userGetter;
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        userGetter = (UserProtocol) context;
+    }
+
+    User user;
+    TextView username, mail, phone;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -31,31 +46,26 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        TextView username = view.findViewById(R.id.userName);
-        TextView mail = view.findViewById(R.id.email);
-        TextView phone = view.findViewById(R.id.phone);
+        BottomNavigationView bottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation);
+        user = userGetter.getUser();
         Button exit_button = view.findViewById(R.id.exit_button);
         Button review_button = view.findViewById(R.id.review_button);
         Button about_button = view.findViewById(R.id.about_button);
         DataBaseHelper dbHelper = new DataBaseHelper(getActivity());
 
-        BottomNavigationView bottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation);
 
+        username = view.findViewById(R.id.userName);
+        mail = view.findViewById(R.id.email);
+        phone = view.findViewById(R.id.phone);
 
-        User user = dbHelper.getUserById(parseArgs());
-        if (user != null) {
-            // Используйте данные пользователя для заполнения соответствующих полей во фрагменте
-            username.setText(user.getFullName());
-            mail.setText(user.getEmail());
-            phone.setText(user.getTelephone());
-        }
+        username.setText(user.getFullName());
+        mail.setText(user.getEmail());
+        phone.setText(user.getTelephone());
 
 
         bottomNavigationView.setOnItemSelectedListener(item -> {
             if (item.getItemId() == R.id.mainFragment) {
-                Bundle bundle = new Bundle();
-                bundle.putInt("userId", parseArgs());
-                Navigation.findNavController(view).navigate(R.id.action_profileFragment_to_mainFragment, bundle);
+                Navigation.findNavController(view).navigate(R.id.action_profileFragment_to_mainFragment);
                 return true;
             }
             return false;
@@ -83,12 +93,17 @@ public class ProfileFragment extends Fragment {
         });
     }
 
-    public int parseArgs() {
-        int user_id = -1;
-        Bundle bundle = this.getArguments();
-        if (bundle != null) {
-            user_id = bundle.getInt("userId");
-        }
-        return user_id;
+    @Override
+    public void onDestroyView() {
+        username = null;
+        mail = null;
+        phone = null;
+        super.onDestroyView();
+    }
+
+    @Override
+    public void onDetach() {
+        userGetter = null;
+        super.onDetach();
     }
 }

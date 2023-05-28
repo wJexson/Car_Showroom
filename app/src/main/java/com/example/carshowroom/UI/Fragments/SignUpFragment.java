@@ -63,9 +63,7 @@ public class SignUpFragment extends Fragment {
                         User user = dataBaseHelper.insertData(userName, mail, phone, pass);
                         if (user != null) {
                             Bundle bundle = new Bundle();
-                            bundle.putInt("userId", user.getID());
-                            ProfileFragment profileFragment = new ProfileFragment();
-                            profileFragment.setArguments(bundle);
+                            bundle.putParcelable(User.SELECTED_USER, user);
                             Toast.makeText(getActivity(), "Регистрация прошла успешно", Toast.LENGTH_SHORT).show();
                             Navigation.findNavController(view).navigate(R.id.action_signUpFragment_to_mainFragment, bundle);
                         } else {

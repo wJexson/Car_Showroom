@@ -1,5 +1,6 @@
 package com.example.carshowroom.UI.Fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,8 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.carshowroom.Data.Models.CarAd;
+import com.example.carshowroom.Data.Models.User;
+import com.example.carshowroom.Data.Protocols.UserProtocol;
 import com.example.carshowroom.R;
 import com.example.carshowroom.UI.StateHolder.Adapters.CarAdListAdapter;
 import com.example.carshowroom.UI.StateHolder.ViewModel.CarAdListViewModel;
@@ -23,6 +26,37 @@ import java.util.List;
 import java.util.Objects;
 
 public class HomeFragment extends Fragment {
+
+    UserProtocol userGetter;
+
+    public interface MainPageController {
+        void setMainPage(HomeFragment homeFragment);
+
+        void setUser(User user);
+
+        // void setVisible();
+    }
+
+    MainPageController mainPageController;
+    User user;
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        mainPageController = (MainPageController) context;
+        userGetter = (UserProtocol) context;
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        //Установка пользователя
+        user = requireArguments().getParcelable(User.SELECTED_USER);
+        if (user != null) {
+            mainPageController.setUser(user);
+            mainPageController.setMainPage(this);
+        }
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -37,9 +71,7 @@ public class HomeFragment extends Fragment {
 
         bottomNavigationView.setOnItemSelectedListener(item -> {
             if (item.getItemId() == R.id.profileFragment) {
-                Bundle bundle = new Bundle();
-                bundle.putInt("userId", parseArgs());
-                Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_profileFragment, bundle);
+                Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_profileFragment);
                 return true;
             }
             return false;
@@ -72,14 +104,5 @@ public class HomeFragment extends Fragment {
         // Показ нижней навигации
         BottomNavigationView bottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation);
         bottomNavigationView.setVisibility(View.VISIBLE);
-    }
-
-    public int parseArgs() {
-        int user_id = -1;
-        Bundle bundle = this.getArguments();
-        if (bundle != null) {
-            user_id = bundle.getInt("userId");
-        }
-        return user_id;
     }
 }

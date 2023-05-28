@@ -51,9 +51,7 @@ public class SignInFragment extends Fragment {
                     if (checkuserpass) {
                         User user = dataBaseHelper.getUserByName(userName);
                         Bundle bundle = new Bundle();
-                        bundle.putInt("userId", user.getID());
-                        ProfileFragment profileFragment = new ProfileFragment();
-                        profileFragment.setArguments(bundle);
+                        bundle.putParcelable(User.SELECTED_USER, user);
                         Toast.makeText(getActivity(), "Вход успешен", Toast.LENGTH_SHORT).show();
                         Navigation.findNavController(view).navigate(R.id.action_signInFragment_to_mainFragment, bundle);
                     } else {
