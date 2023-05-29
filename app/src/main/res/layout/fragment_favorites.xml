@@ -5,20 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/ide"
-    tools:context=".UI.Fragments.HomeFragment">
+    tools:context=".UI.Fragments.FavoritesFragment">
 
     <TextView
-        android:id="@+id/cars_in_stock"
+        android:id="@+id/favorites_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="3dp"
-        android:text="@string/cars_in_stock_ru"
+        android:text="@string/favorites_ru"
         android:textColor="@color/white"
-        android:textSize="30dp"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="SpUsage" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/line"
@@ -26,19 +25,8 @@
         android:layout_height="3sp"
         android:background="@color/black"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@id/carAdList"
+        app:layout_constraintTop_toBottomOf="@id/favorites_title"
         tools:ignore="SmallSp" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/carAdList"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="5sp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cars_in_stock" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

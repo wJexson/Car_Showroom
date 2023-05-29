@@ -23,7 +23,6 @@ import com.example.carshowroom.UI.StateHolder.ViewModel.CarAdListViewModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.List;
-import java.util.Objects;
 
 public class HomeFragment extends Fragment {
 
@@ -66,16 +65,6 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        BottomNavigationView bottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation);
-
-        bottomNavigationView.setOnItemSelectedListener(item -> {
-            if (item.getItemId() == R.id.profileFragment) {
-                Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_profileFragment);
-                return true;
-            }
-            return false;
-        });
 
 
         CarAdListViewModel carAdListViewModel = new ViewModelProvider(this).get(CarAdListViewModel.class);

@@ -18,8 +18,6 @@ import com.example.carshowroom.Data.Models.CarAd;
 import com.example.carshowroom.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.util.Objects;
-
 public class CarAdFragment extends Fragment {
 
 
@@ -49,9 +47,7 @@ public class CarAdFragment extends Fragment {
         book_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bundle bundle = new Bundle();
-                bundle.putString("car_Key", car_vin);
-                Navigation.findNavController(view).navigate(R.id.action_carAdFragment_to_bookFragment, bundle);
+
             }
         });
     }

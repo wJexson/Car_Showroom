@@ -13,10 +13,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
-import com.example.carshowroom.DB.DataBaseHelper;
 import com.example.carshowroom.Data.Models.User;
 import com.example.carshowroom.R;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
 public class ProfileFragment extends Fragment {
@@ -46,12 +44,10 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        BottomNavigationView bottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation);
         user = userGetter.getUser();
         Button exit_button = view.findViewById(R.id.exit_button);
         Button review_button = view.findViewById(R.id.review_button);
         Button about_button = view.findViewById(R.id.about_button);
-        DataBaseHelper dbHelper = new DataBaseHelper(getActivity());
 
 
         username = view.findViewById(R.id.userName);
@@ -62,14 +58,6 @@ public class ProfileFragment extends Fragment {
         mail.setText(user.getEmail());
         phone.setText(user.getTelephone());
 
-
-        bottomNavigationView.setOnItemSelectedListener(item -> {
-            if (item.getItemId() == R.id.mainFragment) {
-                Navigation.findNavController(view).navigate(R.id.action_profileFragment_to_mainFragment);
-                return true;
-            }
-            return false;
-        });
 
         review_button.setOnClickListener(new View.OnClickListener() {
             @Override

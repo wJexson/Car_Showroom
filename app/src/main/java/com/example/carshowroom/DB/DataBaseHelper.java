@@ -11,8 +11,7 @@ import com.example.carshowroom.Data.Models.User;
 
 public class DataBaseHelper extends SQLiteOpenHelper {
 
-    @SuppressLint("SdCardPath")
-    private static final String DB_PATH = "/data/data/com.example.carshowroom/databases/";
+
     public static final String DBNAME = "carshowroom.db";
     private static final int DBNAME_VERSION = 1;
 
@@ -26,11 +25,14 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase MyDB) {
         MyDB.execSQL("create Table users(_id INTEGER primary key, username TEXT, email TEXT, phone TEXT, password TEXT)");
+//        MyDB.execSQL("create Table cars(VIN TEXT primary key, brand TEXT, model TEXT, year TEXT, price TEXT, color TEXT, transmission TEXT, drive_unit TEXT, " +
+//                "mileage TEXT, engine TEXT, body TEXT, condition TEXT, steering_wheel TEXT, photo TEXT)");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase MyDB, int oldVersion, int newVersion) {
         MyDB.execSQL("drop Table if exists users");
+        //MyDB.execSQL("drop Table if exists cars");
         onCreate(MyDB);
     }
 
