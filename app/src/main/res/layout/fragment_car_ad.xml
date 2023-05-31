@@ -238,7 +238,7 @@
             app:layout_constraintTop_toBottomOf="@id/condition" />
 
         <Button
-            android:id="@+id/book_butoon"
+            android:id="@+id/fav_butoon"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"

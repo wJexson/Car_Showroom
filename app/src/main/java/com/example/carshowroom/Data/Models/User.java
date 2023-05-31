@@ -5,6 +5,8 @@ import android.os.Parcelable;
 
 import androidx.annotation.NonNull;
 
+import com.example.carshowroom.R;
+
 public class User implements Parcelable {
     public static final String SELECTED_USER = "USER";
 
@@ -14,14 +16,9 @@ public class User implements Parcelable {
     private final String fullName;
     private final String email;
     private final String telephone;
-    private String password;
-
-    public User(int id, String fullName, String email, String telephone) {
-        ID = id;
-        this.fullName = fullName;
-        this.email = email;
-        this.telephone = telephone;
-    }
+    private final String password;
+    private int image = R.drawable.userimage1;
+    String image_name;
 
     public User(int id, String fullName, String email, String telephone, String password) {
         ID = id;
@@ -29,6 +26,7 @@ public class User implements Parcelable {
         this.email = email;
         this.telephone = telephone;
         this.password = password;
+
     }
 
     protected User(Parcel in) {
@@ -37,6 +35,8 @@ public class User implements Parcelable {
         email = in.readString();
         telephone = in.readString();
         password = in.readString();
+        image = in.readInt();
+        image_name = in.readString();
     }
 
     public static final Parcelable.Creator<User> CREATOR = new Parcelable.Creator<User>() {
@@ -71,6 +71,22 @@ public class User implements Parcelable {
         return password;
     }
 
+    public void setImage(int image) {
+        this.image = image;
+    }
+
+    public int getImage() {
+        return image;
+    }
+
+    public String getImage_name() {
+        return image_name;
+    }
+
+    public void setImage_name(String image_name) {
+        this.image_name = image_name;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -83,5 +99,7 @@ public class User implements Parcelable {
         parcel.writeString(email);
         parcel.writeString(telephone);
         parcel.writeString(password);
+        parcel.writeInt(image);
+        parcel.writeString(image_name);
     }
 }

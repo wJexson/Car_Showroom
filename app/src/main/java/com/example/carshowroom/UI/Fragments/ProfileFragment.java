@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -18,6 +19,7 @@ import com.example.carshowroom.R;
 
 
 public class ProfileFragment extends Fragment {
+
 
     public interface UserProtocol {
         User getUser();
@@ -33,21 +35,24 @@ public class ProfileFragment extends Fragment {
 
     User user;
     TextView username, mail, phone;
+    ImageView userImage;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false);
+        View view = inflater.inflate(R.layout.fragment_profile, container, false);
+        user = userGetter.getUser();
+        return view;
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        user = userGetter.getUser();
+        userImage = view.findViewById(R.id.userImage);
         Button exit_button = view.findViewById(R.id.exit_button);
         Button review_button = view.findViewById(R.id.review_button);
         Button about_button = view.findViewById(R.id.about_button);
+        Button change_image_button = view.findViewById(R.id.change_image_button);
 
 
         username = view.findViewById(R.id.userName);
@@ -57,6 +62,14 @@ public class ProfileFragment extends Fragment {
         username.setText(user.getFullName());
         mail.setText(user.getEmail());
         phone.setText(user.getTelephone());
+        userImage.setImageResource(user.getImage());
+
+        change_image_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(view).navigate(R.id.action_profileFragment_to_profileImagesFragment);
+            }
+        });
 
 
         review_button.setOnClickListener(new View.OnClickListener() {
@@ -79,6 +92,13 @@ public class ProfileFragment extends Fragment {
                 Navigation.findNavController(view).navigate(R.id.action_profileFragment_to_authFragment);
             }
         });
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        userImage.setImageResource(user.getImage());
+        userImage.setClipToOutline(true);
     }
 
     @Override

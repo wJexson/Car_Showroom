@@ -1,33 +1,47 @@
 package com.example.carshowroom.UI.Activities;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
+import com.example.carshowroom.DB.DataBaseHelper;
 import com.example.carshowroom.Data.Models.User;
 import com.example.carshowroom.Data.Protocols.UserProtocol;
 import com.example.carshowroom.R;
 import com.example.carshowroom.UI.Fragments.HomeFragment;
 import com.example.carshowroom.UI.Fragments.ProfileFragment;
+import com.example.carshowroom.UI.Fragments.ProfileImagesFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class HomeActivity extends AppCompatActivity implements UserProtocol, ProfileFragment.UserProtocol, HomeFragment.MainPageController {
+public class MainActivity extends AppCompatActivity implements UserProtocol, ProfileFragment.UserProtocol, HomeFragment.MainPageController {
 
+    DataBaseHelper dataBaseHelperClass;
     HomeFragment homeFragment;
     User user;
+    ImageView userImage;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        dataBaseHelperClass = new DataBaseHelper(this);
+        try {
+            dataBaseHelperClass.createDataBase();
+        } catch (Exception ignored) {}
+        dataBaseHelperClass.openDataBase();
+        dataBaseHelperClass.close();
     }
 
     @Override
     protected void onStart() {
         super.onStart();
+        userImage = findViewById(R.id.userImage);
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupWithNavController(bottomNavigationView, navController);
@@ -48,4 +62,5 @@ public class HomeActivity extends AppCompatActivity implements UserProtocol, Pro
     public User getUser() {
         return user;
     }
+
 }

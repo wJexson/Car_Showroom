@@ -18,18 +18,27 @@
         android:textSize="30sp" />
 
     <ImageView
+        android:id="@+id/userImage"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_gravity="center"
-        android:layout_marginTop="20sp"
+        android:layout_marginTop="10sp"
         android:scaleType="fitXY"
-        android:src="@drawable/defaultuserpic"
         tools:ignore="ContentDescription" />
+
+    <Button
+        android:layout_marginTop="5sp"
+        android:id="@+id/change_image_button"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Сменить фото"
+        tools:ignore="HardcodedText" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30sp"
+        android:layout_marginTop="20sp"
         android:background="@color/ide">
 
         <TextView
@@ -97,7 +106,7 @@
         android:id="@+id/about_button"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_marginTop="50sp"
+        android:layout_marginTop="20sp"
         android:backgroundTint="@color/black"
         android:text="@string/about_app_ru"
         android:textSize="15sp"

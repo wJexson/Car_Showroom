@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/ide"
+    android:orientation="vertical"
+    android:padding="25dp"
+    tools:context=".UI.Fragments.ProfileImagesFragment">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Выберите фото для профиля"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        tools:ignore="HardcodedText" />
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="15dp"
+        android:columnCount="3"
+        android:rowCount="2">
+
+
+        <ImageView
+            android:id="@+id/usr_img1"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_columnWeight="1"
+            android:layout_marginRight="15dp"
+            android:src="@drawable/userimage1"
+            tools:ignore="ContentDescription,RtlHardcoded" />
+
+        <ImageView
+            android:id="@+id/usr_img2"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_columnWeight="1"
+            android:layout_marginRight="15dp"
+            android:src="@drawable/userimage2"
+            tools:ignore="ContentDescription,RtlHardcoded" />
+
+        <ImageView
+            android:id="@+id/usr_img3"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_columnWeight="1"
+            android:src="@drawable/userimage3"
+            tools:ignore="ContentDescription,RtlHardcoded" />
+
+        <ImageView
+            android:id="@+id/usr_img4"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_columnWeight="1"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="15dp"
+            android:src="@drawable/userimage4"
+            tools:ignore="ContentDescription,RtlHardcoded" />
+
+        <ImageView
+            android:id="@+id/usr_img5"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_columnWeight="1"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="15dp"
+            android:src="@drawable/userimage5"
+            tools:ignore="ContentDescription,RtlHardcoded" />
+
+        <ImageView
+            android:id="@+id/usr_img6"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_row="0"
+            android:layout_columnWeight="1"
+            android:layout_marginTop="25dp"
+            android:src="@drawable/userimage6"
+            tools:ignore="ContentDescription" />
+    </GridLayout>
+
+</LinearLayout>

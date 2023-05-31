@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,10 +13,7 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
 import com.example.carshowroom.DB.DataBaseHelper;
-import com.example.carshowroom.Data.Models.User;
 import com.example.carshowroom.R;
-
-import java.util.regex.Pattern;
 
 public class SignUpFragment extends Fragment {
 
@@ -39,7 +35,7 @@ public class SignUpFragment extends Fragment {
         EditText phone_et = view.findViewById(R.id.editTextPhone);
         EditText password_et = view.findViewById(R.id.editTextPassword);
         DataBaseHelper dataBaseHelper = new DataBaseHelper(getActivity());
-
+        dataBaseHelper.openDataBase();
 
         buttonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,31 +44,7 @@ public class SignUpFragment extends Fragment {
                 String mail = email_et.getText().toString();
                 String phone = phone_et.getText().toString();
                 String pass = password_et.getText().toString();
-
-                if (userName.equals("") || mail.equals("") || phone.equals("") || pass.equals("")) {
-                    Toast.makeText(getActivity(), "Пожалуйста, заполните все поля", Toast.LENGTH_SHORT).show();
-                } else if (Pattern.matches(User.EMAIL_PATTERN, email_et.getText().toString())) {
-                    Toast.makeText(getActivity(), "Некорректные данные почты", Toast.LENGTH_SHORT).show();
-                } else if (Pattern.matches(User.PHONE_PATTERN, phone_et.getText().toString())) {
-                    Toast.makeText(getActivity(), "Некорректные данные номера телефона", Toast.LENGTH_SHORT).show();
-                } else {
-                    boolean checkUser = dataBaseHelper.checkUserName(userName);
-                    boolean checkEmail = dataBaseHelper.checkEmail(mail);
-                    boolean checkPhone = dataBaseHelper.checkPhone(phone);
-                    if (!checkUser & !checkEmail & !checkPhone) {
-                        User user = dataBaseHelper.insertData(userName, mail, phone, pass);
-                        if (user != null) {
-                            Bundle bundle = new Bundle();
-                            bundle.putParcelable(User.SELECTED_USER, user);
-                            Toast.makeText(getActivity(), "Регистрация прошла успешно", Toast.LENGTH_SHORT).show();
-                            Navigation.findNavController(view).navigate(R.id.action_signUpFragment_to_mainFragment, bundle);
-                        } else {
-                            Toast.makeText(getActivity(), "Регистрация не удалась", Toast.LENGTH_SHORT).show();
-                        }
-                    } else {
-                        Toast.makeText(getActivity(), "Пользователь c такими данными уже существует. Пожалуйста войдите", Toast.LENGTH_SHORT).show();
-                    }
-                }
+                dataBaseHelper.signUp(userName, mail, phone, pass, v);
             }
         });
 

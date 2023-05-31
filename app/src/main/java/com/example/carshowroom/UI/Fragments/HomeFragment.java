@@ -32,8 +32,6 @@ public class HomeFragment extends Fragment {
         void setMainPage(HomeFragment homeFragment);
 
         void setUser(User user);
-
-        // void setVisible();
     }
 
     MainPageController mainPageController;

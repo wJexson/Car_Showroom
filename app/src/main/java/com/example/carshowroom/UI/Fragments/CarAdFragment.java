@@ -34,7 +34,7 @@ public class CarAdFragment extends Fragment {
         setCarData(car_vin, view);
 
         Button back_button = view.findViewById(R.id.back_button);
-        Button book_button = view.findViewById(R.id.book_butoon);
+        Button fav_butoon = view.findViewById(R.id.fav_butoon);
 
 
         back_button.setOnClickListener(new View.OnClickListener() {
@@ -44,7 +44,7 @@ public class CarAdFragment extends Fragment {
             }
         });
 
-        book_button.setOnClickListener(new View.OnClickListener() {
+        fav_butoon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
