@@ -14,6 +14,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.carshowroom.DB.DataBaseHelper;
 import com.example.carshowroom.Data.Models.CarAd;
 import com.example.carshowroom.Data.Models.User;
 import com.example.carshowroom.Data.Protocols.UserProtocol;
@@ -70,6 +71,11 @@ public class HomeFragment extends Fragment {
             @Override
             public void onChanged(List<CarAd> carAds) {
                 CarAdListAdapter carAdListAdapter = new CarAdListAdapter(carAds);
+                // Создайте экземпляр DataBaseHelper
+                DataBaseHelper dbHelper = new DataBaseHelper(getContext());
+
+                // Занесите данные о машинах в базу данных
+                //dbHelper.insertCarAds(carAds);
                 carAdListAdapter.onClickListener = new CarAdListAdapter.OnCarAdClickListener() {
                     @Override
                     public void onCarAdClick(CarAd carAdListItem) {

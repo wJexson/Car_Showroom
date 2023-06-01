@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import androidx.navigation.Navigation;
 
+import com.example.carshowroom.Data.Models.CarAd;
 import com.example.carshowroom.Data.Models.User;
 import com.example.carshowroom.R;
 
@@ -22,6 +23,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.List;
 import java.util.regex.Pattern;
 
 public class DataBaseHelper extends SQLiteOpenHelper {
@@ -48,6 +50,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             Log.d("db", "databaseExist=" + true);
             // Do Nothing.
         } else {
+            Log.d("db", "databaseExist=" + false);
             this.getWritableDatabase();
             copyDataBase();
         }// end if else dbExist
@@ -92,12 +95,29 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         super.close();
     }
 
-    private static final String TABLE_USER = "user";
-    private static final String TABLE_USER_COLUMN_PHONE = "phone";
-    private static final String TABLE_USER_COLUMN_ID = "_id";
-    private static final String TABLE_USER_COLUMN_USERNAME = "username";
-    private static final String TABLE_USER_COLUMN_EMAIL = "email";
-    private static final String TABLE_USER_COLUMN_IMAGE = "image";
+    private static final String TABLE_USERS = "users";
+    private static final String TABLE_USERS_COLUMN_PHONE = "phone";
+    private static final String TABLE_USERS_COLUMN_ID = "_id";
+    private static final String TABLE_USERS_COLUMN_USERNAME = "username";
+    private static final String TABLE_USERS_COLUMN_EMAIL = "email";
+    private static final String TABLE_USERS_COLUMN_IMAGE = "image";
+
+    private static final String TABLE_CARS = "cars";
+    private static final String TABLE_CARS_COLUMN_VIN = "VIN";
+    private static final String TABLE_CARS_COLUMN_BRAND = "brand";
+    private static final String TABLE_CARS_COLUMN_MODEL = "model";
+    private static final String TABLE_CARS_COLUMN_YEAR = "year";
+    private static final String TABLE_CARS_COLUMN_PRICE = "price";
+    private static final String TABLE_CARS_COLUMN_COLOR = "color";
+    private static final String TABLE_CARS_COLUMN_TRANSMISSION = "transmission";
+    private static final String TABLE_CARS_COLUMN_DRIVE_UNIT = "drive_unit";
+    private static final String TABLE_CARS_COLUMN_MILEAGE = "mileage";
+    private static final String TABLE_CARS_COLUMN_ENGINE = "engine";
+    private static final String TABLE_CARS_COLUMN_BODY = "body";
+    private static final String TABLE_CARS_COLUMN_CONDITION = "condition";
+    private static final String TABLE_CARS_COLUMN_STEERING_WHEEL = "steering_wheel";
+    private static final String TABLE_CARS_COLUMN_PHOTO = "photo";
+
 
     @Override
     public void onCreate(SQLiteDatabase MyDB) {
@@ -108,6 +128,32 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase MyDB, int oldVersion, int newVersion) {
 
     }
+
+    public void insertCarAds(List<CarAd> carAds) {
+        for (CarAd carAd : carAds) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put(TABLE_CARS_COLUMN_VIN, carAd.getVIN());
+            contentValues.put(TABLE_CARS_COLUMN_BRAND, carAd.getBrand());
+            contentValues.put(TABLE_CARS_COLUMN_MODEL, carAd.getModel());
+            contentValues.put(TABLE_CARS_COLUMN_YEAR, carAd.getYear());
+            contentValues.put(TABLE_CARS_COLUMN_PRICE, carAd.getPrice());
+            contentValues.put(TABLE_CARS_COLUMN_COLOR, carAd.getColor());
+            contentValues.put(TABLE_CARS_COLUMN_TRANSMISSION, carAd.getTransmission());
+            contentValues.put(TABLE_CARS_COLUMN_DRIVE_UNIT, carAd.getDrive_unit());
+            contentValues.put(TABLE_CARS_COLUMN_MILEAGE, carAd.getMileage());
+            contentValues.put(TABLE_CARS_COLUMN_ENGINE, carAd.getEngine());
+            contentValues.put(TABLE_CARS_COLUMN_BODY, carAd.getBody());
+            contentValues.put(TABLE_CARS_COLUMN_CONDITION, carAd.getCondition());
+            contentValues.put(TABLE_CARS_COLUMN_STEERING_WHEEL, carAd.getSteering_wheel());
+            contentValues.put(TABLE_CARS_COLUMN_PHOTO, carAd.getFlagResource());
+
+            long id = sqliteDataBase.insert(TABLE_CARS, null, contentValues);
+            if (id == -1) {
+                Log.e("DB", "Error inserting CarAd into database");
+            }
+        }
+    }
+
 
     public User insertUser(String username, String email, String phone, String password) {
         ContentValues contentValues = new ContentValues();
