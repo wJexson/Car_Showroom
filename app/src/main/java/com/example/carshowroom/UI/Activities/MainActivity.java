@@ -1,6 +1,5 @@
 package com.example.carshowroom.UI.Activities;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.widget.ImageView;
 
@@ -10,13 +9,15 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.carshowroom.DB.DataBaseHelper;
+import com.example.carshowroom.Data.Models.CarAd;
 import com.example.carshowroom.Data.Models.User;
 import com.example.carshowroom.Data.Protocols.UserProtocol;
 import com.example.carshowroom.R;
 import com.example.carshowroom.UI.Fragments.HomeFragment;
 import com.example.carshowroom.UI.Fragments.ProfileFragment;
-import com.example.carshowroom.UI.Fragments.ProfileImagesFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements UserProtocol, ProfileFragment.UserProtocol, HomeFragment.MainPageController {
 
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity implements UserProtocol, Pro
             dataBaseHelperClass.createDataBase();
         } catch (Exception ignored) {}
         dataBaseHelperClass.openDataBase();
+        CarAd.carAds = dataBaseHelperClass.getCarAdsFromDatabase();
         dataBaseHelperClass.close();
     }
 
@@ -51,6 +53,11 @@ public class MainActivity extends AppCompatActivity implements UserProtocol, Pro
     @Override
     public void setMainPage(HomeFragment homeFragment) {
         this.homeFragment = homeFragment;
+    }
+
+    @Override
+    public ArrayList<CarAd> getCarAds() {
+        return CarAd.carAds;
     }
 
     @Override

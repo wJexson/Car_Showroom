@@ -23,6 +23,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -40,6 +41,14 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         super(context, DB_NAME, null, DBNAME_VERSION);
         this.context = context;
         DB_PATH = context.getFilesDir().getPath() + DB_NAME;
+    }
+
+    @Override
+    public void onCreate(SQLiteDatabase MyDB) {
+    }
+
+    @Override
+    public void onUpgrade(SQLiteDatabase MyDB, int oldVersion, int newVersion) {
     }
 
     public void createDataBase() throws IOException {
@@ -101,6 +110,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     private static final String TABLE_USERS_COLUMN_USERNAME = "username";
     private static final String TABLE_USERS_COLUMN_EMAIL = "email";
     private static final String TABLE_USERS_COLUMN_IMAGE = "image";
+    private static final String TABLE_USERS_COLUMN_PASSWORD = "password";
 
     private static final String TABLE_CARS = "cars";
     private static final String TABLE_CARS_COLUMN_VIN = "VIN";
@@ -118,51 +128,40 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     private static final String TABLE_CARS_COLUMN_STEERING_WHEEL = "steering_wheel";
     private static final String TABLE_CARS_COLUMN_PHOTO = "photo";
 
-
-    @Override
-    public void onCreate(SQLiteDatabase MyDB) {
-
-    }
-
-    @Override
-    public void onUpgrade(SQLiteDatabase MyDB, int oldVersion, int newVersion) {
-
-    }
-
-    public void insertCarAds(List<CarAd> carAds) {
-        for (CarAd carAd : carAds) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put(TABLE_CARS_COLUMN_VIN, carAd.getVIN());
-            contentValues.put(TABLE_CARS_COLUMN_BRAND, carAd.getBrand());
-            contentValues.put(TABLE_CARS_COLUMN_MODEL, carAd.getModel());
-            contentValues.put(TABLE_CARS_COLUMN_YEAR, carAd.getYear());
-            contentValues.put(TABLE_CARS_COLUMN_PRICE, carAd.getPrice());
-            contentValues.put(TABLE_CARS_COLUMN_COLOR, carAd.getColor());
-            contentValues.put(TABLE_CARS_COLUMN_TRANSMISSION, carAd.getTransmission());
-            contentValues.put(TABLE_CARS_COLUMN_DRIVE_UNIT, carAd.getDrive_unit());
-            contentValues.put(TABLE_CARS_COLUMN_MILEAGE, carAd.getMileage());
-            contentValues.put(TABLE_CARS_COLUMN_ENGINE, carAd.getEngine());
-            contentValues.put(TABLE_CARS_COLUMN_BODY, carAd.getBody());
-            contentValues.put(TABLE_CARS_COLUMN_CONDITION, carAd.getCondition());
-            contentValues.put(TABLE_CARS_COLUMN_STEERING_WHEEL, carAd.getSteering_wheel());
-            contentValues.put(TABLE_CARS_COLUMN_PHOTO, carAd.getFlagResource());
-
-            long id = sqliteDataBase.insert(TABLE_CARS, null, contentValues);
-            if (id == -1) {
-                Log.e("DB", "Error inserting CarAd into database");
-            }
+    @SuppressLint("Range")
+    public ArrayList<CarAd> getCarAdsFromDatabase() {
+        ArrayList<CarAd> carAds = new ArrayList<>();
+        Cursor cursor = sqliteDataBase.query(TABLE_CARS, null, null, null,
+                null, null, null);
+        while (cursor.moveToNext()) {
+            //Создание авто
+            CarAd carAd = new CarAd(cursor.getString(cursor.getColumnIndex(TABLE_CARS_COLUMN_VIN)), cursor.getString(cursor.getColumnIndex(TABLE_CARS_COLUMN_BRAND)),
+                    cursor.getString(cursor.getColumnIndex(TABLE_CARS_COLUMN_MODEL)), cursor.getString(cursor.getColumnIndex(TABLE_CARS_COLUMN_YEAR)),
+                    cursor.getString(cursor.getColumnIndex(TABLE_CARS_COLUMN_PRICE)), cursor.getString(cursor.getColumnIndex(TABLE_CARS_COLUMN_COLOR)),
+                    cursor.getString(cursor.getColumnIndex(TABLE_CARS_COLUMN_TRANSMISSION)), cursor.getString(cursor.getColumnIndex(TABLE_CARS_COLUMN_DRIVE_UNIT)),
+                    cursor.getString(cursor.getColumnIndex(TABLE_CARS_COLUMN_MILEAGE)), cursor.getString(cursor.getColumnIndex(TABLE_CARS_COLUMN_ENGINE)),
+                    cursor.getString(cursor.getColumnIndex(TABLE_CARS_COLUMN_BODY)), cursor.getString(cursor.getColumnIndex(TABLE_CARS_COLUMN_CONDITION)),
+                    cursor.getString(cursor.getColumnIndex(TABLE_CARS_COLUMN_STEERING_WHEEL)), cursor.getString(cursor.getColumnIndex(TABLE_CARS_COLUMN_PHOTO)));
+            carAds.add(carAd);
         }
+        if (carAds.isEmpty()) {
+            Log.e("DB", "Error getting cars");
+        }
+        else {
+            Log.d("DB", "Cars has been got");
+        }
+        cursor.close();
+        return carAds;
     }
-
 
     public User insertUser(String username, String email, String phone, String password) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("username", username);
-        contentValues.put("email", email);
-        contentValues.put("phone", phone);
-        contentValues.put("password", password);
-        contentValues.put("image", "userimage1");
-        long id = sqliteDataBase.insert("users", null, contentValues);
+        contentValues.put(TABLE_USERS_COLUMN_USERNAME, username);
+        contentValues.put(TABLE_USERS_COLUMN_EMAIL, email);
+        contentValues.put(TABLE_USERS_COLUMN_PHONE, phone);
+        contentValues.put(TABLE_USERS_COLUMN_PASSWORD, password);
+        contentValues.put(TABLE_USERS_COLUMN_IMAGE, "userimage1");
+        long id = sqliteDataBase.insert(TABLE_USERS, null, contentValues);
         return new User((int) id, username, email, phone, password);
     }
 
@@ -236,11 +235,12 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
         User user = null;
         if (cursor.moveToNext()) {
-            int id = cursor.getInt(cursor.getColumnIndex("_id"));
-            String fullName = cursor.getString(cursor.getColumnIndex("username"));
-            String email = cursor.getString(cursor.getColumnIndex("email"));
-            String phone = cursor.getString(cursor.getColumnIndex("phone"));
-            String password = cursor.getString(cursor.getColumnIndex("password"));
+            int id = cursor.getInt(cursor.getColumnIndex(TABLE_USERS_COLUMN_ID));
+            String fullName = cursor.getString(cursor.getColumnIndex(TABLE_USERS_COLUMN_USERNAME));
+            String email = cursor.getString(cursor.getColumnIndex(TABLE_USERS_COLUMN_EMAIL));
+            String phone = cursor.getString(cursor.getColumnIndex(TABLE_USERS_COLUMN_PHONE));
+            String password = cursor.getString(cursor.getColumnIndex(TABLE_USERS_COLUMN_PASSWORD));
+            String image = cursor.getString(cursor.getColumnIndex(TABLE_USERS_COLUMN_IMAGE));
             // Создайте объект пользователя с полученными данными
             user = new User(id, fullName, email, phone, password);
         }

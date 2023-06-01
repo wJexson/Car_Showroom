@@ -1,6 +1,7 @@
 package com.example.carshowroom.UI.StateHolder.Adapters;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,67 +15,74 @@ import com.example.carshowroom.Data.Models.CarAd;
 import com.example.carshowroom.R;
 
 import java.util.List;
-import java.util.Objects;
 
 public class CarAdListAdapter extends RecyclerView.Adapter<CarAdListAdapter.ViewHolder> {
-
     private final List<CarAd> carAdList;
-    public CarAdListAdapter.OnCarAdClickListener onClickListener = null;
+    private final LayoutInflater inflater;
+    public OnCarAdClickListener onClickListener;
 
     public interface OnCarAdClickListener {
         void onCarAdClick(CarAd carAdListItem);
     }
 
-
-    public CarAdListAdapter(List<CarAd> carAdListItems) {
-        this.carAdList = carAdListItems;
+    public CarAdListAdapter(Context context, List<CarAd> carAdList) {
+        this.carAdList = carAdList;
+        this.inflater = LayoutInflater.from(context);
     }
 
+    public void setOnCarAdClickListener(OnCarAdClickListener listener) {
+        this.onClickListener = listener;
+    }
 
     @NonNull
     @Override
-    public CarAdListAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.car_ad_list_item, parent, false);
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = inflater.inflate(R.layout.car_ad_list_item, parent, false);
         return new ViewHolder(view);
     }
 
-    @SuppressLint("SetTextI18n")
+    @SuppressLint({"DiscouragedApi", "SetTextI18n"})
     @Override
-    public void onBindViewHolder(@NonNull CarAdListAdapter.ViewHolder holder, int position) {
-        CarAd carAdListItem = Objects.requireNonNull(carAdList).get(position);
-        holder.flagView.setImageResource(carAdListItem.getFlagResource());
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        CarAd carAdListItem = carAdList.get(position);
+        holder.imageView.setImageResource(holder.itemView.getContext().getResources().getIdentifier(carAdListItem.getImage(), "drawable", holder.itemView.getContext().getPackageName()));
         holder.nameView.setText(carAdListItem.getBrand() + " " + carAdListItem.getModel());
         holder.yearView.setText(carAdListItem.getYear());
         holder.priceView.setText(carAdListItem.getPrice() + " $");
         holder.colorView.setText(carAdListItem.getColor());
         holder.transmissionView.setText(carAdListItem.getTransmission());
         holder.drive_unitView.setText(carAdListItem.getDrive_unit());
-        holder.itemView.setOnClickListener(v -> onClickListener.onCarAdClick(carAdListItem));
+        holder.itemView.setOnClickListener(v -> {
+            if (onClickListener != null) {
+                onClickListener.onCarAdClick(carAdListItem);
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
-        return Objects.requireNonNull(carAdList).size();
+        return carAdList.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        final ImageView flagView;
-        final TextView nameView;
-        final TextView yearView;
-        final TextView colorView;
-        final TextView priceView;
-        final TextView transmissionView;
-        final TextView drive_unitView;
+        ImageView imageView;
+        TextView nameView;
+        TextView yearView;
+        TextView colorView;
+        TextView priceView;
+        TextView transmissionView;
+        TextView drive_unitView;
 
         public ViewHolder(View view) {
             super(view);
-            this.flagView = view.findViewById(R.id.car_image);
-            this.nameView = view.findViewById(R.id.car_title);
-            this.yearView = view.findViewById(R.id.car_year);
-            this.colorView = view.findViewById(R.id.car_color);
-            this.priceView = view.findViewById(R.id.car_price);
-            this.transmissionView = view.findViewById(R.id.car_transmission);
-            this.drive_unitView = view.findViewById(R.id.car_drive_unit);
+            imageView = view.findViewById(R.id.car_image);
+            nameView = view.findViewById(R.id.car_title);
+            yearView = view.findViewById(R.id.car_year);
+            colorView = view.findViewById(R.id.car_color);
+            priceView = view.findViewById(R.id.car_price);
+            transmissionView = view.findViewById(R.id.car_transmission);
+            drive_unitView = view.findViewById(R.id.car_drive_unit);
         }
     }
 }
+

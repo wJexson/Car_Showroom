@@ -1,8 +1,15 @@
 package com.example.carshowroom.Data.Models;
 
+import androidx.annotation.NonNull;
+
 import com.example.carshowroom.R;
 
+import java.util.ArrayList;
+
 public class CarAd {
+
+    public static ArrayList<CarAd> carAds = new ArrayList<>();
+
     private String brand; // марка
     private String model; // модель
     private String year; // год
@@ -10,14 +17,36 @@ public class CarAd {
     private String color; // цвет
     private String transmission; // коробка
     private String drive_unit; // привод
-    private int flagResource; // ресурс флага
+    private int flagResource = 0; // ресурс флага
     private String mileage; // пробег
     private String engine; // двигатель
     private String body; // кузов
     public String condition; // состояние
     public String steering_wheel; // руль
     private String VIN; // VIN
+    private String image;
 
+    public CarAd() {
+    }
+
+    public CarAd(String VIN, String brand, String model, String year, String price, String color, String transmission,
+                 String drive_unit, String mileage, String engine, String body,
+                 String condition, String steering_wheel, String image) {
+        this.VIN = VIN;
+        this.brand = brand;
+        this.model = model;
+        this.year = year;
+        this.price = price;
+        this.color = color;
+        this.transmission = transmission;
+        this.drive_unit = drive_unit;
+        this.mileage = mileage;
+        this.engine = engine;
+        this.body = body;
+        this.condition = condition;
+        this.steering_wheel = steering_wheel;
+        this.image = image;
+    }
 
     public CarAd(String VIN) {
         this.VIN = VIN;
@@ -260,5 +289,35 @@ public class CarAd {
 
     public void setModel(String model) {
         this.model = model;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return "CarAd{" +
+                "brand='" + brand + '\'' +
+                ", model='" + model + '\'' +
+                ", year='" + year + '\'' +
+                ", price='" + price + '\'' +
+                ", color='" + color + '\'' +
+                ", transmission='" + transmission + '\'' +
+                ", drive_unit='" + drive_unit + '\'' +
+                ", flagResource=" + flagResource +
+                ", mileage='" + mileage + '\'' +
+                ", engine='" + engine + '\'' +
+                ", body='" + body + '\'' +
+                ", condition='" + condition + '\'' +
+                ", steering_wheel='" + steering_wheel + '\'' +
+                ", VIN='" + VIN + '\'' +
+                ", image='" + image + '\'' +
+                '}';
     }
 }
