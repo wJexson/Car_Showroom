@@ -14,8 +14,8 @@ import android.widget.Toast;
 
 import androidx.navigation.Navigation;
 
-import com.example.carshowroom.Data.Models.CarAd;
-import com.example.carshowroom.Data.Models.User;
+import com.example.carshowroom.Models.Car;
+import com.example.carshowroom.Models.User;
 import com.example.carshowroom.R;
 
 import java.io.File;
@@ -24,7 +24,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.regex.Pattern;
 
 public class DataBaseHelper extends SQLiteOpenHelper {
@@ -129,29 +128,29 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     private static final String TABLE_CARS_COLUMN_PHOTO = "photo";
 
     @SuppressLint("Range")
-    public ArrayList<CarAd> getCarAdsFromDatabase() {
-        ArrayList<CarAd> carAds = new ArrayList<>();
+    public ArrayList<Car> getCarAdsFromDatabase() {
+        ArrayList<Car> cars = new ArrayList<>();
         Cursor cursor = sqliteDataBase.query(TABLE_CARS, null, null, null,
                 null, null, null);
         while (cursor.moveToNext()) {
             //Создание авто
-            CarAd carAd = new CarAd(cursor.getString(cursor.getColumnIndex(TABLE_CARS_COLUMN_VIN)), cursor.getString(cursor.getColumnIndex(TABLE_CARS_COLUMN_BRAND)),
+            Car car = new Car(cursor.getString(cursor.getColumnIndex(TABLE_CARS_COLUMN_VIN)), cursor.getString(cursor.getColumnIndex(TABLE_CARS_COLUMN_BRAND)),
                     cursor.getString(cursor.getColumnIndex(TABLE_CARS_COLUMN_MODEL)), cursor.getString(cursor.getColumnIndex(TABLE_CARS_COLUMN_YEAR)),
                     cursor.getString(cursor.getColumnIndex(TABLE_CARS_COLUMN_PRICE)), cursor.getString(cursor.getColumnIndex(TABLE_CARS_COLUMN_COLOR)),
                     cursor.getString(cursor.getColumnIndex(TABLE_CARS_COLUMN_TRANSMISSION)), cursor.getString(cursor.getColumnIndex(TABLE_CARS_COLUMN_DRIVE_UNIT)),
                     cursor.getString(cursor.getColumnIndex(TABLE_CARS_COLUMN_MILEAGE)), cursor.getString(cursor.getColumnIndex(TABLE_CARS_COLUMN_ENGINE)),
                     cursor.getString(cursor.getColumnIndex(TABLE_CARS_COLUMN_BODY)), cursor.getString(cursor.getColumnIndex(TABLE_CARS_COLUMN_CONDITION)),
                     cursor.getString(cursor.getColumnIndex(TABLE_CARS_COLUMN_STEERING_WHEEL)), cursor.getString(cursor.getColumnIndex(TABLE_CARS_COLUMN_PHOTO)));
-            carAds.add(carAd);
+            cars.add(car);
         }
-        if (carAds.isEmpty()) {
+        if (cars.isEmpty()) {
             Log.e("DB", "Error getting cars");
         }
         else {
             Log.d("DB", "Cars has been got");
         }
         cursor.close();
-        return carAds;
+        return cars;
     }
 
     public User insertUser(String username, String email, String phone, String password) {

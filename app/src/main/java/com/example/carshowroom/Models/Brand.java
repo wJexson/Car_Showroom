@@ -1,16 +1,9 @@
-package com.example.carshowroom.Data.Models;
+package com.example.carshowroom.Models;
 
 import androidx.annotation.NonNull;
-import androidx.room.ColumnInfo;
-import androidx.room.Entity;
-import androidx.room.PrimaryKey;
 
-@Entity(tableName = "brand_table")
 public class Brand {
 
-    @PrimaryKey
-    @NonNull
-    @ColumnInfo(name = "name")
     public String name; // название
 
 

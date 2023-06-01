@@ -13,9 +13,6 @@
         <action
             android:id="@+id/action_mainFragment_to_carAdFragment"
             app:destination="@id/carAdFragment" />
-        <action
-            android:id="@+id/action_mainFragment_to_brandslistFragment"
-            app:destination="@id/brandslistFragment" />
         <argument
             android:name="user"
             app:argType="com.example.carshowroom.Data.Models.User"
@@ -59,17 +56,11 @@
             android:name="carAd_Key"
             android:defaultValue="0"
             app:argType="string" />
-    </fragment>
-
-
-    <fragment
-        android:id="@+id/brandslistFragment"
-        android:name="com.example.carshowroom.UI.Fragments.BrandListFragment"
-        android:label="BrandList"
-        tools:layout="@layout/fragment_recyclerview">
-        <action
-            android:id="@+id/action_brandslistFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
+        <argument
+            android:name="car"
+            android:defaultValue="@null"
+            app:argType="com.example.carshowroom.Data.Models.Car"
+            app:nullable="true" />
     </fragment>
 
     <fragment

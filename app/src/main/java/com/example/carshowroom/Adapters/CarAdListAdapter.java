@@ -1,4 +1,4 @@
-package com.example.carshowroom.UI.StateHolder.Adapters;
+package com.example.carshowroom.Adapters;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -11,27 +11,23 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.carshowroom.Data.Models.CarAd;
+import com.example.carshowroom.Models.Car;
 import com.example.carshowroom.R;
 
 import java.util.List;
 
 public class CarAdListAdapter extends RecyclerView.Adapter<CarAdListAdapter.ViewHolder> {
-    private final List<CarAd> carAdList;
+    private final List<Car> carList;
     private final LayoutInflater inflater;
     public OnCarAdClickListener onClickListener;
 
     public interface OnCarAdClickListener {
-        void onCarAdClick(CarAd carAdListItem);
+        void onCarAdClick(Car carListItem);
     }
 
-    public CarAdListAdapter(Context context, List<CarAd> carAdList) {
-        this.carAdList = carAdList;
+    public CarAdListAdapter(Context context, List<Car> carList) {
+        this.carList = carList;
         this.inflater = LayoutInflater.from(context);
-    }
-
-    public void setOnCarAdClickListener(OnCarAdClickListener listener) {
-        this.onClickListener = listener;
     }
 
     @NonNull
@@ -44,24 +40,24 @@ public class CarAdListAdapter extends RecyclerView.Adapter<CarAdListAdapter.View
     @SuppressLint({"DiscouragedApi", "SetTextI18n"})
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        CarAd carAdListItem = carAdList.get(position);
-        holder.imageView.setImageResource(holder.itemView.getContext().getResources().getIdentifier(carAdListItem.getImage(), "drawable", holder.itemView.getContext().getPackageName()));
-        holder.nameView.setText(carAdListItem.getBrand() + " " + carAdListItem.getModel());
-        holder.yearView.setText(carAdListItem.getYear());
-        holder.priceView.setText(carAdListItem.getPrice() + " $");
-        holder.colorView.setText(carAdListItem.getColor());
-        holder.transmissionView.setText(carAdListItem.getTransmission());
-        holder.drive_unitView.setText(carAdListItem.getDrive_unit());
+        Car carListItem = carList.get(position);
+        holder.imageView.setImageResource(holder.itemView.getContext().getResources().getIdentifier(carListItem.getImage(), "drawable", holder.itemView.getContext().getPackageName()));
+        holder.nameView.setText(carListItem.getBrand() + " " + carListItem.getModel());
+        holder.yearView.setText(carListItem.getYear());
+        holder.priceView.setText(carListItem.getPrice() + " $");
+        holder.colorView.setText(carListItem.getColor());
+        holder.transmissionView.setText(carListItem.getTransmission());
+        holder.drive_unitView.setText(carListItem.getDrive_unit());
         holder.itemView.setOnClickListener(v -> {
             if (onClickListener != null) {
-                onClickListener.onCarAdClick(carAdListItem);
+                onClickListener.onCarAdClick(carListItem);
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        return carAdList.size();
+        return carList.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

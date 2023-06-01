@@ -1,4 +1,4 @@
-package com.example.carshowroom.UI.StateHolder.Adapters;
+package com.example.carshowroom.Adapters;
 
 import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
@@ -9,7 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.carshowroom.Data.Models.Brand;
+import com.example.carshowroom.Models.Brand;
 import com.example.carshowroom.R;
 
 import java.util.List;

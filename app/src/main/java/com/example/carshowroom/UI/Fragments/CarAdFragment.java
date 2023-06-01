@@ -14,12 +14,19 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
-import com.example.carshowroom.Data.Models.CarAd;
+import com.example.carshowroom.Models.Car;
 import com.example.carshowroom.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class CarAdFragment extends Fragment {
 
+    Car car;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        car = requireArguments().getParcelable(Car.SELECTED_CAR);
+    }
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -30,8 +37,7 @@ public class CarAdFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        String car_vin = parseArgs();
-        setCarData(car_vin, view);
+        setCarData(view);
 
         Button back_button = view.findViewById(R.id.back_button);
         Button fav_butoon = view.findViewById(R.id.fav_butoon);
@@ -60,17 +66,8 @@ public class CarAdFragment extends Fragment {
         bottomNavigationView.setVisibility(View.GONE);
     }
 
-    public String parseArgs() {
-        String car_vin = "";
-        Bundle bundle = this.getArguments();
-        if (bundle != null) {
-            car_vin = bundle.getString("carAd_Key");
-        }
-        return car_vin;
-    }
-
-    @SuppressLint("SetTextI18n")
-    public void setCarData(String car_vin, View view) {
+    @SuppressLint({"SetTextI18n", "DiscouragedApi"})
+    public void setCarData(View view) {
         TextView car_title = view.findViewById(R.id.car_title);
         TextView car_price = view.findViewById(R.id.car_price);
         TextView car_year = view.findViewById(R.id.year);
@@ -84,20 +81,17 @@ public class CarAdFragment extends Fragment {
         TextView car_steering_wheel = view.findViewById(R.id.steering_wheel);
         ImageView car_image = view.findViewById(R.id.car_image);
 
-        CarAd carAd = new CarAd(car_vin);
-        car_title.setText(carAd.getBrand() + " " + carAd.getModel());
-        car_price.setText(carAd.getPrice() + " $");
-        car_year.setText(carAd.getYear());
-        car_mileage.setText(carAd.getMileage());
-        car_engine.setText(carAd.getEngine());
-        car_body.setText(carAd.getBody());
-        car_color.setText(carAd.getColor());
-        car_drive_unit.setText(carAd.getDrive_unit());
-        car_transmission.setText(carAd.getTransmission());
-        car_condition.setText(carAd.getCondition());
-        car_steering_wheel.setText(carAd.getSteering_wheel());
-        car_image.setImageResource(carAd.getFlagResource());
+        car_title.setText(car.getBrand() + " " + car.getModel());
+        car_price.setText(car.getPrice() + " $");
+        car_year.setText(car.getYear());
+        car_mileage.setText(car.getMileage());
+        car_engine.setText(car.getEngine());
+        car_body.setText(car.getBody());
+        car_color.setText(car.getColor());
+        car_drive_unit.setText(car.getDrive_unit());
+        car_transmission.setText(car.getTransmission());
+        car_condition.setText(car.getCondition());
+        car_steering_wheel.setText(car.getSteering_wheel());
+        car_image.setImageResource(requireContext().getResources().getIdentifier(car.getImage(), "drawable", requireContext().getPackageName()));
     }
-
-
 }

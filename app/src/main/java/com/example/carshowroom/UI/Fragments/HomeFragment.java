@@ -12,11 +12,11 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.carshowroom.Data.Models.CarAd;
-import com.example.carshowroom.Data.Models.User;
-import com.example.carshowroom.Data.Protocols.UserProtocol;
+import com.example.carshowroom.Models.Car;
+import com.example.carshowroom.Models.User;
+import com.example.carshowroom.Models.UserProtocol;
 import com.example.carshowroom.R;
-import com.example.carshowroom.UI.StateHolder.Adapters.CarAdListAdapter;
+import com.example.carshowroom.Adapters.CarAdListAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
@@ -28,7 +28,7 @@ public class HomeFragment extends Fragment {
     public interface MainPageController {
         void setMainPage(HomeFragment homeFragment);
 
-        ArrayList<CarAd> getCarAds();
+        ArrayList<Car> getCarAds();
 
         void setUser(User user);
     }
@@ -62,18 +62,17 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        RecyclerView carAdList = view.findViewById(R.id.carAdList);
+        RecyclerView carList = view.findViewById(R.id.carList);
         CarAdListAdapter carAdListAdapter = new CarAdListAdapter(requireActivity(), mainPageController.getCarAds());
         carAdListAdapter.onClickListener = new CarAdListAdapter.OnCarAdClickListener() {
             @Override
-            public void onCarAdClick(CarAd carAdListItem) {
-                String car_vin = carAdListItem.getVIN();
+            public void onCarAdClick(Car carListItem) {
                 Bundle bundle = new Bundle();
-                bundle.putString("carAd_Key", car_vin);
+                bundle.putParcelable(Car.SELECTED_CAR, carListItem);
                 Navigation.findNavController(requireView()).navigate(R.id.action_mainFragment_to_carAdFragment, bundle);
             }
         };
-        carAdList.setAdapter(carAdListAdapter);
+        carList.setAdapter(carAdListAdapter);
     }
 
     @Override

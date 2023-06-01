@@ -14,7 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
-import com.example.carshowroom.Data.Models.User;
+import com.example.carshowroom.Models.User;
 import com.example.carshowroom.R;
 
 

@@ -9,9 +9,9 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.carshowroom.DB.DataBaseHelper;
-import com.example.carshowroom.Data.Models.CarAd;
-import com.example.carshowroom.Data.Models.User;
-import com.example.carshowroom.Data.Protocols.UserProtocol;
+import com.example.carshowroom.Models.Car;
+import com.example.carshowroom.Models.User;
+import com.example.carshowroom.Models.UserProtocol;
 import com.example.carshowroom.R;
 import com.example.carshowroom.UI.Fragments.HomeFragment;
 import com.example.carshowroom.UI.Fragments.ProfileFragment;
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements UserProtocol, Pro
             dataBaseHelperClass.createDataBase();
         } catch (Exception ignored) {}
         dataBaseHelperClass.openDataBase();
-        CarAd.carAds = dataBaseHelperClass.getCarAdsFromDatabase();
+        Car.cars = dataBaseHelperClass.getCarAdsFromDatabase();
         dataBaseHelperClass.close();
     }
 
@@ -56,8 +56,8 @@ public class MainActivity extends AppCompatActivity implements UserProtocol, Pro
     }
 
     @Override
-    public ArrayList<CarAd> getCarAds() {
-        return CarAd.carAds;
+    public ArrayList<Car> getCarAds() {
+        return Car.cars;
     }
 
     @Override
