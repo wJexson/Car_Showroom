@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity implements UserProtocol, Pro
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_main);
         dataBaseHelperClass = new DataBaseHelper(this);
         try {
             dataBaseHelperClass.createDataBase();

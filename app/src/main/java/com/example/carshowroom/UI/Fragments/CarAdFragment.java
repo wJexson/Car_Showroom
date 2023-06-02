@@ -84,7 +84,7 @@ public class CarAdFragment extends Fragment {
         car_title.setText(car.getBrand() + " " + car.getModel());
         car_price.setText(car.getPrice() + " $");
         car_year.setText(car.getYear());
-        car_mileage.setText(car.getMileage());
+        car_mileage.setText(car.getMileage() + " км");
         car_engine.setText(car.getEngine());
         car_body.setText(car.getBody());
         car_color.setText(car.getColor());
