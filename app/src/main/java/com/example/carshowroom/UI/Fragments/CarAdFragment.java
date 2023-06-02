@@ -1,6 +1,8 @@
 package com.example.carshowroom.UI.Fragments;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,18 +16,41 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
+import com.example.carshowroom.DB.DataBaseHelper;
 import com.example.carshowroom.Models.Car;
+import com.example.carshowroom.Models.User;
 import com.example.carshowroom.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class CarAdFragment extends Fragment {
 
+
+    public interface UserProtocol {
+        User getUser();
+    }
+
+    UserProtocol userGetter;
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        userGetter = (UserProtocol) context;
+    }
+
     Car car;
+    User user;
+    DataBaseHelper dataBaseHelper;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        dataBaseHelper = new DataBaseHelper(getContext());
+        try {
+            dataBaseHelper.createDataBase();
+        } catch (Exception ignored) {
+        }
         car = requireArguments().getParcelable(Car.SELECTED_CAR);
+        user = userGetter.getUser();
     }
 
     @SuppressLint("SetTextI18n")
@@ -43,17 +68,37 @@ public class CarAdFragment extends Fragment {
         Button fav_butoon = view.findViewById(R.id.fav_butoon);
 
 
+        if (user.favorites.contains(car)) {
+            fav_butoon.setText("Удалить из избранного");
+            fav_butoon.setBackgroundColor(Color.parseColor("#FF0000"));
+        }
+
+
         back_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Navigation.findNavController(view).navigate(R.id.action_carAdFragment_to_mainFragment);
+                Navigation.findNavController(view).popBackStack();
             }
         });
 
         fav_butoon.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("ResourceAsColor")
             @Override
             public void onClick(View v) {
+                dataBaseHelper.openDataBase();
+                if (fav_butoon.getText().equals("Добавить в избранное")) {
+                    user.favorites.add(car);
+                    dataBaseHelper.addToFavorites(car.getVIN(), user.getID());
 
+                    fav_butoon.setText("Удалить из избранного");
+                    fav_butoon.setBackgroundColor(Color.parseColor("#FF0000"));
+                } else {
+                    user.favorites.remove(car);
+                    dataBaseHelper.deleteFromFavorites(car.getVIN(), user.getID());
+                    fav_butoon.setText("Добавить в избранное");
+                    fav_butoon.setBackgroundColor(Color.parseColor("#FF000000"));
+                }
+                dataBaseHelper.close();
             }
         });
     }

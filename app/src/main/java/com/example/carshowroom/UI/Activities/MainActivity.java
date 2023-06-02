@@ -13,13 +13,16 @@ import com.example.carshowroom.Models.Car;
 import com.example.carshowroom.Models.User;
 import com.example.carshowroom.Models.UserProtocol;
 import com.example.carshowroom.R;
+import com.example.carshowroom.UI.Fragments.CarAdFragment;
+import com.example.carshowroom.UI.Fragments.FavoritesFragment;
 import com.example.carshowroom.UI.Fragments.HomeFragment;
 import com.example.carshowroom.UI.Fragments.ProfileFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements UserProtocol, ProfileFragment.UserProtocol, HomeFragment.MainPageController {
+public class MainActivity extends AppCompatActivity implements UserProtocol, ProfileFragment.UserProtocol, CarAdFragment.UserProtocol,
+        FavoritesFragment.UserProtocol, HomeFragment.MainPageController {
 
     DataBaseHelper dataBaseHelperClass;
     HomeFragment homeFragment;
@@ -34,7 +37,8 @@ public class MainActivity extends AppCompatActivity implements UserProtocol, Pro
         dataBaseHelperClass = new DataBaseHelper(this);
         try {
             dataBaseHelperClass.createDataBase();
-        } catch (Exception ignored) {}
+        } catch (Exception ignored) {
+        }
         dataBaseHelperClass.openDataBase();
         Car.cars = dataBaseHelperClass.getCarAdsFromDatabase();
         dataBaseHelperClass.close();

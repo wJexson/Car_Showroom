@@ -124,6 +124,21 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     private static final String TABLE_CARS_COLUMN_STEERING_WHEEL = "steering_wheel";
     private static final String TABLE_CARS_COLUMN_PHOTO = "photo";
 
+    private static final String TABLE_FAVORITES = "favorites";
+    private static final String TABLE_FAVORITES_COLUMN_VIN = "VIN";
+    private static final String TABLE_FAVORITES_COLUMN_FAVORITES = "_id";
+
+    public void addToFavorites(String VIN, int userId) {
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(TABLE_FAVORITES_COLUMN_VIN, VIN);
+        contentValues.put(TABLE_FAVORITES_COLUMN_FAVORITES, userId);
+        sqliteDataBase.insert(TABLE_FAVORITES, null, contentValues);
+    }
+
+    public void deleteFromFavorites(String VIN, int userId) {
+        sqliteDataBase.delete(TABLE_FAVORITES, "VIN = ? AND _id = ?", new String[]{VIN, String.valueOf(userId)});
+    }
+
     @SuppressLint("Range")
     public ArrayList<Car> getCarAdsFromDatabase() {
         ArrayList<Car> cars = new ArrayList<>();
@@ -142,8 +157,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         }
         if (cars.isEmpty()) {
             Log.e("DB", "Error getting cars");
-        }
-        else {
+        } else {
             Log.d("DB", "Cars has been got");
         }
         cursor.close();
@@ -237,8 +251,33 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             String phone = cursor.getString(cursor.getColumnIndex(TABLE_USERS_COLUMN_PHONE));
             String password = cursor.getString(cursor.getColumnIndex(TABLE_USERS_COLUMN_PASSWORD));
             String image = cursor.getString(cursor.getColumnIndex(TABLE_USERS_COLUMN_IMAGE));
+            ArrayList<Car> favorites = new ArrayList<>();
+            Cursor favCursor = sqliteDataBase.query(TABLE_FAVORITES, null, "_id = ?", new String[]{String.valueOf(id)}, null, null, null);
+            while (favCursor.moveToNext()) {
+                String VIN = favCursor.getString(0);
+                Cursor carCursor = sqliteDataBase.query(TABLE_CARS, null, " VIN = ?", new String[]{VIN},
+                        null, null, null);
+                while (carCursor.moveToNext()) {
+                    //Создание авто
+                    Car car = new Car(carCursor.getString(carCursor.getColumnIndex(TABLE_CARS_COLUMN_VIN)), carCursor.getString(carCursor.getColumnIndex(TABLE_CARS_COLUMN_BRAND)),
+                            carCursor.getString(carCursor.getColumnIndex(TABLE_CARS_COLUMN_MODEL)), carCursor.getInt(carCursor.getColumnIndex(TABLE_CARS_COLUMN_YEAR)),
+                            carCursor.getInt(carCursor.getColumnIndex(TABLE_CARS_COLUMN_PRICE)), carCursor.getString(carCursor.getColumnIndex(TABLE_CARS_COLUMN_COLOR)),
+                            carCursor.getString(carCursor.getColumnIndex(TABLE_CARS_COLUMN_TRANSMISSION)), carCursor.getString(carCursor.getColumnIndex(TABLE_CARS_COLUMN_DRIVE_UNIT)),
+                            carCursor.getInt(carCursor.getColumnIndex(TABLE_CARS_COLUMN_MILEAGE)), carCursor.getString(carCursor.getColumnIndex(TABLE_CARS_COLUMN_ENGINE)),
+                            carCursor.getString(carCursor.getColumnIndex(TABLE_CARS_COLUMN_BODY)), carCursor.getString(carCursor.getColumnIndex(TABLE_CARS_COLUMN_CONDITION)),
+                            carCursor.getString(carCursor.getColumnIndex(TABLE_CARS_COLUMN_STEERING_WHEEL)), carCursor.getString(carCursor.getColumnIndex(TABLE_CARS_COLUMN_PHOTO)));
+                    favorites.add(car);
+                }
+                if (favorites.isEmpty()) {
+                    Log.e("DB", "Error getting cars");
+                } else {
+                    Log.d("DB", "Cars has been got");
+                }
+                carCursor.close();
+            }
+            favCursor.close();
             // Создайте объект пользователя с полученными данными
-            user = new User(id, fullName, email, phone, password);
+            user = new User(id, fullName, email, phone, password, favorites);
         }
 
         cursor.close();

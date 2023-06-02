@@ -7,11 +7,14 @@ import androidx.annotation.NonNull;
 
 import com.example.carshowroom.R;
 
+import java.util.ArrayList;
+
 public class User implements Parcelable {
     public static final String SELECTED_USER = "USER";
 
     public static final String EMAIL_PATTERN = "(^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$\n)";
     public static final String PHONE_PATTERN = "(^((\\+7|7|8)+([0-9]){10})$\n)";
+    public ArrayList<Car> favorites = new ArrayList<>();
     private final int ID;
     private final String fullName;
     private final String email;
@@ -29,6 +32,15 @@ public class User implements Parcelable {
 
     }
 
+    public User(int id, String fullName, String email, String telephone, String password, ArrayList<Car> favorites) {
+        ID = id;
+        this.fullName = fullName;
+        this.email = email;
+        this.telephone = telephone;
+        this.password = password;
+        this.favorites = favorites;
+    }
+
     protected User(Parcel in) {
         ID = in.readInt();
         fullName = in.readString();
@@ -37,6 +49,7 @@ public class User implements Parcelable {
         password = in.readString();
         image = in.readInt();
         image_name = in.readString();
+        favorites = in.createTypedArrayList(Car.CREATOR);
     }
 
     public static final Parcelable.Creator<User> CREATOR = new Parcelable.Creator<User>() {
@@ -87,6 +100,14 @@ public class User implements Parcelable {
         this.image_name = image_name;
     }
 
+    public ArrayList<Car> getFavorites() {
+        return favorites;
+    }
+
+    public void setFavorites(ArrayList<Car> favourites) {
+        this.favorites = favourites;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -101,5 +122,21 @@ public class User implements Parcelable {
         parcel.writeString(password);
         parcel.writeInt(image);
         parcel.writeString(image_name);
+        parcel.writeTypedList(favorites);
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return "User{" +
+                "favorites=" + favorites +
+                ", ID=" + ID +
+                ", fullName='" + fullName + '\'' +
+                ", email='" + email + '\'' +
+                ", telephone='" + telephone + '\'' +
+                ", password='" + password + '\'' +
+                ", image=" + image +
+                ", image_name='" + image_name + '\'' +
+                '}';
     }
 }
