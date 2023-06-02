@@ -43,7 +43,7 @@ public class CarAdListAdapter extends RecyclerView.Adapter<CarAdListAdapter.View
         Car carListItem = carList.get(position);
         holder.imageView.setImageResource(holder.itemView.getContext().getResources().getIdentifier(carListItem.getImage(), "drawable", holder.itemView.getContext().getPackageName()));
         holder.nameView.setText(carListItem.getBrand() + " " + carListItem.getModel());
-        holder.yearView.setText(carListItem.getYear());
+        holder.yearView.setText(String.valueOf(carListItem.getYear()));
         holder.priceView.setText(carListItem.getPrice() + " $");
         holder.colorView.setText(carListItem.getColor());
         holder.transmissionView.setText(carListItem.getTransmission());

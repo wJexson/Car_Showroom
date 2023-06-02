@@ -15,7 +15,7 @@
             app:destination="@id/carAdFragment" />
         <argument
             android:name="user"
-            app:argType="com.example.carshowroom.Data.Models.User"
+            app:argType="com.example.carshowroom.Models.User"
             app:nullable="true" />
     </fragment>
 
@@ -59,7 +59,7 @@
         <argument
             android:name="car"
             android:defaultValue="@null"
-            app:argType="com.example.carshowroom.Data.Models.Car"
+            app:argType="com.example.carshowroom.Models.Car"
             app:nullable="true" />
     </fragment>
 

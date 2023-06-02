@@ -65,8 +65,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     } // end createDataBase().
 
     public boolean checkDataBase() {
-        String path = DB_PATH + DB_NAME;
-        File databaseFile = new File(path);
+        File databaseFile = new File(DB_PATH);
         return databaseFile.exists();
     }
 
@@ -74,9 +73,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         //Open your local db as the input stream
         InputStream myInput = context.getAssets().open(DB_NAME);
         // Path to the just created empty db
-        String outFileName = DB_PATH + DB_NAME;
         //Open the empty db as the output stream
-        OutputStream myOutput = new FileOutputStream(outFileName);
+        OutputStream myOutput = new FileOutputStream(DB_PATH);
         //transfer bytes from the input file to the output file
         byte[] buffer = new byte[1024];
         int length;
@@ -92,8 +90,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     public void openDataBase() throws SQLException {
         //Open the database
-        String myPath = DB_PATH + DB_NAME;
-        sqliteDataBase = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READWRITE);
+        sqliteDataBase = SQLiteDatabase.openDatabase(DB_PATH, null, SQLiteDatabase.OPEN_READWRITE);
     }
 
     @Override
@@ -135,10 +132,10 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         while (cursor.moveToNext()) {
             //Создание авто
             Car car = new Car(cursor.getString(cursor.getColumnIndex(TABLE_CARS_COLUMN_VIN)), cursor.getString(cursor.getColumnIndex(TABLE_CARS_COLUMN_BRAND)),
-                    cursor.getString(cursor.getColumnIndex(TABLE_CARS_COLUMN_MODEL)), cursor.getString(cursor.getColumnIndex(TABLE_CARS_COLUMN_YEAR)),
-                    cursor.getString(cursor.getColumnIndex(TABLE_CARS_COLUMN_PRICE)), cursor.getString(cursor.getColumnIndex(TABLE_CARS_COLUMN_COLOR)),
+                    cursor.getString(cursor.getColumnIndex(TABLE_CARS_COLUMN_MODEL)), cursor.getInt(cursor.getColumnIndex(TABLE_CARS_COLUMN_YEAR)),
+                    cursor.getInt(cursor.getColumnIndex(TABLE_CARS_COLUMN_PRICE)), cursor.getString(cursor.getColumnIndex(TABLE_CARS_COLUMN_COLOR)),
                     cursor.getString(cursor.getColumnIndex(TABLE_CARS_COLUMN_TRANSMISSION)), cursor.getString(cursor.getColumnIndex(TABLE_CARS_COLUMN_DRIVE_UNIT)),
-                    cursor.getString(cursor.getColumnIndex(TABLE_CARS_COLUMN_MILEAGE)), cursor.getString(cursor.getColumnIndex(TABLE_CARS_COLUMN_ENGINE)),
+                    cursor.getInt(cursor.getColumnIndex(TABLE_CARS_COLUMN_MILEAGE)), cursor.getString(cursor.getColumnIndex(TABLE_CARS_COLUMN_ENGINE)),
                     cursor.getString(cursor.getColumnIndex(TABLE_CARS_COLUMN_BODY)), cursor.getString(cursor.getColumnIndex(TABLE_CARS_COLUMN_CONDITION)),
                     cursor.getString(cursor.getColumnIndex(TABLE_CARS_COLUMN_STEERING_WHEEL)), cursor.getString(cursor.getColumnIndex(TABLE_CARS_COLUMN_PHOTO)));
             cars.add(car);

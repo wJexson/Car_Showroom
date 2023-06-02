@@ -14,12 +14,12 @@ public class Car implements Parcelable {
 
     private String brand; // марка
     private String model; // модель
-    private String year; // год
-    private String price; // цена
+    private int year; // год
+    private int price; // цена
     private String color; // цвет
     private String transmission; // коробка
     private String drive_unit; // привод
-    private String mileage; // пробег
+    private int mileage; // пробег
     private String engine; // двигатель
     private String body; // кузов
     public String condition; // состояние
@@ -27,8 +27,8 @@ public class Car implements Parcelable {
     private String VIN; // VIN
     private String image;
 
-    public Car(String VIN, String brand, String model, String year, String price, String color, String transmission,
-               String drive_unit, String mileage, String engine, String body,
+    public Car(String VIN, String brand, String model, int year, int price, String color, String transmission,
+               String drive_unit, int mileage, String engine, String body,
                String condition, String steering_wheel, String image) {
         this.VIN = VIN;
         this.brand = brand;
@@ -49,12 +49,12 @@ public class Car implements Parcelable {
     protected Car(Parcel in) {
         brand = in.readString();
         model = in.readString();
-        year = in.readString();
-        price = in.readString();
+        year = in.readInt();
+        price = in.readInt();
         color = in.readString();
         transmission = in.readString();
         drive_unit = in.readString();
-        mileage = in.readString();
+        mileage = in.readInt();
         engine = in.readString();
         body = in.readString();
         condition = in.readString();
@@ -83,19 +83,19 @@ public class Car implements Parcelable {
         this.brand = name;
     }
 
-    public String getYear() {
+    public int getYear() {
         return year;
     }
 
-    public void setYear(String year) {
+    public void setYear(int year) {
         this.year = year;
     }
 
-    public String getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
@@ -124,11 +124,11 @@ public class Car implements Parcelable {
     }
 
 
-    public String getMileage() {
+    public int getMileage() {
         return mileage;
     }
 
-    public void setMileage(String mileage) {
+    public void setMileage(int mileage) {
         this.mileage = mileage;
     }
 
@@ -220,12 +220,12 @@ public class Car implements Parcelable {
     public void writeToParcel(@NonNull Parcel dest, int flags) {
         dest.writeString(brand);
         dest.writeString(model);
-        dest.writeString(year);
-        dest.writeString(price);
+        dest.writeInt(year);
+        dest.writeInt(price);
         dest.writeString(color);
         dest.writeString(transmission);
         dest.writeString(drive_unit);
-        dest.writeString(mileage);
+        dest.writeInt(mileage);
         dest.writeString(engine);
         dest.writeString(body);
         dest.writeString(condition);
