@@ -15,25 +15,7 @@
         android:layout_gravity="center"
         android:text="@string/profile_ru"
         android:textColor="@color/white"
-        android:textSize="30sp" />
-
-    <ImageView
-        android:id="@+id/userImage"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="10sp"
-        android:scaleType="fitXY"
-        tools:ignore="ContentDescription" />
-
-    <Button
-        android:layout_marginTop="5sp"
-        android:id="@+id/change_image_button"
-        android:layout_gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Сменить фото"
-        tools:ignore="HardcodedText" />
+        android:textSize="25sp" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -103,10 +85,22 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
+        android:id="@+id/all_users_button"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="50sp"
+        android:backgroundTint="@color/black"
+        android:text="Список пользователей"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="HardcodedText" />
+
+    <Button
         android:id="@+id/about_button"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_marginTop="20sp"
+        android:layout_marginTop="10sp"
         android:backgroundTint="@color/black"
         android:text="@string/about_app_ru"
         android:textSize="15sp"

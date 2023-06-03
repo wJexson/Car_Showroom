@@ -5,8 +5,6 @@ import android.os.Parcelable;
 
 import androidx.annotation.NonNull;
 
-import com.example.carshowroom.R;
-
 import java.util.ArrayList;
 
 public class User implements Parcelable {
@@ -14,41 +12,38 @@ public class User implements Parcelable {
 
     public static final String EMAIL_PATTERN = "(^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$\n)";
     public static final String PHONE_PATTERN = "(^((\\+7|7|8)+([0-9]){10})$\n)";
+    public static final int ADMIN_ID = 1;
     public ArrayList<Car> favorites = new ArrayList<>();
     private final int ID;
-    private final String fullName;
+    private final String userName;
     private final String email;
-    private final String telephone;
+    private final String phone;
     private final String password;
-    private int image = R.drawable.userimage1;
-    String image_name;
 
-    public User(int id, String fullName, String email, String telephone, String password) {
+    public User(int id, String userName, String email, String phone, String password) {
         ID = id;
-        this.fullName = fullName;
+        this.userName = userName;
         this.email = email;
-        this.telephone = telephone;
+        this.phone = phone;
         this.password = password;
 
     }
 
-    public User(int id, String fullName, String email, String telephone, String password, ArrayList<Car> favorites) {
+    public User(int id, String userName, String email, String phone, String password, ArrayList<Car> favorites) {
         ID = id;
-        this.fullName = fullName;
+        this.userName = userName;
         this.email = email;
-        this.telephone = telephone;
+        this.phone = phone;
         this.password = password;
         this.favorites = favorites;
     }
 
     protected User(Parcel in) {
         ID = in.readInt();
-        fullName = in.readString();
+        userName = in.readString();
         email = in.readString();
-        telephone = in.readString();
+        phone = in.readString();
         password = in.readString();
-        image = in.readInt();
-        image_name = in.readString();
         favorites = in.createTypedArrayList(Car.CREATOR);
     }
 
@@ -68,36 +63,20 @@ public class User implements Parcelable {
         return email;
     }
 
-    public String getFullName() {
-        return fullName;
+    public String getUserName() {
+        return userName;
     }
 
     public int getID() {
         return ID;
     }
 
-    public String getTelephone() {
-        return telephone;
+    public String getPhone() {
+        return phone;
     }
 
     public String getPassword() {
         return password;
-    }
-
-    public void setImage(int image) {
-        this.image = image;
-    }
-
-    public int getImage() {
-        return image;
-    }
-
-    public String getImage_name() {
-        return image_name;
-    }
-
-    public void setImage_name(String image_name) {
-        this.image_name = image_name;
     }
 
     public ArrayList<Car> getFavorites() {
@@ -116,12 +95,10 @@ public class User implements Parcelable {
     @Override
     public void writeToParcel(@NonNull Parcel parcel, int i) {
         parcel.writeInt(ID);
-        parcel.writeString(fullName);
+        parcel.writeString(userName);
         parcel.writeString(email);
-        parcel.writeString(telephone);
+        parcel.writeString(phone);
         parcel.writeString(password);
-        parcel.writeInt(image);
-        parcel.writeString(image_name);
         parcel.writeTypedList(favorites);
     }
 
@@ -131,12 +108,10 @@ public class User implements Parcelable {
         return "User{" +
                 "favorites=" + favorites +
                 ", ID=" + ID +
-                ", fullName='" + fullName + '\'' +
+                ", fullName='" + userName + '\'' +
                 ", email='" + email + '\'' +
-                ", telephone='" + telephone + '\'' +
+                ", telephone='" + phone + '\'' +
                 ", password='" + password + '\'' +
-                ", image=" + image +
-                ", image_name='" + image_name + '\'' +
                 '}';
     }
 }

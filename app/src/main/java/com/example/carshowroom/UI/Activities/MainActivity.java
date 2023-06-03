@@ -47,7 +47,6 @@ public class MainActivity extends AppCompatActivity implements UserProtocol, Pro
     @Override
     protected void onStart() {
         super.onStart();
-        userImage = findViewById(R.id.userImage);
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupWithNavController(bottomNavigationView, navController);

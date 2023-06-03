@@ -34,8 +34,8 @@
             android:id="@+id/action_profileFragment_to_aboutFragment"
             app:destination="@id/aboutFragment" />
         <action
-            android:id="@+id/action_profileFragment_to_profileImagesFragment"
-            app:destination="@id/profileImagesFragment" />
+            android:id="@+id/action_profileFragment_to_usersFragment"
+            app:destination="@id/usersFragment" />
     </fragment>
 
     <fragment
@@ -53,9 +53,6 @@
         android:name="com.example.carshowroom.UI.Fragments.CarAdFragment"
         android:label="CarAd"
         tools:layout="@layout/fragment_car_ad">
-        <action
-            android:id="@+id/action_carAdFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
         <argument
             android:name="carAd_Key"
             android:defaultValue="0"
@@ -71,22 +68,14 @@
         android:id="@+id/reviewFragment"
         android:name="com.example.carshowroom.UI.Fragments.ReviewFragment"
         android:label="Review"
-        tools:layout="@layout/fragment_review">
-        <action
-            android:id="@+id/action_reviewFragment_to_profileFragment"
-            app:destination="@id/profileFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_review" />
 
 
     <fragment
         android:id="@+id/aboutFragment"
         android:name="com.example.carshowroom.UI.Fragments.AboutFragment"
         android:label="fragment_about"
-        tools:layout="@layout/fragment_about">
-        <action
-            android:id="@+id/action_aboutFragment_to_profileFragment"
-            app:destination="@id/profileFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_about" />
 
     <fragment
         android:id="@+id/authFragment"
@@ -126,11 +115,12 @@
             android:id="@+id/action_signUpFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
     </fragment>
-    <dialog
-        android:id="@+id/profileImagesFragment"
-        android:name="com.example.carshowroom.UI.Fragments.ProfileImagesFragment"
-        android:label="fragment_profile_images"
-        tools:layout="@layout/fragment_profile_images" />
+
+    <fragment
+        android:id="@+id/usersFragment"
+        android:name="com.example.carshowroom.UI.Fragments.UsersFragment"
+        android:label="fragment_users"
+        tools:layout="@layout/fragment_users" />
 
 
 </navigation>

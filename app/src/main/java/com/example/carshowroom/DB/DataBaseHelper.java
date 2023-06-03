@@ -105,7 +105,6 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     private static final String TABLE_USERS_COLUMN_ID = "_id";
     private static final String TABLE_USERS_COLUMN_USERNAME = "username";
     private static final String TABLE_USERS_COLUMN_EMAIL = "email";
-    private static final String TABLE_USERS_COLUMN_IMAGE = "image";
     private static final String TABLE_USERS_COLUMN_PASSWORD = "password";
 
     private static final String TABLE_CARS = "cars";
@@ -170,7 +169,6 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         contentValues.put(TABLE_USERS_COLUMN_EMAIL, email);
         contentValues.put(TABLE_USERS_COLUMN_PHONE, phone);
         contentValues.put(TABLE_USERS_COLUMN_PASSWORD, password);
-        contentValues.put(TABLE_USERS_COLUMN_IMAGE, "userimage1");
         long id = sqliteDataBase.insert(TABLE_USERS, null, contentValues);
         return new User((int) id, username, email, phone, password);
     }
@@ -250,7 +248,6 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             String email = cursor.getString(cursor.getColumnIndex(TABLE_USERS_COLUMN_EMAIL));
             String phone = cursor.getString(cursor.getColumnIndex(TABLE_USERS_COLUMN_PHONE));
             String password = cursor.getString(cursor.getColumnIndex(TABLE_USERS_COLUMN_PASSWORD));
-            String image = cursor.getString(cursor.getColumnIndex(TABLE_USERS_COLUMN_IMAGE));
             ArrayList<Car> favorites = new ArrayList<>();
             Cursor favCursor = sqliteDataBase.query(TABLE_FAVORITES, null, "_id = ?", new String[]{String.valueOf(id)}, null, null, null);
             while (favCursor.moveToNext()) {
@@ -283,4 +280,21 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         cursor.close();
         return user;
     }
+
+    @SuppressLint("Range")
+    public ArrayList<User> getAllUsers() {
+        Cursor cursor = sqliteDataBase.query(TABLE_USERS, null, null,
+                null, null, null, null);
+        ArrayList<User> users = new ArrayList<>();
+        while (cursor.moveToNext()) {
+            users.add(new User(cursor.getInt(cursor.getColumnIndex(TABLE_USERS_COLUMN_ID)),
+                    cursor.getString(cursor.getColumnIndex(TABLE_USERS_COLUMN_USERNAME)),
+                    cursor.getString(cursor.getColumnIndex(TABLE_USERS_COLUMN_EMAIL)),
+                    cursor.getString(cursor.getColumnIndex(TABLE_USERS_COLUMN_PHONE)),
+                    cursor.getString(cursor.getColumnIndex(TABLE_USERS_COLUMN_PASSWORD))));
+        }
+        cursor.close();
+        return users;
+    }
+
 }

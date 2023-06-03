@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -35,7 +34,6 @@ public class ProfileFragment extends Fragment {
 
     User user;
     TextView username, mail, phone;
-    ImageView userImage;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -48,26 +46,31 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        userImage = view.findViewById(R.id.userImage);
+
         Button exit_button = view.findViewById(R.id.exit_button);
         Button review_button = view.findViewById(R.id.review_button);
         Button about_button = view.findViewById(R.id.about_button);
-        Button change_image_button = view.findViewById(R.id.change_image_button);
 
+
+        Button all_users_button = view.findViewById(R.id.all_users_button);
+        if (user.getID() == User.ADMIN_ID) {
+            all_users_button.setVisibility(View.VISIBLE);
+        } else {
+            all_users_button.setVisibility(View.GONE);
+        }
 
         username = view.findViewById(R.id.userName);
         mail = view.findViewById(R.id.email);
         phone = view.findViewById(R.id.phone);
 
-        username.setText(user.getFullName());
+        username.setText(user.getUserName());
         mail.setText(user.getEmail());
-        phone.setText(user.getTelephone());
-        userImage.setImageResource(user.getImage());
+        phone.setText(user.getPhone());
 
-        change_image_button.setOnClickListener(new View.OnClickListener() {
+        all_users_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Navigation.findNavController(view).navigate(R.id.action_profileFragment_to_profileImagesFragment);
+                Navigation.findNavController(view).navigate(R.id.action_profileFragment_to_usersFragment);
             }
         });
 
@@ -91,13 +94,6 @@ public class ProfileFragment extends Fragment {
                 Navigation.findNavController(view).navigate(R.id.action_profileFragment_to_authFragment);
             }
         });
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        userImage.setImageResource(user.getImage());
-        userImage.setClipToOutline(true);
     }
 
     @Override
