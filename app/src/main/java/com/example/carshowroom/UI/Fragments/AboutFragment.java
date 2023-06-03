@@ -1,16 +1,15 @@
 package com.example.carshowroom.UI.Fragments;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
 
 import com.example.carshowroom.R;
 
@@ -27,7 +26,7 @@ public class AboutFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        Button back_button = view.findViewById(R.id.back_button);
+        ImageView back_button = view.findViewById(R.id.back_button);
 
         back_button.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -17,17 +17,17 @@ import com.example.carshowroom.UI.Fragments.CarAdFragment;
 import com.example.carshowroom.UI.Fragments.FavoritesFragment;
 import com.example.carshowroom.UI.Fragments.HomeFragment;
 import com.example.carshowroom.UI.Fragments.ProfileFragment;
+import com.example.carshowroom.UI.Fragments.ReviewFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements UserProtocol, ProfileFragment.UserProtocol, CarAdFragment.UserProtocol,
-        FavoritesFragment.UserProtocol, HomeFragment.MainPageController {
+public class MainActivity extends AppCompatActivity implements UserProtocol, ProfileFragment.UserProtocol, ReviewFragment.UserProtocol,
+        CarAdFragment.UserProtocol, FavoritesFragment.UserProtocol, HomeFragment.MainPageController {
 
     DataBaseHelper dataBaseHelperClass;
     HomeFragment homeFragment;
     User user;
-    ImageView userImage;
 
 
     @Override

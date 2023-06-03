@@ -1,23 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/ide">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/ide"
         android:padding="10dp">
 
-        <Button
+        <ImageView
             android:id="@+id/back_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="40dp"
+            android:layout_height="50dp"
             android:backgroundTint="@color/black"
-            android:text="@string/back_ru"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:src="@drawable/__icon__arrow_back_"
+            app:layout_constraintBottom_toBottomOf="@id/car_price"
+            app:layout_constraintStart_toStartOf="@id/car_image"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
 
         <TextView
             android:id="@+id/car_title"
@@ -48,6 +52,30 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/car_price" />
 
+        <LinearLayout
+            android:id="@+id/line"
+            android:layout_width="match_parent"
+            android:layout_height="1sp"
+            android:layout_marginTop="10sp"
+            android:background="@color/black"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/car_image"
+            tools:ignore="SmallSp" />
+
+        <TextView
+            android:id="@+id/characteristics"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:fontFamily="sans-serif"
+            android:text="Характеристики"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/car_image"
+            app:layout_constraintTop_toBottomOf="@id/line"
+            tools:ignore="HardcodedText" />
+
         <TextView
             android:id="@+id/year_title"
             android:layout_width="wrap_content"
@@ -57,7 +85,7 @@
             android:textColor="@color/white"
             android:textSize="18sp"
             app:layout_constraintLeft_toLeftOf="@id/car_image"
-            app:layout_constraintTop_toBottomOf="@id/car_image" />
+            app:layout_constraintTop_toBottomOf="@id/characteristics" />
 
         <TextView
             android:id="@+id/year"
@@ -67,7 +95,7 @@
             android:textColor="@android:color/white"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="@id/car_image"
-            app:layout_constraintTop_toBottomOf="@id/car_image" />
+            app:layout_constraintTop_toTopOf="@id/year_title" />
 
         <TextView
             android:id="@+id/mileage_title"
@@ -241,7 +269,7 @@
             android:id="@+id/fav_butoon"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:backgroundTint="@color/black"
             android:text="@string/add_to_favorites_ru"
             android:textColor="@color/white"

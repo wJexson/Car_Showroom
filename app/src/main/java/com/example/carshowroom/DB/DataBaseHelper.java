@@ -125,12 +125,23 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     private static final String TABLE_FAVORITES = "favorites";
     private static final String TABLE_FAVORITES_COLUMN_VIN = "VIN";
-    private static final String TABLE_FAVORITES_COLUMN_FAVORITES = "_id";
+    private static final String TABLE_FAVORITES_COLUMN_ID = "_id";
+
+    private static final String TABLE_REVIEWS = "reviews";
+    private static final String TABLE_REVIEWS_COLUMN_ID = "_id";
+    private static final String TABLE_REVIEWS_COLUMN_REVIEW = "review";
+
+    public void addToReviews(int userId, String review) {
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(TABLE_REVIEWS_COLUMN_ID, userId);
+        contentValues.put(TABLE_REVIEWS_COLUMN_REVIEW, review);
+        sqliteDataBase.insert(TABLE_REVIEWS, null, contentValues);
+    }
 
     public void addToFavorites(String VIN, int userId) {
         ContentValues contentValues = new ContentValues();
         contentValues.put(TABLE_FAVORITES_COLUMN_VIN, VIN);
-        contentValues.put(TABLE_FAVORITES_COLUMN_FAVORITES, userId);
+        contentValues.put(TABLE_FAVORITES_COLUMN_ID, userId);
         sqliteDataBase.insert(TABLE_FAVORITES, null, contentValues);
     }
 

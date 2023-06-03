@@ -12,14 +12,15 @@
         android:background="@color/ide"
         tools:context=".UI.Fragments.AboutFragment">
 
-        <Button
+        <ImageView
             android:id="@+id/back_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="40dp"
+            android:layout_height="50dp"
             android:backgroundTint="@color/black"
-            android:text="@string/back_ru"
+            android:src="@drawable/__icon__arrow_back_"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            tools:ignore="ContentDescription" />
 
         <TextView
             android:layout_width="wrap_content"

@@ -75,16 +75,8 @@ public class User implements Parcelable {
         return phone;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
     public ArrayList<Car> getFavorites() {
         return favorites;
-    }
-
-    public void setFavorites(ArrayList<Car> favourites) {
-        this.favorites = favourites;
     }
 
     @Override

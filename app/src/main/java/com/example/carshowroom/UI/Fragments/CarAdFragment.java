@@ -2,6 +2,8 @@ package com.example.carshowroom.UI.Fragments;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,6 +15,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.graphics.drawable.RoundedBitmapDrawable;
+import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
@@ -64,7 +68,7 @@ public class CarAdFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         setCarData(view);
 
-        Button back_button = view.findViewById(R.id.back_button);
+        ImageView back_button = view.findViewById(R.id.back_button);
         Button fav_butoon = view.findViewById(R.id.fav_butoon);
 
 
@@ -126,6 +130,7 @@ public class CarAdFragment extends Fragment {
         TextView car_steering_wheel = view.findViewById(R.id.steering_wheel);
         ImageView car_image = view.findViewById(R.id.car_image);
 
+
         car_title.setText(car.getBrand() + " " + car.getModel());
         car_price.setText(car.getPrice() + " $");
         car_year.setText(String.valueOf(car.getYear()));
@@ -137,6 +142,16 @@ public class CarAdFragment extends Fragment {
         car_transmission.setText(car.getTransmission());
         car_condition.setText(car.getCondition());
         car_steering_wheel.setText(car.getSteering_wheel());
-        car_image.setImageResource(requireContext().getResources().getIdentifier(car.getImage(), "drawable", requireContext().getPackageName()));
+        // Получение изображения из ресурсов
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), requireContext().getResources().getIdentifier(car.getImage(), "drawable", requireContext().getPackageName()));
+
+        // Создание RoundedBitmapDrawable с использованием изображения
+        RoundedBitmapDrawable roundedBitmapDrawable = RoundedBitmapDrawableFactory.create(getResources(), bitmap);
+
+        // Установка закругленных углов
+        roundedBitmapDrawable.setCornerRadius(20);
+
+        // Установка RoundedBitmapDrawable в качестве фона ImageView
+        car_image.setImageDrawable(roundedBitmapDrawable);
     }
 }

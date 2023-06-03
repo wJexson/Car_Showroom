@@ -12,20 +12,20 @@ public class Car implements Parcelable {
     public static final String SELECTED_CAR = "SELECTED_CAR";
     public static ArrayList<Car> cars = new ArrayList<>();
 
-    private String brand; // марка
-    private String model; // модель
-    private int year; // год
-    private int price; // цена
+    private final String brand; // марка
+    private final String model; // модель
+    private final int year; // год
+    private final int price; // цена
     private String color; // цвет
-    private String transmission; // коробка
-    private String drive_unit; // привод
-    private int mileage; // пробег
-    private String engine; // двигатель
-    private String body; // кузов
+    private final String transmission; // коробка
+    private final String drive_unit; // привод
+    private final int mileage; // пробег
+    private final String engine; // двигатель
+    private final String body; // кузов
     public String condition; // состояние
     public String steering_wheel; // руль
-    private String VIN; // VIN
-    private String image;
+    private final String VIN; // VIN
+    private final String image;
 
     public Car(String VIN, String brand, String model, int year, int price, String color, String transmission,
                String drive_unit, int mileage, String engine, String body,
@@ -79,24 +79,12 @@ public class Car implements Parcelable {
         return brand;
     }
 
-    public void setBrand(String name) {
-        this.brand = name;
-    }
-
     public int getYear() {
         return year;
     }
 
-    public void setYear(int year) {
-        this.year = year;
-    }
-
     public int getPrice() {
         return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
     }
 
     public String getColor() {
@@ -111,53 +99,24 @@ public class Car implements Parcelable {
         return transmission;
     }
 
-    public void setTransmission(String transmission) {
-        this.transmission = transmission;
-    }
-
     public String getDrive_unit() {
         return drive_unit;
     }
 
-    public void setDrive_unit(String drive_unit) {
-        this.drive_unit = drive_unit;
-    }
-
-
     public int getMileage() {
         return mileage;
-    }
-
-    public void setMileage(int mileage) {
-        this.mileage = mileage;
     }
 
     public String getEngine() {
         return engine;
     }
 
-    public void setEngine(String engine) {
-        this.engine = engine;
-    }
-
     public String getBody() {
         return body;
     }
 
-    public void setBody(String body) {
-        this.body = body;
-    }
-
-    public void setCondition(String condition) {
-        this.condition = condition;
-    }
-
     public String getCondition() {
         return condition;
-    }
-
-    public void setSteering_wheel(String steering_wheel) {
-        this.steering_wheel = steering_wheel;
     }
 
     public String getSteering_wheel() {
@@ -168,25 +127,12 @@ public class Car implements Parcelable {
         return VIN;
     }
 
-    public void setVIN(String VIN) {
-        this.VIN = VIN;
-    }
-
-
     public String getModel() {
         return model;
     }
 
-    public void setModel(String model) {
-        this.model = model;
-    }
-
     public String getImage() {
         return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
     }
 
     @NonNull
