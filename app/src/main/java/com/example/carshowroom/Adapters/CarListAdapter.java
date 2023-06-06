@@ -16,7 +16,7 @@ import com.example.carshowroom.R;
 
 import java.util.List;
 
-public class CarAdListAdapter extends RecyclerView.Adapter<CarAdListAdapter.ViewHolder> {
+public class CarListAdapter extends RecyclerView.Adapter<CarListAdapter.ViewHolder> {
     private final List<Car> carList;
     private final LayoutInflater inflater;
     public OnCarAdClickListener onClickListener;
@@ -25,7 +25,7 @@ public class CarAdListAdapter extends RecyclerView.Adapter<CarAdListAdapter.View
         void onCarAdClick(Car carListItem);
     }
 
-    public CarAdListAdapter(Context context, List<Car> carList) {
+    public CarListAdapter(Context context, List<Car> carList) {
         this.carList = carList;
         this.inflater = LayoutInflater.from(context);
     }

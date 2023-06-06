@@ -16,7 +16,7 @@ import com.example.carshowroom.Models.Car;
 import com.example.carshowroom.Models.User;
 import com.example.carshowroom.Models.UserProtocol;
 import com.example.carshowroom.R;
-import com.example.carshowroom.Adapters.CarAdListAdapter;
+import com.example.carshowroom.Adapters.CarListAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
@@ -63,8 +63,8 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         RecyclerView carList = view.findViewById(R.id.carList);
-        CarAdListAdapter carAdListAdapter = new CarAdListAdapter(requireActivity(), mainPageController.getCarAds());
-        carAdListAdapter.onClickListener = new CarAdListAdapter.OnCarAdClickListener() {
+        CarListAdapter carListAdapter = new CarListAdapter(requireActivity(), mainPageController.getCarAds());
+        carListAdapter.onClickListener = new CarListAdapter.OnCarAdClickListener() {
             @Override
             public void onCarAdClick(Car carListItem) {
                 Bundle bundle = new Bundle();
@@ -72,7 +72,7 @@ public class HomeFragment extends Fragment {
                 Navigation.findNavController(requireView()).navigate(R.id.action_mainFragment_to_carAdFragment, bundle);
             }
         };
-        carList.setAdapter(carAdListAdapter);
+        carList.setAdapter(carListAdapter);
     }
 
     @Override
