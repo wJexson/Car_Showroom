@@ -8,10 +8,10 @@ android {
 
     defaultConfig {
         applicationId "com.example.carshowroom"
-        minSdk 21
+        minSdk 24
         targetSdk 33
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -29,9 +29,6 @@ android {
 }
 
 dependencies {
-    implementation "androidx.room:room-runtime:2.5.1"
-    annotationProcessor "androidx.room:room-compiler:2.5.1"
-    androidTestImplementation "androidx.room:room-testing:2.5.1"
     def nav_version = "2.5.3"
     implementation "androidx.navigation:navigation-fragment:$nav_version"
     implementation "androidx.navigation:navigation-ui:$nav_version"
