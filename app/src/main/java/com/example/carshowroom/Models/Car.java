@@ -138,7 +138,7 @@ public class Car implements Parcelable {
     @NonNull
     @Override
     public String toString() {
-        return "CarAd{" +
+        return "Car{" +
                 "brand='" + brand + '\'' +
                 ", model='" + model + '\'' +
                 ", year='" + year + '\'' +
