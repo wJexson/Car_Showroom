@@ -11,9 +11,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.carshowroom.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import java.util.Random;
 
 
 public class AuthFragment extends Fragment {
@@ -31,6 +35,15 @@ public class AuthFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         Button sign_in_button = view.findViewById(R.id.sign_in_button);
         Button sign_up_button = view.findViewById(R.id.sign_up_button);
+
+        ImageView logo = view.findViewById(R.id.logo);
+
+        Random random = new Random();
+        int randomValue = random.nextInt(2);
+        System.out.println(randomValue);
+        if (randomValue == 1) {
+            logo.setImageResource(R.drawable.ic_launcher_background);
+        }
 
         sign_in_button.setOnClickListener(new View.OnClickListener() {
             @Override
