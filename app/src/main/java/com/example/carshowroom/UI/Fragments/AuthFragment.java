@@ -36,15 +36,6 @@ public class AuthFragment extends Fragment {
         Button sign_in_button = view.findViewById(R.id.sign_in_button);
         Button sign_up_button = view.findViewById(R.id.sign_up_button);
 
-        ImageView logo = view.findViewById(R.id.logo);
-
-        Random random = new Random();
-        int randomValue = random.nextInt(2);
-        System.out.println(randomValue);
-        if (randomValue == 1) {
-            logo.setImageResource(R.drawable.ic_launcher_background);
-        }
-
         sign_in_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

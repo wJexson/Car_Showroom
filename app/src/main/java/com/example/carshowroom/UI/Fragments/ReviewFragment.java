@@ -24,7 +24,6 @@ import java.util.Random;
 
 public class ReviewFragment extends Fragment {
 
-
     public interface UserProtocol {
         User getUser();
     }
@@ -66,21 +65,14 @@ public class ReviewFragment extends Fragment {
         send_review_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Random random = new Random();
-                int randomValue = random.nextInt(2);
-                System.out.println(randomValue);
-                if (randomValue == 1) {
-                    throw new NullPointerException("This is a simulated crash");
-                } else {
-                    String review = review_et.getText().toString();
-                    dataBaseHelper.openDataBase();
-                    dataBaseHelper.addToReviews(user.getID(), review);
-                    dataBaseHelper.close();
-                    InputMethodManager imm = (InputMethodManager) requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
-                    imm.hideSoftInputFromWindow(review_et.getWindowToken(), 0);
-                    review_et.setText("");
-                    Toast.makeText(requireActivity(), "Отзыв отправлен!", Toast.LENGTH_SHORT).show();
-                }
+                String review = review_et.getText().toString();
+                dataBaseHelper.openDataBase();
+                dataBaseHelper.addToReviews(user.getID(), review);
+                dataBaseHelper.close();
+                InputMethodManager imm = (InputMethodManager) requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(review_et.getWindowToken(), 0);
+                review_et.setText("");
+                Toast.makeText(requireActivity(), "Отзыв отправлен!", Toast.LENGTH_SHORT).show();
             }
         });
 

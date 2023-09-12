@@ -65,19 +65,11 @@ public class ProfileFragment extends Fragment {
         mail = view.findViewById(R.id.email);
         phone = view.findViewById(R.id.phone);
 
-        Random random = new Random();
-        int randomValue = random.nextInt(3);
-        System.out.println(randomValue);
-        if (randomValue == 1 || randomValue == 2) {
-            username.setText("");
-            mail.setText("");
-            phone.setText("");
-        }
-        else {
-            username.setText(user.getUserName());
-            mail.setText(user.getEmail());
-            phone.setText(user.getPhone());
-        }
+
+        username.setText(user.getUserName());
+        mail.setText(user.getEmail());
+        phone.setText(user.getPhone());
+
 
         all_users_button.setOnClickListener(new View.OnClickListener() {
             @Override

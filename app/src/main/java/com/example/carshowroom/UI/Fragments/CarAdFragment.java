@@ -26,9 +26,6 @@ import com.example.carshowroom.Models.User;
 import com.example.carshowroom.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.util.Objects;
-import java.util.Random;
-
 public class CarAdFragment extends Fragment {
 
 
@@ -94,13 +91,8 @@ public class CarAdFragment extends Fragment {
             public void onClick(View v) {
                 dataBaseHelper.openDataBase();
                 if (fav_butoon.getText().equals("Добавить в избранное")) {
-                    Random random = new Random();
-                    int randomValue = random.nextInt(2);
-                    System.out.println(randomValue);
-                    if (randomValue == 1) {
-                        user.favorites.add(car);
-                        dataBaseHelper.addToFavorites(car.getVIN(), user.getID());
-                    }
+                    user.favorites.add(car);
+                    dataBaseHelper.addToFavorites(car.getVIN(), user.getID());
 
                     fav_butoon.setText("Удалить из избранного");
                     fav_butoon.setBackgroundColor(Color.parseColor("#FF0000"));
@@ -161,12 +153,5 @@ public class CarAdFragment extends Fragment {
 
         // Установка RoundedBitmapDrawable в качестве фона ImageView
         car_image.setImageDrawable(roundedBitmapDrawable);
-
-        Random random = new Random();
-        int randomValue = random.nextInt(3);
-        System.out.println(randomValue);
-        if (randomValue == 1) {
-            car_image.setImageResource(R.drawable.ic_launcher_background);
-        }
     }
 }
