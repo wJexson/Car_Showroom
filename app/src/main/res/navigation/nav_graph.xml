@@ -50,7 +50,7 @@
 
     <fragment
         android:id="@+id/carAdFragment"
-        android:name="com.example.carshowroom.UI.Fragments.CarAdFragment"
+        android:name="com.example.carshowroom.UI.Fragments.DiskAdFragment"
         android:label="CarAd"
         tools:layout="@layout/fragment_car_ad">
         <argument
@@ -58,9 +58,9 @@
             android:defaultValue="0"
             app:argType="string" />
         <argument
-            android:name="car"
+            android:name="disk"
             android:defaultValue="@null"
-            app:argType="com.example.carshowroom.Models.Car"
+            app:argType="com.example.carshowroom.Models.Disk"
             app:nullable="true" />
     </fragment>
 

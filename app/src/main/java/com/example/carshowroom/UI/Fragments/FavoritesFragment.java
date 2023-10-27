@@ -13,8 +13,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.carshowroom.Adapters.CarListAdapter;
-import com.example.carshowroom.Models.Car;
+import com.example.carshowroom.Adapters.DiskListAdapter;
+import com.example.carshowroom.Models.Disk;
 import com.example.carshowroom.Models.User;
 import com.example.carshowroom.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -54,16 +54,16 @@ public class FavoritesFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         RecyclerView carList = view.findViewById(R.id.favList);
-        CarListAdapter carListAdapter = new CarListAdapter(requireActivity(), user.getFavorites());
-        carListAdapter.onClickListener = new CarListAdapter.OnCarAdClickListener() {
+        DiskListAdapter diskListAdapter = new DiskListAdapter(requireActivity(), user.getFavorites());
+        diskListAdapter.onClickListener = new DiskListAdapter.OnCarAdClickListener() {
             @Override
-            public void onCarAdClick(Car carListItem) {
+            public void onCarAdClick(Disk diskListItem) {
                 Bundle bundle = new Bundle();
-                bundle.putParcelable(Car.SELECTED_CAR, carListItem);
+                bundle.putParcelable(Disk.SELECTED_CAR, diskListItem);
                 Navigation.findNavController(requireView()).navigate(R.id.action_favoritesFragment_to_carAdFragment, bundle);
             }
         };
-        carList.setAdapter(carListAdapter);
+        carList.setAdapter(diskListAdapter);
     }
 
     @Override

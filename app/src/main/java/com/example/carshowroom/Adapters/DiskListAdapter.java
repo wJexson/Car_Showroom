@@ -11,22 +11,22 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.carshowroom.Models.Car;
+import com.example.carshowroom.Models.Disk;
 import com.example.carshowroom.R;
 
 import java.util.List;
 
-public class CarListAdapter extends RecyclerView.Adapter<CarListAdapter.ViewHolder> {
-    private final List<Car> carList;
+public class DiskListAdapter extends RecyclerView.Adapter<DiskListAdapter.ViewHolder> {
+    private final List<Disk> diskList;
     private final LayoutInflater inflater;
     public OnCarAdClickListener onClickListener;
 
     public interface OnCarAdClickListener {
-        void onCarAdClick(Car carListItem);
+        void onCarAdClick(Disk diskListItem);
     }
 
-    public CarListAdapter(Context context, List<Car> carList) {
-        this.carList = carList;
+    public DiskListAdapter(Context context, List<Disk> diskList) {
+        this.diskList = diskList;
         this.inflater = LayoutInflater.from(context);
     }
 
@@ -40,24 +40,24 @@ public class CarListAdapter extends RecyclerView.Adapter<CarListAdapter.ViewHold
     @SuppressLint({"DiscouragedApi", "SetTextI18n"})
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Car carListItem = carList.get(position);
-        holder.imageView.setImageResource(holder.itemView.getContext().getResources().getIdentifier(carListItem.getImage(), "drawable", holder.itemView.getContext().getPackageName()));
-        holder.nameView.setText(carListItem.getBrand() + " " + carListItem.getModel());
-        holder.yearView.setText(String.valueOf(carListItem.getYear()));
-        holder.priceView.setText(carListItem.getPrice() + " $");
-        holder.colorView.setText(carListItem.getColor());
-        holder.transmissionView.setText(carListItem.getTransmission());
-        holder.drive_unitView.setText(carListItem.getDrive_unit());
+        Disk diskListItem = diskList.get(position);
+        holder.imageView.setImageResource(holder.itemView.getContext().getResources().getIdentifier(diskListItem.getImage(), "drawable", holder.itemView.getContext().getPackageName()));
+        holder.nameView.setText(diskListItem.getBrand() + " " + diskListItem.getModel());
+        holder.yearView.setText(String.valueOf(diskListItem.getYear()));
+        holder.priceView.setText(diskListItem.getPrice() + " $");
+        holder.colorView.setText(diskListItem.getColor());
+        holder.transmissionView.setText(diskListItem.getTransmission());
+        holder.drive_unitView.setText(diskListItem.getDrive_unit());
         holder.itemView.setOnClickListener(v -> {
             if (onClickListener != null) {
-                onClickListener.onCarAdClick(carListItem);
+                onClickListener.onCarAdClick(diskListItem);
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        return carList.size();
+        return diskList.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

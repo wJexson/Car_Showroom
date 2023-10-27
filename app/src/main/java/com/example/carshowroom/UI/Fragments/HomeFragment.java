@@ -12,11 +12,11 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.carshowroom.Models.Car;
+import com.example.carshowroom.Models.Disk;
 import com.example.carshowroom.Models.User;
 import com.example.carshowroom.Models.UserProtocol;
 import com.example.carshowroom.R;
-import com.example.carshowroom.Adapters.CarListAdapter;
+import com.example.carshowroom.Adapters.DiskListAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
@@ -28,7 +28,7 @@ public class HomeFragment extends Fragment {
     public interface MainPageController {
         void setMainPage(HomeFragment homeFragment);
 
-        ArrayList<Car> getCarAds();
+        ArrayList<Disk> getCarAds();
 
         void setUser(User user);
     }
@@ -62,17 +62,17 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        RecyclerView carList = view.findViewById(R.id.carList);
-        CarListAdapter carListAdapter = new CarListAdapter(requireActivity(), mainPageController.getCarAds());
-        carListAdapter.onClickListener = new CarListAdapter.OnCarAdClickListener() {
+        RecyclerView carList = view.findViewById(R.id.diskList);
+        DiskListAdapter diskListAdapter = new DiskListAdapter(requireActivity(), mainPageController.getCarAds());
+        diskListAdapter.onClickListener = new DiskListAdapter.OnCarAdClickListener() {
             @Override
-            public void onCarAdClick(Car carListItem) {
+            public void onCarAdClick(Disk diskListItem) {
                 Bundle bundle = new Bundle();
-                bundle.putParcelable(Car.SELECTED_CAR, carListItem);
+                bundle.putParcelable(Disk.SELECTED_CAR, diskListItem);
                 Navigation.findNavController(requireView()).navigate(R.id.action_mainFragment_to_carAdFragment, bundle);
             }
         };
-        carList.setAdapter(carListAdapter);
+        carList.setAdapter(diskListAdapter);
     }
 
     @Override

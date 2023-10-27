@@ -21,12 +21,12 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
 import com.example.carshowroom.DB.DataBaseHelper;
-import com.example.carshowroom.Models.Car;
+import com.example.carshowroom.Models.Disk;
 import com.example.carshowroom.Models.User;
 import com.example.carshowroom.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class CarAdFragment extends Fragment {
+public class DiskAdFragment extends Fragment {
 
 
     public interface UserProtocol {
@@ -41,7 +41,7 @@ public class CarAdFragment extends Fragment {
         userGetter = (UserProtocol) context;
     }
 
-    Car car;
+    Disk disk;
     User user;
     DataBaseHelper dataBaseHelper;
 
@@ -53,7 +53,7 @@ public class CarAdFragment extends Fragment {
             dataBaseHelper.createDataBase();
         } catch (Exception ignored) {
         }
-        car = requireArguments().getParcelable(Car.SELECTED_CAR);
+        disk = requireArguments().getParcelable(Disk.SELECTED_CAR);
         user = userGetter.getUser();
     }
 
@@ -72,7 +72,7 @@ public class CarAdFragment extends Fragment {
         Button fav_butoon = view.findViewById(R.id.fav_butoon);
 
 
-        if (user.favorites.contains(car)) {
+        if (user.favorites.contains(disk)) {
             fav_butoon.setText("Удалить из избранного");
             fav_butoon.setBackgroundColor(Color.parseColor("#FF0000"));
         }
@@ -91,14 +91,14 @@ public class CarAdFragment extends Fragment {
             public void onClick(View v) {
                 dataBaseHelper.openDataBase();
                 if (fav_butoon.getText().equals("Добавить в избранное")) {
-                    user.favorites.add(car);
-                    dataBaseHelper.addToFavorites(car.getVIN(), user.getID());
+                    user.favorites.add(disk);
+                    dataBaseHelper.addToFavorites(disk.getVIN(), user.getID());
 
                     fav_butoon.setText("Удалить из избранного");
                     fav_butoon.setBackgroundColor(Color.parseColor("#FF0000"));
                 } else {
-                    user.favorites.remove(car);
-                    dataBaseHelper.deleteFromFavorites(car.getVIN(), user.getID());
+                    user.favorites.remove(disk);
+                    dataBaseHelper.deleteFromFavorites(disk.getVIN(), user.getID());
                     fav_butoon.setText("Добавить в избранное");
                     fav_butoon.setBackgroundColor(Color.parseColor("#FF000000"));
                 }
@@ -131,19 +131,19 @@ public class CarAdFragment extends Fragment {
         ImageView car_image = view.findViewById(R.id.car_image);
 
 
-        car_title.setText(car.getBrand() + " " + car.getModel());
-        car_price.setText(car.getPrice() + " $");
-        car_year.setText(String.valueOf(car.getYear()));
-        car_mileage.setText(car.getMileage() + " км");
-        car_engine.setText(car.getEngine());
-        car_body.setText(car.getBody());
-        car_color.setText(car.getColor());
-        car_drive_unit.setText(car.getDrive_unit());
-        car_transmission.setText(car.getTransmission());
-        car_condition.setText(car.getCondition());
-        car_steering_wheel.setText(car.getSteering_wheel());
+        car_title.setText(disk.getBrand() + " " + disk.getModel());
+        car_price.setText(disk.getPrice() + " $");
+        car_year.setText(String.valueOf(disk.getYear()));
+        car_mileage.setText(disk.getMileage());
+        car_engine.setText(disk.getEngine());
+        car_body.setText(disk.getBody());
+        car_color.setText(disk.getColor());
+        car_drive_unit.setText(disk.getDrive_unit());
+        car_transmission.setText(disk.getTransmission());
+        car_condition.setText(disk.getCondition());
+        car_steering_wheel.setText(disk.getSteering_wheel() + " Гб");
         // Получение изображения из ресурсов
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), requireContext().getResources().getIdentifier(car.getImage(), "drawable", requireContext().getPackageName()));
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), requireContext().getResources().getIdentifier(disk.getImage(), "drawable", requireContext().getPackageName()));
 
         // Создание RoundedBitmapDrawable с использованием изображения
         RoundedBitmapDrawable roundedBitmapDrawable = RoundedBitmapDrawableFactory.create(getResources(), bitmap);

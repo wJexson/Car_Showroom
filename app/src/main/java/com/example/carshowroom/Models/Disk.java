@@ -7,29 +7,29 @@ import androidx.annotation.NonNull;
 
 import java.util.ArrayList;
 
-public class Car implements Parcelable {
+public class Disk implements Parcelable {
 
     public static final String SELECTED_CAR = "SELECTED_CAR";
-    public static ArrayList<Car> cars = new ArrayList<>();
+    public static ArrayList<Disk> disks = new ArrayList<>();
 
     private final String brand; // марка
     private final String model; // модель
     private final int year; // год
     private final int price; // цена
     private String color; // цвет
-    private final String transmission; // коробка
-    private final String drive_unit; // привод
-    private final int mileage; // пробег
-    private final String engine; // двигатель
-    private final String body; // кузов
+    private final String transmission; // шина
+    private final String drive_unit; // технология записи
+    private final String mileage; // семейство
+    private final String engine; // объем
+    private final String body; // расположение
     public String condition; // состояние
-    public String steering_wheel; // руль
-    private final String VIN; // VIN
-    private final String image;
+    public String steering_wheel; // скоросить
+    private final String VIN; // uid
+    private final String image; // фото
 
-    public Car(String VIN, String brand, String model, int year, int price, String color, String transmission,
-               String drive_unit, int mileage, String engine, String body,
-               String condition, String steering_wheel, String image) {
+    public Disk(String VIN, String brand, String model, int year, int price, String color, String transmission,
+                String drive_unit, String mileage, String engine, String body,
+                String condition, String steering_wheel, String image) {
         this.VIN = VIN;
         this.brand = brand;
         this.model = model;
@@ -46,7 +46,7 @@ public class Car implements Parcelable {
         this.image = image;
     }
 
-    protected Car(Parcel in) {
+    protected Disk(Parcel in) {
         brand = in.readString();
         model = in.readString();
         year = in.readInt();
@@ -54,7 +54,7 @@ public class Car implements Parcelable {
         color = in.readString();
         transmission = in.readString();
         drive_unit = in.readString();
-        mileage = in.readInt();
+        mileage = in.readString();
         engine = in.readString();
         body = in.readString();
         condition = in.readString();
@@ -63,15 +63,15 @@ public class Car implements Parcelable {
         image = in.readString();
     }
 
-    public static final Creator<Car> CREATOR = new Creator<Car>() {
+    public static final Creator<Disk> CREATOR = new Creator<Disk>() {
         @Override
-        public Car createFromParcel(Parcel in) {
-            return new Car(in);
+        public Disk createFromParcel(Parcel in) {
+            return new Disk(in);
         }
 
         @Override
-        public Car[] newArray(int size) {
-            return new Car[size];
+        public Disk[] newArray(int size) {
+            return new Disk[size];
         }
     };
 
@@ -103,7 +103,7 @@ public class Car implements Parcelable {
         return drive_unit;
     }
 
-    public int getMileage() {
+    public String getMileage() {
         return mileage;
     }
 
@@ -171,7 +171,7 @@ public class Car implements Parcelable {
         dest.writeString(color);
         dest.writeString(transmission);
         dest.writeString(drive_unit);
-        dest.writeInt(mileage);
+        dest.writeString(mileage);
         dest.writeString(engine);
         dest.writeString(body);
         dest.writeString(condition);

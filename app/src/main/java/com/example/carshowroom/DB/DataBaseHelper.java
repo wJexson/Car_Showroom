@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 import androidx.navigation.Navigation;
 
-import com.example.carshowroom.Models.Car;
+import com.example.carshowroom.Models.Disk;
 import com.example.carshowroom.Models.User;
 import com.example.carshowroom.R;
 
@@ -150,28 +150,28 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     }
 
     @SuppressLint("Range")
-    public ArrayList<Car> getCarAdsFromDatabase() {
-        ArrayList<Car> cars = new ArrayList<>();
+    public ArrayList<Disk> getCarAdsFromDatabase() {
+        ArrayList<Disk> disks = new ArrayList<>();
         Cursor cursor = sqliteDataBase.query(TABLE_CARS, null, null, null,
                 null, null, null);
         while (cursor.moveToNext()) {
             //Создание авто
-            Car car = new Car(cursor.getString(cursor.getColumnIndex(TABLE_CARS_COLUMN_VIN)), cursor.getString(cursor.getColumnIndex(TABLE_CARS_COLUMN_BRAND)),
+            Disk disk = new Disk(cursor.getString(cursor.getColumnIndex(TABLE_CARS_COLUMN_VIN)), cursor.getString(cursor.getColumnIndex(TABLE_CARS_COLUMN_BRAND)),
                     cursor.getString(cursor.getColumnIndex(TABLE_CARS_COLUMN_MODEL)), cursor.getInt(cursor.getColumnIndex(TABLE_CARS_COLUMN_YEAR)),
                     cursor.getInt(cursor.getColumnIndex(TABLE_CARS_COLUMN_PRICE)), cursor.getString(cursor.getColumnIndex(TABLE_CARS_COLUMN_COLOR)),
                     cursor.getString(cursor.getColumnIndex(TABLE_CARS_COLUMN_TRANSMISSION)), cursor.getString(cursor.getColumnIndex(TABLE_CARS_COLUMN_DRIVE_UNIT)),
-                    cursor.getInt(cursor.getColumnIndex(TABLE_CARS_COLUMN_MILEAGE)), cursor.getString(cursor.getColumnIndex(TABLE_CARS_COLUMN_ENGINE)),
+                    cursor.getString(cursor.getColumnIndex(TABLE_CARS_COLUMN_MILEAGE)), cursor.getString(cursor.getColumnIndex(TABLE_CARS_COLUMN_ENGINE)),
                     cursor.getString(cursor.getColumnIndex(TABLE_CARS_COLUMN_BODY)), cursor.getString(cursor.getColumnIndex(TABLE_CARS_COLUMN_CONDITION)),
                     cursor.getString(cursor.getColumnIndex(TABLE_CARS_COLUMN_STEERING_WHEEL)), cursor.getString(cursor.getColumnIndex(TABLE_CARS_COLUMN_PHOTO)));
-            cars.add(car);
+            disks.add(disk);
         }
-        if (cars.isEmpty()) {
+        if (disks.isEmpty()) {
             Log.e("DB", "Error getting cars");
         } else {
             Log.d("DB", "Cars has been got");
         }
         cursor.close();
-        return cars;
+        return disks;
     }
 
     public User insertUser(String username, String email, String phone, String password) {
@@ -259,7 +259,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             String email = cursor.getString(cursor.getColumnIndex(TABLE_USERS_COLUMN_EMAIL));
             String phone = cursor.getString(cursor.getColumnIndex(TABLE_USERS_COLUMN_PHONE));
             String password = cursor.getString(cursor.getColumnIndex(TABLE_USERS_COLUMN_PASSWORD));
-            ArrayList<Car> favorites = new ArrayList<>();
+            ArrayList<Disk> favorites = new ArrayList<>();
             Cursor favCursor = sqliteDataBase.query(TABLE_FAVORITES, null, "_id = ?", new String[]{String.valueOf(id)}, null, null, null);
             while (favCursor.moveToNext()) {
                 String VIN = favCursor.getString(0);
@@ -267,14 +267,14 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                         null, null, null);
                 while (carCursor.moveToNext()) {
                     //Создание авто
-                    Car car = new Car(carCursor.getString(carCursor.getColumnIndex(TABLE_CARS_COLUMN_VIN)), carCursor.getString(carCursor.getColumnIndex(TABLE_CARS_COLUMN_BRAND)),
+                    Disk disk = new Disk(carCursor.getString(carCursor.getColumnIndex(TABLE_CARS_COLUMN_VIN)), carCursor.getString(carCursor.getColumnIndex(TABLE_CARS_COLUMN_BRAND)),
                             carCursor.getString(carCursor.getColumnIndex(TABLE_CARS_COLUMN_MODEL)), carCursor.getInt(carCursor.getColumnIndex(TABLE_CARS_COLUMN_YEAR)),
                             carCursor.getInt(carCursor.getColumnIndex(TABLE_CARS_COLUMN_PRICE)), carCursor.getString(carCursor.getColumnIndex(TABLE_CARS_COLUMN_COLOR)),
                             carCursor.getString(carCursor.getColumnIndex(TABLE_CARS_COLUMN_TRANSMISSION)), carCursor.getString(carCursor.getColumnIndex(TABLE_CARS_COLUMN_DRIVE_UNIT)),
-                            carCursor.getInt(carCursor.getColumnIndex(TABLE_CARS_COLUMN_MILEAGE)), carCursor.getString(carCursor.getColumnIndex(TABLE_CARS_COLUMN_ENGINE)),
+                            carCursor.getString(carCursor.getColumnIndex(TABLE_CARS_COLUMN_MILEAGE)), carCursor.getString(carCursor.getColumnIndex(TABLE_CARS_COLUMN_ENGINE)),
                             carCursor.getString(carCursor.getColumnIndex(TABLE_CARS_COLUMN_BODY)), carCursor.getString(carCursor.getColumnIndex(TABLE_CARS_COLUMN_CONDITION)),
                             carCursor.getString(carCursor.getColumnIndex(TABLE_CARS_COLUMN_STEERING_WHEEL)), carCursor.getString(carCursor.getColumnIndex(TABLE_CARS_COLUMN_PHOTO)));
-                    favorites.add(car);
+                    favorites.add(disk);
                 }
                 if (favorites.isEmpty()) {
                     Log.e("DB", "Error getting cars");

@@ -26,11 +26,11 @@
         android:layout_height="3sp"
         android:background="@color/black"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@id/carList"
+        app:layout_constraintBottom_toTopOf="@id/diskList"
         tools:ignore="SmallSp" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/carList"
+        android:id="@+id/diskList"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="5sp"

@@ -13,7 +13,7 @@ public class User implements Parcelable {
     public static final String EMAIL_PATTERN = "(^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$\n)";
     public static final String PHONE_PATTERN = "(^((\\+7|7|8)+([0-9]){10})$\n)";
     public static final int ADMIN_ID = 1;
-    public ArrayList<Car> favorites = new ArrayList<>();
+    public ArrayList<Disk> favorites = new ArrayList<>();
     private final int ID;
     private final String userName;
     private final String email;
@@ -29,7 +29,7 @@ public class User implements Parcelable {
 
     }
 
-    public User(int id, String userName, String email, String phone, String password, ArrayList<Car> favorites) {
+    public User(int id, String userName, String email, String phone, String password, ArrayList<Disk> favorites) {
         ID = id;
         this.userName = userName;
         this.email = email;
@@ -44,7 +44,7 @@ public class User implements Parcelable {
         email = in.readString();
         phone = in.readString();
         password = in.readString();
-        favorites = in.createTypedArrayList(Car.CREATOR);
+        favorites = in.createTypedArrayList(Disk.CREATOR);
     }
 
     public static final Parcelable.Creator<User> CREATOR = new Parcelable.Creator<User>() {
@@ -75,7 +75,7 @@ public class User implements Parcelable {
         return phone;
     }
 
-    public ArrayList<Car> getFavorites() {
+    public ArrayList<Disk> getFavorites() {
         return favorites;
     }
 

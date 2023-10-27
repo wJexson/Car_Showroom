@@ -1,7 +1,6 @@
 package com.example.carshowroom.UI.Activities;
 
 import android.os.Bundle;
-import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
@@ -9,11 +8,11 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.carshowroom.DB.DataBaseHelper;
-import com.example.carshowroom.Models.Car;
+import com.example.carshowroom.Models.Disk;
 import com.example.carshowroom.Models.User;
 import com.example.carshowroom.Models.UserProtocol;
 import com.example.carshowroom.R;
-import com.example.carshowroom.UI.Fragments.CarAdFragment;
+import com.example.carshowroom.UI.Fragments.DiskAdFragment;
 import com.example.carshowroom.UI.Fragments.FavoritesFragment;
 import com.example.carshowroom.UI.Fragments.HomeFragment;
 import com.example.carshowroom.UI.Fragments.ProfileFragment;
@@ -23,7 +22,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements UserProtocol, ProfileFragment.UserProtocol, ReviewFragment.UserProtocol,
-        CarAdFragment.UserProtocol, FavoritesFragment.UserProtocol, HomeFragment.MainPageController {
+        DiskAdFragment.UserProtocol, FavoritesFragment.UserProtocol, HomeFragment.MainPageController {
 
     DataBaseHelper dataBaseHelperClass;
     HomeFragment homeFragment;
@@ -40,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements UserProtocol, Pro
         } catch (Exception ignored) {
         }
         dataBaseHelperClass.openDataBase();
-        Car.cars = dataBaseHelperClass.getCarAdsFromDatabase();
+        Disk.disks = dataBaseHelperClass.getCarAdsFromDatabase();
         dataBaseHelperClass.close();
     }
 
@@ -59,8 +58,8 @@ public class MainActivity extends AppCompatActivity implements UserProtocol, Pro
     }
 
     @Override
-    public ArrayList<Car> getCarAds() {
-        return Car.cars;
+    public ArrayList<Disk> getCarAds() {
+        return Disk.disks;
     }
 
     @Override
