@@ -150,7 +150,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     }
 
     @SuppressLint("Range")
-    public ArrayList<Disk> getCarAdsFromDatabase() {
+    public ArrayList<Disk> getDiskAdsFromDatabase() {
         ArrayList<Disk> disks = new ArrayList<>();
         Cursor cursor = sqliteDataBase.query(TABLE_CARS, null, null, null,
                 null, null, null);

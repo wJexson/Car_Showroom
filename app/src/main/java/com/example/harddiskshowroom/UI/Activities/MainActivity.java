@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements UserProtocol, Pro
         } catch (Exception ignored) {
         }
         dataBaseHelperClass.openDataBase();
-        Disk.disks = dataBaseHelperClass.getCarAdsFromDatabase();
+        Disk.disks = dataBaseHelperClass.getDiskAdsFromDatabase();
         dataBaseHelperClass.close();
     }
 
