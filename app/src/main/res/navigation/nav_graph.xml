@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.example.carshowroom.UI.Fragments.HomeFragment"
+        android:name="com.example.harddiskshowroom.UI.Fragments.HomeFragment"
         android:label="Main"
         tools:layout="@layout/fragment_home">
         <action
@@ -15,13 +15,13 @@
             app:destination="@id/carAdFragment" />
         <argument
             android:name="user"
-            app:argType="com.example.carshowroom.Models.User"
+            app:argType="com.example.harddiskshowroom.Models.User"
             app:nullable="true" />
     </fragment>
 
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.carshowroom.UI.Fragments.ProfileFragment"
+        android:name="com.example.harddiskshowroom.UI.Fragments.ProfileFragment"
         android:label="Profile"
         tools:layout="@layout/fragment_profile">
         <action
@@ -40,7 +40,7 @@
 
     <fragment
         android:id="@+id/favoritesFragment"
-        android:name="com.example.carshowroom.UI.Fragments.FavoritesFragment"
+        android:name="com.example.harddiskshowroom.UI.Fragments.FavoritesFragment"
         android:label="Favorites"
         tools:layout="@layout/fragment_favorites">
         <action
@@ -50,7 +50,7 @@
 
     <fragment
         android:id="@+id/carAdFragment"
-        android:name="com.example.carshowroom.UI.Fragments.DiskAdFragment"
+        android:name="com.example.harddiskshowroom.UI.Fragments.DiskAdFragment"
         android:label="CarAd"
         tools:layout="@layout/fragment_car_ad">
         <argument
@@ -60,26 +60,26 @@
         <argument
             android:name="disk"
             android:defaultValue="@null"
-            app:argType="com.example.carshowroom.Models.Disk"
+            app:argType="com.example.harddiskshowroom.Models.Disk"
             app:nullable="true" />
     </fragment>
 
     <fragment
         android:id="@+id/reviewFragment"
-        android:name="com.example.carshowroom.UI.Fragments.ReviewFragment"
+        android:name="com.example.harddiskshowroom.UI.Fragments.ReviewFragment"
         android:label="Review"
         tools:layout="@layout/fragment_review" />
 
 
     <fragment
         android:id="@+id/aboutFragment"
-        android:name="com.example.carshowroom.UI.Fragments.AboutFragment"
+        android:name="com.example.harddiskshowroom.UI.Fragments.AboutFragment"
         android:label="fragment_about"
         tools:layout="@layout/fragment_about" />
 
     <fragment
         android:id="@+id/authFragment"
-        android:name="com.example.carshowroom.UI.Fragments.AuthFragment"
+        android:name="com.example.harddiskshowroom.UI.Fragments.AuthFragment"
         android:label="fragment_auth"
         tools:layout="@layout/fragment_auth">
         <action
@@ -92,7 +92,7 @@
 
     <fragment
         android:id="@+id/signInFragment"
-        android:name="com.example.carshowroom.UI.Fragments.SignInFragment"
+        android:name="com.example.harddiskshowroom.UI.Fragments.SignInFragment"
         android:label="SignInFragment"
         tools:layout="@layout/fragment_sign_in">
         <action
@@ -105,7 +105,7 @@
 
     <fragment
         android:id="@+id/signUpFragment"
-        android:name="com.example.carshowroom.UI.Fragments.SignUpFragment"
+        android:name="com.example.harddiskshowroom.UI.Fragments.SignUpFragment"
         android:label="SignUpFragment"
         tools:layout="@layout/fragment_sign_up">
         <action
@@ -118,7 +118,7 @@
 
     <fragment
         android:id="@+id/usersFragment"
-        android:name="com.example.carshowroom.UI.Fragments.UsersFragment"
+        android:name="com.example.harddiskshowroom.UI.Fragments.UsersFragment"
         android:label="fragment_users"
         tools:layout="@layout/fragment_users" />
 

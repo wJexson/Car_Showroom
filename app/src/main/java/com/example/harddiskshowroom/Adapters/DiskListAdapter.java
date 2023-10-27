@@ -1,4 +1,4 @@
-package com.example.carshowroom.Adapters;
+package com.example.harddiskshowroom.Adapters;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -11,7 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.carshowroom.Models.Disk;
+import com.example.harddiskshowroom.Models.Disk;
 import com.example.carshowroom.R;
 
 import java.util.List;

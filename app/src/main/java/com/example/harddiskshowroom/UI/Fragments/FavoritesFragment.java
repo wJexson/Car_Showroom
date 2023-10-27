@@ -1,10 +1,7 @@
-package com.example.carshowroom.UI.Fragments;
+package com.example.harddiskshowroom.UI.Fragments;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,64 +9,58 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.carshowroom.Models.Disk;
-import com.example.carshowroom.Models.User;
-import com.example.carshowroom.Models.UserProtocol;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+import com.example.harddiskshowroom.Adapters.DiskListAdapter;
+import com.example.harddiskshowroom.Models.Disk;
+import com.example.harddiskshowroom.Models.User;
 import com.example.carshowroom.R;
-import com.example.carshowroom.Adapters.DiskListAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.util.ArrayList;
 
-public class HomeFragment extends Fragment {
+public class FavoritesFragment extends Fragment {
 
-    UserProtocol userGetter;
-
-    public interface MainPageController {
-        void setMainPage(HomeFragment homeFragment);
-
-        ArrayList<Disk> getCarAds();
-
-        void setUser(User user);
+    public interface UserProtocol {
+        User getUser();
     }
 
-    MainPageController mainPageController;
-    User user;
+    UserProtocol userGetter;
 
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-        mainPageController = (MainPageController) context;
         userGetter = (UserProtocol) context;
     }
+
+    User user;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //Установка пользователя
-        user = requireArguments().getParcelable(User.SELECTED_USER);
-        if (user != null) {
-            mainPageController.setUser(user);
-            mainPageController.setMainPage(this);
-        }
+        user = userGetter.getUser();
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_home, container, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_favorites, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        RecyclerView carList = view.findViewById(R.id.diskList);
-        DiskListAdapter diskListAdapter = new DiskListAdapter(requireActivity(), mainPageController.getCarAds());
+
+        RecyclerView carList = view.findViewById(R.id.favList);
+        DiskListAdapter diskListAdapter = new DiskListAdapter(requireActivity(), user.getFavorites());
         diskListAdapter.onClickListener = new DiskListAdapter.OnCarAdClickListener() {
             @Override
             public void onCarAdClick(Disk diskListItem) {
                 Bundle bundle = new Bundle();
                 bundle.putParcelable(Disk.SELECTED_CAR, diskListItem);
-                Navigation.findNavController(requireView()).navigate(R.id.action_mainFragment_to_carAdFragment, bundle);
+                Navigation.findNavController(requireView()).navigate(R.id.action_favoritesFragment_to_carAdFragment, bundle);
             }
         };
         carList.setAdapter(diskListAdapter);

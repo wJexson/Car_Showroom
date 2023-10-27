@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/ide"
-        tools:context=".UI.Fragments.AboutFragment">
+        tools:context="com.example.harddiskshowroom.UI.Fragments.AboutFragment">
 
         <ImageView
             android:id="@+id/back_button"

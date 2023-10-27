@@ -1,4 +1,4 @@
-package com.example.carshowroom.UI.Fragments;
+package com.example.harddiskshowroom.UI.Fragments;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -20,9 +20,9 @@ import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
-import com.example.carshowroom.DB.DataBaseHelper;
-import com.example.carshowroom.Models.Disk;
-import com.example.carshowroom.Models.User;
+import com.example.harddiskshowroom.DB.DataBaseHelper;
+import com.example.harddiskshowroom.Models.Disk;
+import com.example.harddiskshowroom.Models.User;
 import com.example.carshowroom.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 

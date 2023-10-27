@@ -1,4 +1,4 @@
-package com.example.carshowroom.DB;
+package com.example.harddiskshowroom.DB;
 
 import android.annotation.SuppressLint;
 import android.content.ContentValues;
@@ -14,8 +14,8 @@ import android.widget.Toast;
 
 import androidx.navigation.Navigation;
 
-import com.example.carshowroom.Models.Disk;
-import com.example.carshowroom.Models.User;
+import com.example.harddiskshowroom.Models.Disk;
+import com.example.harddiskshowroom.Models.User;
 import com.example.carshowroom.R;
 
 import java.io.File;
@@ -30,7 +30,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     @SuppressLint("SdCardPath")
     private static String DB_PATH;
-    public static final String DB_NAME = "carshowroom.db";
+    public static final String DB_NAME = "harddiskshowroom.db";
     private static final int DBNAME_VERSION = 1;
 
     public Context context;

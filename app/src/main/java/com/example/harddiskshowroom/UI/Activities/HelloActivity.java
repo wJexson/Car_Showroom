@@ -1,4 +1,4 @@
-package com.example.carshowroom.UI.Activities;
+package com.example.harddiskshowroom.UI.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;

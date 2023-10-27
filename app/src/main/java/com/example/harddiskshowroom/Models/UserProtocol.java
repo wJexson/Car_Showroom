@@ -1,4 +1,4 @@
-package com.example.carshowroom.Models;
+package com.example.harddiskshowroom.Models;
 
 public interface UserProtocol {
     User getUser();

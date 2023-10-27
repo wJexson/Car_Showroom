@@ -1,4 +1,4 @@
-package com.example.carshowroom.UI.Fragments;
+package com.example.harddiskshowroom.UI.Fragments;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -13,10 +13,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
-import com.example.carshowroom.Models.User;
+import com.example.harddiskshowroom.Models.User;
 import com.example.carshowroom.R;
-
-import java.util.Random;
 
 
 public class ProfileFragment extends Fragment {

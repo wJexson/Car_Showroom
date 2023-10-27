@@ -1,4 +1,4 @@
-package com.example.carshowroom.Adapters;
+package com.example.harddiskshowroom.Adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,7 +8,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.carshowroom.Models.User;
+import com.example.harddiskshowroom.Models.User;
 import com.example.carshowroom.R;
 
 import java.util.List;

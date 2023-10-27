@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/ide"
-    tools:context=".UI.Fragments.FavoritesFragment">
+    tools:context="com.example.harddiskshowroom.UI.Fragments.FavoritesFragment">
 
     <TextView
         android:id="@+id/favorites_title"
